@@ -1,0 +1,110 @@
+/* Desktop */
+.navbar {
+	min-height: 10vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 4rem;
+	background: var(--main-background-color);
+	color: var(--text-color1);
+}
+.navbar h1 {
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	cursor: pointer;
+}
+
+.navbar__options-ul {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 30px;
+	cursor: pointer;
+	font-size: 1.5rem;
+}
+.navbar__options-ul li {
+	list-style: none;
+	letter-spacing: 1px;
+}
+
+/* Mobile burger menu */
+.navbarMobile__containter {
+	display: none;
+	width: 50px;
+	height: 50px;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+}
+.navbarMobile__containter-menuButton,
+.navbarMobile__containter-menuButton::before,
+.navbarMobile__containter-menuButton::after {
+	display: block;
+	background-color: #fff;
+	position: absolute;
+	height: 4px;
+	width: 40px;
+	border-radius: 2px;
+}
+
+.navbarMobile__containter-menuButton::before {
+	content: '';
+	margin-top: -13px;
+}
+
+.navbarMobile__containter-menuButton::after {
+	content: '';
+	margin-top: 13px;
+}
+
+/*Mobile burger menu options */
+.navbarMobile__options {
+	display: none;
+	position: absolute;
+	background: var(--main-background-color);
+	color: var(--text-color1);
+	width: 100%;
+}
+.navbarMobile__options-ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.navbarMobile__options-ul li {
+	text-align: center;
+	text-transform: uppercase;
+	list-style: none;
+	letter-spacing: 1px;
+	padding: 1rem;
+	font-size: 1.3rem;
+	width: 100%;
+	cursor: pointer;
+	border-top: 3px solid rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 1300px) {
+	.navbar__options-ul {
+		gap: 20px;
+		font-size: 1.3rem;
+	}
+}
+
+@media screen and (max-width: 1090px) {
+	.navbar__options {
+		display: none;
+	}
+	.navbarMobile__containter {
+		display: flex;
+	}
+	.navbarMobile__options {
+		display: block;
+	}
+}
+@media screen and (max-width: 600px){
+    .navbar{
+        padding: 1rem 2rem;
+    }
+}
