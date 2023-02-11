@@ -2,9 +2,15 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
 }
 
 :root {
-	--main-background-color: linear-gradient(267deg, rgba(31,145,31,1) 9%, rgba(58,187,48,1) 87%);
+	--main-background-color: linear-gradient(
+		267deg,
+		rgba(31, 145, 31, 1) 9%,
+		#39bb30 87%
+	);
 	--text-color1: rgb(244, 243, 238);
+	--text-color2: #39bb30;
 }

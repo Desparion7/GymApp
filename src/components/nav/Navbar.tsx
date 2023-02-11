@@ -24,7 +24,7 @@ const Navbar = () => {
 				</button>
 			</div>
 			{menu && (
-				<div className='navbarMobile__options'>
+				<div className='navbarMobile__options animation-top-down'>
 					<ul className='navbarMobile__options-ul'>
 						<li>Atlas ćwiczeń</li>
 						<li>Plany treningowe</li>
