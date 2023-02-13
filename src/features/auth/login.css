@@ -34,12 +34,17 @@ span {
 	border-radius: 5px;
 	box-shadow: -1px 8px 26px 3px rgba(148, 148, 148, 1);
 }
+.public__loginBox form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 .public__loginBox label {
 	font-size: 1.2rem;
 	margin: 0.3rem;
 	text-align: start;
 }
-.public__loginBox input {
+.formInput {
 	width: 350px;
 	padding: 0.5rem;
 	margin: 0.5rem;

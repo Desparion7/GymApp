@@ -14,3 +14,13 @@
 	--text-color1: rgb(244, 243, 238);
 	--text-color2: #39bb30;
 }
+
+.errorText {
+	color: red;
+	font-size: 0.8rem;
+}
+.errorInput {
+	color: #39bb30;
+	border: 2px solid red;
+	margin: 5px;
+}
