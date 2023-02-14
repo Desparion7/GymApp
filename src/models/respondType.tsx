@@ -1,8 +1,9 @@
 export interface Response {
 	error?: {
-		data: {
+		data?: {
 			error: string;
 		};
+		status?: string;
 	};
 	data?: {
 		message: string;

@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import Login from './features/auth/Login';
-import SignIn from './features/auth/SignIn';
+import Login from './auth/Login';
+import SignIn from './auth/SignIn';
 import Layout from './components/Layout';
 
 function App() {
