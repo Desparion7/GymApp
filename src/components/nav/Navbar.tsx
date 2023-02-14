@@ -1,5 +1,6 @@
 import './navbar.css';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 	const [menu, setMenu] = useState<boolean>(false);
@@ -10,10 +11,18 @@ const Navbar = () => {
 				<h1>Menadżer Treningu</h1>
 				<div className='navbar__options'>
 					<ul className='navbar__options-ul'>
-						<li>Atlas ćwiczeń</li>
-						<li>Plany treningowe</li>
-						<li>Ciekawostki</li>
-						<li>Moje konto</li>
+						<li>
+							<Link to='/'>Atlas ćwiczeń</Link>
+						</li>
+						<li>
+							<Link to='/'>Plany treningowe</Link>
+						</li>
+						<li>
+							<Link to='/'>Ciekawostki</Link>
+						</li>
+						<li>
+							<Link to='/'>Zaloguj się</Link>
+						</li>
 					</ul>
 				</div>
 				<button
@@ -26,10 +35,18 @@ const Navbar = () => {
 			{menu && (
 				<div className='navbarMobile__options animation-top-down'>
 					<ul className='navbarMobile__options-ul'>
-						<li>Atlas ćwiczeń</li>
-						<li>Plany treningowe</li>
-						<li>Ciekawostki</li>
-						<li>Moje konto</li>
+						<li>
+							<Link to='/'>Atlas ćwiczeń</Link>
+						</li>
+						<li>
+							<Link to='/'>Plany treningowe</Link>
+						</li>
+						<li>
+							<Link to='/'>Ciekawostki</Link>
+						</li>
+						<li>
+							<Link to='/'>Zaloguj się</Link>
+						</li>
 					</ul>
 				</div>
 			)}

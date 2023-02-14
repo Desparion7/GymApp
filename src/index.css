@@ -9,10 +9,10 @@
 	--main-background-color: linear-gradient(
 		267deg,
 		rgba(31, 145, 31, 1) 9%,
-		#39bb30 87%
+		#34a82b 87%
 	);
 	--text-color1: rgb(244, 243, 238);
-	--text-color2: #39bb30;
+	--text-color2: #34a62b;
 }
 
 .errorText {
@@ -20,7 +20,30 @@
 	font-size: 0.8rem;
 }
 .errorInput {
-	color: #39bb30;
 	border: 2px solid red;
 	margin: 5px;
+}
+
+.greenBtn,
+.greyBtn {
+	font-size: 1.2rem;
+	padding: 0.5rem 2rem;
+	margin: 1rem;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	color: var(--text-color1);
+	transition: background 0.3s;
+}
+.greenBtn {
+	background: var(--text-color2);
+}
+.greenBtn:hover {
+	background: #2b8f24;
+}
+.greyBtn {
+	background: #344;
+}
+.greyBtn:hover {
+	background: rgb(66, 87, 87);
 }

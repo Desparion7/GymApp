@@ -3,12 +3,13 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	padding: 4rem 2rem;
+	padding: 1rem 2rem;
 	min-height: 83vh;
 }
 .public__welcomeText {
 	position: relative;
-	margin: 2rem;
+	margin: 1rem;
+	text-align: center;
 }
 .public__welcomeText h2 {
 	font-size: 2rem;
@@ -16,14 +17,16 @@
 	font-weight: 900;
 	letter-spacing: 2px;
 }
+
 span {
 	color: var(--text-color2);
 }
 .public__welcomeText p {
 	font-size: 1.5rem;
 	margin-top: 1rem;
+	text-align: center;
 }
-.public__loginBox {
+.public__publicBox {
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -34,12 +37,16 @@ span {
 	border-radius: 5px;
 	box-shadow: -1px 8px 26px 3px rgba(148, 148, 148, 1);
 }
-.public__loginBox form {
+.public__publicBox form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-.public__loginBox label {
+.public__publicBox form p {
+	font-size: 0.8rem;
+	margin-top: 0.3rem;
+}
+.public__publicBox label {
 	font-size: 1.2rem;
 	margin: 0.3rem;
 	text-align: start;
@@ -53,43 +60,30 @@ span {
 	border-radius: 5px;
 }
 
-.public__loginBox-loginBtn,
-.public__loginBox-signinBtn {
-	font-size: 1.2rem;
-	padding: 0.5rem 2rem;
-	margin: 1rem;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	color: var(--text-color1);
-	transition: background 0.3s;
-}
-.public__loginBox-loginBtn {
-	background: var(--text-color2);
-}
-.public__loginBox-loginBtn:hover {
-	background: #2b8f24;
-}
-.public__loginBox-signinBtn {
-	background: #344;
-}
-.public__loginBox-signinBtn:hover {
-	background: rgb(66, 87, 87);
-}
-
-.public__loginBox-retrievePassword {
+.public__publicBox-retrievePassword {
 	color: rgb(40, 40, 214);
 	cursor: pointer;
 	margin: 0.3rem;
 	transition: color 0.3s;
 }
-.public__loginBox-retrievePassword:hover {
+.public__publicBox-retrievePassword:hover {
 	color: rgb(22, 22, 128);
 }
-.public__loginBox-line {
+.public__publicBox-line {
 	position: relative;
 	height: 1px;
 	width: 100%;
 	margin-bottom: 0.5rem;
 	background: rgb(198, 198, 198);
+}
+.public_text {
+	margin-top: 1rem;
+	font-size: 1.5rem;
+}
+.public_text a {
+	color: black;
+	transition: color 0.3s;
+}
+.public_text a:hover {
+	color: var(--text-color2);
 }

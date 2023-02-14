@@ -1,9 +1,10 @@
-import './login.css';
+import './public.css';
 import { MouseEvent } from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useLoginMutation } from '../../app/slices/authApiSlice';
+import { setCredentials } from '../../app/api/authSlice';
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -19,7 +20,7 @@ const Login = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	const [login, {}] = useLoginMutation();
+	const [login] = useLoginMutation();
 
 	useEffect(() => {
 		if (userRef.current) {
@@ -37,43 +38,43 @@ const Login = () => {
 	};
 
 	const checkInputs = () => {
-		if (userLogin === '') {
-			setUserLoginError(true);
-		}
-		if (password === '') {
-			setPasswordError(true);
-		}
+		setUserLoginError(userLogin === '');
+		setPasswordError(password === '');
 	};
 
-	const handleSubmit = async (e: MouseEvent<HTMLButtonElement>) => {
-		e.preventDefault();
-		checkInputs();
+	const sendRequest = async () => {
+		if (userLogin !== '' || password !== '') {
+			try {
+				if (emailRegex.test(userLogin)) {
+					const email = userLogin;
+					const { accessToken } = await login({ email, password }).unwrap();
+					dispatch(setCredentials({ accessToken }));
+				} else {
+					const username = userLogin;
+					const { accessToken } = await login({ username, password }).unwrap();
+					dispatch(setCredentials({ accessToken }));
+				}
 
-		try {
-			if (emailRegex.test(userLogin)) {
-				const email = userLogin;
-				const { accessToken } = await login({ email, password }).unwrap();
-				console.log(accessToken);
-			} else {
-				const username = userLogin;
-				const { accessToken } = await login({ username, password }).unwrap();
-				console.log(accessToken);
-			}
-
-			setUserLogin('');
-			setPassword('');
-			// navigate('/home');
-		} catch (err: any) {
-			if (!err.status) {
-				setErrMsg('Brak odpowiedzi servera');
-			} else if (err.status === 400) {
-				setErrMsg('Brak loginu lub hasła');
-			} else if (err.status === 401) {
-				setErrMsg('Niepoprawny login lub hasło');
-			} else {
-				setErrMsg(err.data?.message);
+				setUserLogin('');
+				setPassword('');
+				// navigate('/home');
+			} catch (err: any) {
+				if (!err.status) {
+					setErrMsg('Brak odpowiedzi servera');
+				} else if (err.status === 400) {
+					setErrMsg('Brak loginu lub hasła');
+				} else if (err.status === 401) {
+					setErrMsg('Niepoprawny login lub hasło');
+				} else {
+					setErrMsg(err.data?.message);
+				}
 			}
 		}
+	};
+	const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
+		e.preventDefault();
+		checkInputs();
+		sendRequest();
 	};
 
 	return (
@@ -82,9 +83,9 @@ const Login = () => {
 				<h2>
 					Witaj w <span>menadżerze treningu.</span>{' '}
 				</h2>
-				<p>Wszystkie informacje na temt treningu w jednym miejscu.</p>
+				<p>Wszystkie informacje na temat treningu w jednym miejscu.</p>
 			</div>
-			<div className='public__loginBox'>
+			<div className='public__publicBox'>
 				<form action=''>
 					<label htmlFor='login'>Login lub email:</label>
 					<input
@@ -108,16 +109,16 @@ const Login = () => {
 
 					{errMsg && <p className='errorText'>{errMsg}</p>}
 
-					<button className='public__loginBox-loginBtn' onClick={handleSubmit}>
+					<button className='greenBtn' onClick={handleSubmit}>
 						Zaloguj się
 					</button>
 				</form>
-				<div className='public__loginBox-retrievePassword'>
+				<div className='public__publicBox-retrievePassword'>
 					Nie pamiętasz hasła?
 				</div>
-				<div className='public__loginBox-line'></div>
+				<div className='public__publicBox-line'></div>
 				<button
-					className='public__loginBox-signinBtn'
+					className='greyBtn'
 					onClick={() => {
 						navigate('/signin');
 					}}

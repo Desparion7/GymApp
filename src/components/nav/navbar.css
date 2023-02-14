@@ -26,9 +26,13 @@
 	letter-spacing: 1px;
 	padding: 0.3rem;
 	cursor: pointer;
+}
+.navbar__options-ul a {
+	text-decoration: none;
+	color: var(--text-color1);
 	transition: color 0.3s;
 }
-.navbar__options-ul li:hover {
+.navbar__options-ul a:hover {
 	color: rgb(233, 219, 19);
 }
 /* Mobile burger menu */
@@ -91,6 +95,10 @@
 	width: 100%;
 	cursor: pointer;
 	border-top: 3px solid rgb(255, 255, 255);
+}
+.navbarMobile__options-ul a {
+	text-decoration: none;
+	color: var(--text-color1);
 }
 
 @media screen and (max-width: 1300px) {
