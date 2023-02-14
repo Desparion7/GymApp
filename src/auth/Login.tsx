@@ -58,7 +58,7 @@ const Login = () => {
 
 				setUserLogin('');
 				setPassword('');
-				// navigate('/home');
+				navigate('/profile');
 			} catch (err: any) {
 				if (err.status === 'FETCH_ERROR') {
 					setErrMsg('Brak odpowiedzi servera');
