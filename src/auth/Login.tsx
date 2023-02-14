@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useLoginMutation } from '../app/slices/authApiSlice';
 import { setCredentials } from '../app/api/authSlice';
+import LoadingSpinner from '../assets/LoadingSpinner';
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -20,7 +21,7 @@ const Login = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	const [login] = useLoginMutation();
+	const [login, { isLoading }] = useLoginMutation();
 
 	useEffect(() => {
 		if (userRef.current) {
@@ -59,7 +60,7 @@ const Login = () => {
 				setPassword('');
 				// navigate('/home');
 			} catch (err: any) {
-				if (!err.status) {
+				if (err.status === 'FETCH_ERROR') {
 					setErrMsg('Brak odpowiedzi servera');
 				} else if (err.status === 400) {
 					setErrMsg('Brak loginu lub hasła');
@@ -85,47 +86,52 @@ const Login = () => {
 				</h2>
 				<p>Wszystkie informacje na temat treningu w jednym miejscu.</p>
 			</div>
-			<div className='public__publicBox'>
-				<form action=''>
-					<label htmlFor='login'>Login lub email:</label>
-					<input
-						type='text'
-						id='login'
-						name='login'
-						autoComplete='on'
-						onChange={handleUserInput}
-						className={userLoginError ? 'formInput errorInput' : 'formInput'}
-					/>
+			{isLoading ? (
+				<LoadingSpinner />
+			) : (
+				<div className='public__publicBox'>
+					<form action=''>
+						<label htmlFor='login'>Login lub email:</label>
+						<input
+							type='text'
+							id='login'
+							name='login'
+							autoComplete='on'
+							onChange={handleUserInput}
+							className={userLoginError ? 'formInput errorInput' : 'formInput'}
+						/>
 
-					<label htmlFor='password'>Hasło:</label>
-					<input
-						type='password'
-						id='password'
-						name='password'
-						autoComplete='current-password'
-						onChange={handlePwdInput}
-						className={passwordError ? 'formInput errorInput' : 'formInput'}
-					/>
+						<label htmlFor='password'>Hasło:</label>
+						<input
+							type='password'
+							id='password'
+							name='password'
+							autoComplete='current-password'
+							onChange={handlePwdInput}
+							className={passwordError ? 'formInput errorInput' : 'formInput'}
+						/>
 
-					{errMsg && <p className='errorText'>{errMsg}</p>}
+						{errMsg && <p className='errorText'>{errMsg}</p>}
+						{}
 
-					<button className='greenBtn' onClick={handleSubmit}>
-						Zaloguj się
+						<button className='greenBtn' onClick={handleSubmit}>
+							Zaloguj się
+						</button>
+					</form>
+					<div className='public__publicBox-retrievePassword'>
+						Nie pamiętasz hasła?
+					</div>
+					<div className='public__publicBox-line'></div>
+					<button
+						className='greyBtn'
+						onClick={() => {
+							navigate('/signin');
+						}}
+					>
+						Utwórz nowe konto
 					</button>
-				</form>
-				<div className='public__publicBox-retrievePassword'>
-					Nie pamiętasz hasła?
 				</div>
-				<div className='public__publicBox-line'></div>
-				<button
-					className='greyBtn'
-					onClick={() => {
-						navigate('/signin');
-					}}
-				>
-					Utwórz nowe konto
-				</button>
-			</div>
+			)}
 		</section>
 	);
 };

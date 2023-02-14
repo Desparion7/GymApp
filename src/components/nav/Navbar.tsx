@@ -1,9 +1,14 @@
 import './navbar.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import useAuthToken from '../../hooks/useAuthToken';
 
 const Navbar = () => {
 	const [menu, setMenu] = useState<boolean>(false);
+	const { username, isAdmin } = useAuthToken() as {
+		username: string;
+		isAdmin: boolean;
+	};
 
 	const content = (
 		<nav className='nav'>
@@ -20,9 +25,15 @@ const Navbar = () => {
 						<li>
 							<Link to='/'>Ciekawostki</Link>
 						</li>
-						<li>
-							<Link to='/'>Zaloguj się</Link>
-						</li>
+						{username ? (
+							<li>
+								<Link to='/'>Moje konto</Link>
+							</li>
+						) : (
+							<li>
+								<Link to='/'>Zaloguj się</Link>
+							</li>
+						)}
 					</ul>
 				</div>
 				<button

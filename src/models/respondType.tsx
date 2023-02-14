@@ -9,3 +9,9 @@ export interface Response {
 		message: string;
 	};
 }
+export interface TokenType {
+	UserInfo: {
+		username: string;
+		isAdmin: boolean;
+	};
+}

@@ -14,3 +14,5 @@ export const authApiSlice = apiSlice.injectEndpoints({
 });
 
 export const { useLoginMutation } = authApiSlice;
+
+export const currentToken = (state: any) => state.auth.token;
