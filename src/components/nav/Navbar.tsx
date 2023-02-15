@@ -2,6 +2,7 @@ import './navbar.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuthToken from '../../hooks/useAuthToken';
+import { useSendLogoutMutation } from '../../app/slices/authApiSlice';
 
 const Navbar = () => {
 	const [menu, setMenu] = useState<boolean>(false);
@@ -9,11 +10,15 @@ const Navbar = () => {
 		username: string;
 		isAdmin: boolean;
 	};
+	const [sendLogout, { isLoading, isSuccess, isError, error }] =
+		useSendLogoutMutation();
 
 	const content = (
 		<nav className='nav'>
 			<div className='navbar'>
-				<h1>Menadżer Treningu</h1>
+				<Link to='/'>
+					<h1>Menadżer Treningu</h1>
+				</Link>
 				<div className='navbar__options'>
 					<ul className='navbar__options-ul'>
 						<li>
@@ -27,7 +32,9 @@ const Navbar = () => {
 						</li>
 						{username ? (
 							<li>
-								<Link to='/'>Moje konto</Link>
+								<Link to='/' onClick={sendLogout}>
+									Wyloguj się
+								</Link>
 							</li>
 						) : (
 							<li>

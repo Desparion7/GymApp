@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 interface PropsType {
 	img: string;
 	text: string;
+	path: string;
 }
 
-const OptionButton = ({ img, text }: PropsType) => {
+const OptionButton = ({ img, text, path }: PropsType) => {
 	return (
 		<div className='optionButton'>
-			<Link to='/'>
+			<Link to={path}>
 				<img src={img} alt={text} />
 			</Link>
 			<p>{text}</p>

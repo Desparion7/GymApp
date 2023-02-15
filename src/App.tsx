@@ -2,8 +2,9 @@ import { Routes, Route } from 'react-router-dom';
 import Login from './auth/Login';
 import SignIn from './auth/SignIn';
 import Layout from './components/Layout';
-import Profile from './components/Profile';
 import RequireAuth from './auth/RequireAuth';
+import ProfileScreen from './components/ProfileScreen';
+import TrainingScreen from './components/TrainingScreen';
 
 function App() {
 	return (
@@ -16,8 +17,8 @@ function App() {
 				{/* Routes after login */}
 				<Route element={<RequireAuth />}>
 					{/* Users routes after login */}
-					<Route path='profile' element={<Profile />} />
-					<Route />
+					<Route path='profile' element={<ProfileScreen />} />
+					<Route path='profile/training' element={<TrainingScreen />} />
 					<Route />
 					{/* Users routes after login */}
 					{/* Admin routes */}

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useLoginMutation } from '../app/slices/authApiSlice';
 import { setCredentials } from '../app/api/authSlice';
+import useAuthToken from '../hooks/useAuthToken';
 import LoadingSpinner from '../UI/LoadingSpinner';
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -23,11 +24,19 @@ const Login = () => {
 
 	const [login, { isLoading }] = useLoginMutation();
 
+	const { username } = useAuthToken();
+
 	useEffect(() => {
 		if (userRef.current) {
 			userRef.current.focus();
 		}
 	}, []);
+
+	useEffect(() => {
+		if (username) {
+			navigate('/profile');
+		}
+	}, [username]);
 
 	const handleUserInput = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setUserLogin(e.target.value);

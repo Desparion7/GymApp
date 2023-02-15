@@ -8,6 +8,14 @@
 	background: var(--main-background-color);
 	color: var(--text-color1);
 }
+.navbar a {
+	text-decoration: none;
+	color: var(--text-color1);
+	transition: color 0.3s;
+}
+.navbar a:hover {
+	color: rgb(233, 219, 19);
+}
 .navbar h1 {
 	text-transform: uppercase;
 	letter-spacing: 3px;
