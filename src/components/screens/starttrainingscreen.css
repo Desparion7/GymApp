@@ -1,0 +1,15 @@
+.starttrainingScreen {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	padding: 3rem 2rem;
+	min-height: 83vh;
+}
+.starttrainingScreen__options {
+	position: relative;
+	bottom: 100px;
+	display: flex;
+	flex-direction: row;
+}

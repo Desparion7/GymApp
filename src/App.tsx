@@ -3,8 +3,10 @@ import Login from './auth/Login';
 import SignIn from './auth/SignIn';
 import Layout from './components/Layout';
 import RequireAuth from './auth/RequireAuth';
-import ProfileScreen from './components/ProfileScreen';
-import TrainingScreen from './components/TrainingScreen';
+import ProfileScreen from './components/screens/ProfileScreen';
+import TrainingScreen from './components/screens/TrainingScreen';
+import StartTrainingScreen from './components/screens/StartTrainingScreen';
+import ExamplesTraining from './components/screens/ExamplesTraining';
 
 function App() {
 	return (
@@ -18,7 +20,12 @@ function App() {
 				<Route element={<RequireAuth />}>
 					{/* Users routes after login */}
 					<Route path='profile' element={<ProfileScreen />} />
-					<Route path='profile/training' element={<TrainingScreen />} />
+					<Route path='profile/training' element={<StartTrainingScreen />} />
+					<Route
+						path='profile/training/examples'
+						element={<ExamplesTraining />}
+					/>
+					<Route path='profile/training/new' element={<TrainingScreen />} />
 					<Route />
 					{/* Users routes after login */}
 					{/* Admin routes */}

@@ -1,5 +1,5 @@
 import './profile.css';
-import OptionButton from '../UI/OptionButton';
+import OptionButton from '../../UI/OptionButton';
 
 const Profile = () => {
 	return (

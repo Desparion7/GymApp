@@ -1,0 +1,23 @@
+.exerciesList__exercie {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 20px;
+}
+.exerciesList__name {
+	min-width: 50%;
+	max-width: 50%;
+	height: auto;
+}
+.exerciesList__details {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	width: 45%;
+}
+.exerciesList__details input {
+	width: 50px;
+	height: 40px;
+	font-size: 1rem;
+	padding-left: 0.8rem;
+}

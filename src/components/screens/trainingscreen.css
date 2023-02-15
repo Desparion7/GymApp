@@ -1,6 +1,5 @@
 .trainingScreen {
 	display: flex;
-	/* justify-content: center; */
 	align-items: center;
 	flex-direction: column;
 	padding: 3rem 2rem;
@@ -14,18 +13,18 @@
 	letter-spacing: 2px;
 	color: var(--text-color2);
 }
-.trainingScreen_datetime {
+.trainingScreen__datetime {
 	margin-top: 1rem;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
 	gap: 20px;
 }
-.trainingScreen_datetime label {
+.trainingScreen__datetime label {
 	font-size: 1rem;
 	padding: 0.3rem;
 }
-.trainingScreen_datetime input {
+.trainingScreen__datetime input {
 	font-size: 1rem;
 	padding: 0.3rem;
 }
@@ -33,4 +32,8 @@
 	text-align: start;
 	margin: 1rem 0;
 	padding: 0.3rem;
+}
+
+.trainingScreen__exerciesList {
+	margin-top: 1rem;
 }
