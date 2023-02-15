@@ -1,0 +1,16 @@
+.optionButton p {
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+.optionButton img {
+	width: 450px;
+	height: 340px;
+	cursor: pointer;
+	transition: transform 0.3s;
+}
+.optionButton img:hover {
+	transform: scale(1.1);
+}
