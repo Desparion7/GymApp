@@ -8,8 +8,9 @@
 :root {
 	--main-background-color: linear-gradient(
 		267deg,
-		rgba(31, 145, 31, 1) 9%,
-		#34a82b 87%
+		rgb(43, 167, 101) 1%,
+		rgba(60, 145, 31, 1) 25%,
+		rgb(91, 174, 39) 86%
 	);
 	--text-color1: rgb(244, 243, 238);
 	--text-color2: #34a62b;
@@ -46,4 +47,11 @@
 }
 .greyBtn:hover {
 	background: rgb(66, 87, 87);
+}
+@media screen and (max-width: 420px) {
+	.greenBtn,
+	.greyBtn {
+		font-size: 1rem;
+		margin: 0.5rem;
+	}
 }

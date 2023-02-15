@@ -11,3 +11,8 @@
 	justify-content: center;
 	flex-wrap: wrap;
 }
+@media screen and (max-width: 414px) {
+	.profile {
+		padding: 1.5rem 1rem;
+	}
+}

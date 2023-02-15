@@ -14,3 +14,16 @@
 .optionButton img:hover {
 	transform: scale(1.1);
 }
+
+@media screen and (max-width: 1024px) {
+	.optionButton img {
+		width: 330px;
+		height: 280px;
+	}
+}
+@media screen and (max-width: 350px) {
+	.optionButton img {
+		width: 280px;
+		height: 220px;
+	}
+}

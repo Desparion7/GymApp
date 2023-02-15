@@ -44,7 +44,7 @@ span {
 }
 .public__publicBox form p {
 	font-size: 0.8rem;
-	margin-top: 0.3rem;
+	margin: 0.4rem 0;
 }
 .public__publicBox label {
 	font-size: 1.2rem;
@@ -86,4 +86,40 @@ span {
 }
 .public_text a:hover {
 	color: var(--text-color2);
+}
+
+@media screen and (max-width: 420px) {
+	.public__welcomeText h2 {
+		font-size: 1.5rem;
+	}
+	.public__welcomeText p {
+		font-size: 1.2rem;
+	}
+	.public__publicBox-retrievePassword {
+		font-size: 0.9rem;
+	}
+	.formInput {
+		width: 300px;
+	}
+}
+@media screen and (max-width: 375px) {
+	.public__welcomeText h2 {
+		font-size: 1.5rem;
+	}
+	.public__welcomeText p {
+		font-size: 1.2rem;
+	}
+	.public__publicBox label {
+		font-size: 1rem;
+	}
+	.formInput {
+		width: 270px;
+		font-size: 1rem;
+	}
+}
+@media screen and (max-width: 375px) {
+	.formInput {
+		width: 230px;
+		font-size: 1rem;
+	}
 }

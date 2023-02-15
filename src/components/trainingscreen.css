@@ -1,0 +1,36 @@
+.trainingScreen {
+	display: flex;
+	/* justify-content: center; */
+	align-items: center;
+	flex-direction: column;
+	padding: 3rem 2rem;
+	min-height: 83vh;
+}
+.trainingScreen h2 {
+	text-align: center;
+	font-size: 1.8rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: var(--text-color2);
+}
+.trainingScreen_datetime {
+	margin-top: 1rem;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	gap: 20px;
+}
+.trainingScreen_datetime label {
+	font-size: 1rem;
+	padding: 0.3rem;
+}
+.trainingScreen_datetime input {
+	font-size: 1rem;
+	padding: 0.3rem;
+}
+.trainingScreen-errorText {
+	text-align: start;
+	margin: 1rem 0;
+	padding: 0.3rem;
+}
