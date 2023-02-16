@@ -1,5 +1,6 @@
 import './examplestraining.css';
 const ExamplesTraining = () => {
+	
 	const training = [
 		[
 			{

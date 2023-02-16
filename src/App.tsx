@@ -25,7 +25,7 @@ function App() {
 						path='profile/training/examples'
 						element={<ExamplesTraining />}
 					/>
-					<Route path='profile/training/new' element={<TrainingScreen />} />
+					<Route path='profile/training/:id' element={<TrainingScreen />} />
 					<Route />
 					{/* Users routes after login */}
 					{/* Admin routes */}

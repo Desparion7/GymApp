@@ -2,7 +2,10 @@ import './trainingscreen.css';
 import { useState, useRef } from 'react';
 import Exercise from '../exercies/Exercise';
 
+import { exercisePropsType } from '../exercies/Exercise';
+
 const TrainingScreen = () => {
+	const tabel = [[]];
 	const [startTime, setStartTime] = useState<string>();
 	const [timeError, setTimeError] = useState<boolean>();
 
@@ -28,132 +31,6 @@ const TrainingScreen = () => {
 			}
 		}
 	};
-	const tabel = [
-		[
-			{
-				name: 'Wyciskanie sztangi na ławce płaskiej',
-				repeat: 10,
-				weight: 60,
-			},
-			{
-				name: 'Wyciskanie sztangi na ławce płaskiej',
-				repeat: 8,
-				weight: 70,
-			},
-			{
-				name: 'Wyciskanie sztangi na ławce płaskiej',
-				repeat: 6,
-				weight: 70,
-			},
-			{
-				name: 'Wyciskanie sztangi na ławce płaskiej',
-				repeat: 4,
-				weight: 70,
-			},
-		],
-		[
-			{
-				name: 'Wyciskanie hantelek na ławce dodatniej',
-				repeat: 10,
-				weight: 44,
-			},
-			{
-				name: 'Wyciskanie hantelek na ławce dodatniej',
-				repeat: 8,
-				weight: 44,
-			},
-			{
-				name: 'Wyciskanie hantelek na ławce dodatniej',
-				repeat: 6,
-				weight: 44,
-			},
-		],
-		[
-			{
-				name: 'Wyciskanie hantelek nad głowę siedząc',
-				repeat: 10,
-				weight: 32,
-			},
-			{
-				name: 'Wyciskanie hantelek nad głowę siedząc',
-				repeat: 8,
-				weight: 32,
-			},
-			{
-				name: 'Wyciskanie hantelek nad głowę siedząc',
-				repeat: 8,
-				weight: 32,
-			},
-		],
-		[
-			{
-				name: 'Unoszenie ramion w przód z wykorzystaniem wyciągu dolnego',
-				repeat: 10,
-				weight: 14,
-			},
-			{
-				name: 'Unoszenie ramion w przód z wykorzystaniem wyciągu dolnego',
-				repeat: 10,
-				weight: 14,
-			},
-			{
-				name: 'Unoszenie ramion w przód z wykorzystaniem wyciągu dolnego',
-				repeat: 10,
-				weight: 14,
-			},
-		],
-		[
-			{
-				name: 'Unoszenie ramion bokiem z wykorzystaniem wyciągu dolnego',
-				repeat: 10,
-				weight: 14,
-			},
-			{
-				name: 'Unoszenie ramion bokiem z wykorzystaniem wyciągu dolnego',
-				repeat: 10,
-				weight: 14,
-			},
-			{
-				name: 'Unoszenie ramion bokiem z wykorzystaniem wyciągu dolnego',
-				repeat: 10,
-				weight: 14,
-			},
-		],
-		[
-			{
-				name: 'Pompki na poręczach (Dipy)',
-				repeat: 10,
-				weight: 0,
-			},
-			{
-				name: 'Pompki na poręczach (Dipy)',
-				repeat: 10,
-				weight: 0,
-			},
-			{
-				name: 'Pompki na poręczach (Dipy)',
-				repeat: 10,
-				weight: 0,
-			},
-		],
-		[
-			{
-				name: 'Spięcia brzucha z linkami wyciągu górnego (Cable crunch)',
-				repeat: 10,
-				weight: 14,
-			},
-			{
-				name: 'Spięcia brzucha z linkami wyciągu górnego (Cable crunch)',
-				repeat: 10,
-				weight: 14,
-			},
-			{
-				name: 'Spięcia brzucha z linkami wyciągu górnego (Cable crunch)',
-				repeat: 10,
-				weight: 14,
-			},
-		],
-	];
 
 	return (
 		<section className='trainingScreen'>
@@ -194,15 +71,17 @@ const TrainingScreen = () => {
 					{tabel.map((item, index) => (
 						<>
 							<h3>{`Cwiczenie ${index + 1}`}</h3>
-							{item.map((ex, index) => (
-								<Exercise
-									key={index}
-									name={ex.name}
-									series={index + 1}
-									repeat={ex.repeat}
-									weight={ex.weight}
-								/>
-							))}
+							{item &&
+								item.length > 0 &&
+								item.map((ex: exercisePropsType, index: number) => (
+									<Exercise
+										key={index}
+										name={ex.name}
+										series={index + 1}
+										repeat={ex.repeat}
+										weight={ex.weight}
+									/>
+								))}
 							<button>Dodaj serię</button>
 						</>
 					))}

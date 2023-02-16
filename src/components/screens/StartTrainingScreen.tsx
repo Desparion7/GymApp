@@ -1,7 +1,28 @@
-import OptionButton from '../../UI/OptionButton';
 import './starttrainingscreen.css';
+import OptionButton from '../../UI/OptionButton';
+import { useCreateNewTrainingMutation } from '../../app/slices/trainingApiSlice';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const StartTrainingScreen = () => {
+	const [createNewTraining, { data }] =
+		useCreateNewTrainingMutation();
+
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		if (data?._id) {
+			
+			navigate(`/profile/training/${data._id}`);
+		}
+	}, [data]);
+
+	const tabel = [[{}]];
+
+	const handelStartNewTraining = async () => {
+		await createNewTraining({ newTraining: tabel });
+	};
+
 	return (
 		<div className='starttrainingScreen'>
 			<div className='starttrainingScreen__options'>
@@ -18,7 +39,7 @@ const StartTrainingScreen = () => {
 				<OptionButton
 					img={'../../img/addnew.PNG'}
 					text={'Utwórz nowy zestaw ćwiczeń'}
-					path={'/profile/training/new'}
+					handelOnClick={handelStartNewTraining}
 				/>
 			</div>
 		</div>

@@ -1,13 +1,13 @@
 import './exercise.css';
 import { useState } from 'react';
 
-interface propsType {
+export interface exercisePropsType {
 	name: string;
-	series: number;
+	series?: number;
 	repeat?: number;
 	weight?: number;
 }
-const Exercise = ({ name, series, repeat, weight }: propsType) => {
+const Exercise = ({ name, series, repeat, weight }: exercisePropsType) => {
 	const [repeatState, setRepeatState] = useState(repeat);
 	const [weightState, setWeightState] = useState(weight);
 
