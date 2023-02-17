@@ -5,22 +5,20 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const StartTrainingScreen = () => {
-	const [createNewTraining, { data }] =
-		useCreateNewTrainingMutation();
+	const [createNewTraining, { data }] = useCreateNewTrainingMutation();
 
 	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (data?._id) {
-			
 			navigate(`/profile/training/${data._id}`);
 		}
 	}, [data]);
 
-	const tabel = [[{}]];
+	const emptyTraining = [[{}]];
 
 	const handelStartNewTraining = async () => {
-		await createNewTraining({ newTraining: tabel });
+		await createNewTraining({ newTraining: emptyTraining });
 	};
 
 	return (

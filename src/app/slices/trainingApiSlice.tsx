@@ -13,7 +13,16 @@ const trainingApiSlice = apiSlice.injectEndpoints({
 			}),
 			invalidatesTags: [{ type: 'Training', id: 'LIST' }],
 		}),
+		getTrainingById: builder.mutation<trainingType, { id: string }>({
+			query: ({ id }) => ({
+				url: '/training',
+				method: 'POST',
+				body: { id },
+			}),
+			invalidatesTags: [{ type: 'Training', id: 'LIST' }],
+		}),
 	}),
 });
 
-export const { useCreateNewTrainingMutation } = trainingApiSlice;
+export const { useCreateNewTrainingMutation, useGetTrainingByIdMutation } =
+	trainingApiSlice;

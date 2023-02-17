@@ -1,8 +1,9 @@
 import './trainingscreen.css';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Exercise from '../exercies/Exercise';
-
 import { exercisePropsType } from '../exercies/Exercise';
+import { useGetTrainingByIdMutation } from '../../app/slices/trainingApiSlice';
 
 const TrainingScreen = () => {
 	const tabel = [[]];
@@ -11,6 +12,20 @@ const TrainingScreen = () => {
 
 	const startTimeRef = useRef<HTMLInputElement>(null);
 	const endTimeRef = useRef<HTMLInputElement>(null);
+
+	const [getTrainingById, { data, isError, isLoading, isSuccess, error }] =
+		useGetTrainingByIdMutation();
+
+	const { id } = useParams() as { id: string };
+
+	const getTraining = async () => {
+		await getTrainingById({ id });
+	};
+
+	useEffect(() => {
+		// getTraining();
+		// console.log(data);
+	}, []);
 
 	const handelStartTime = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setStartTime(e.target.value);
