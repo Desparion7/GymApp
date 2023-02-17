@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
-import { currentToken } from '../app/slices/authApiSlice';
+import { currentToken } from '../app/api/authSlice';
 import jwtDecode from 'jwt-decode';
 import { TokenType } from '../models/respondType';
 
 const useAuthToken = () => {
 	const token = useSelector(currentToken);
+	// const token = useSelector((state: any) => state.auth.token);
 	let isAdmin = false;
 
 	if (token) {

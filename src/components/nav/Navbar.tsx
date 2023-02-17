@@ -10,8 +10,7 @@ const Navbar = () => {
 		username: string;
 		isAdmin: boolean;
 	};
-	const [sendLogout, { isLoading, isSuccess, isError, error }] =
-		useSendLogoutMutation();
+	const [sendLogout] = useSendLogoutMutation();
 
 	const content = (
 		<nav className='nav'>
