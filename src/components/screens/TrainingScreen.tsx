@@ -3,7 +3,10 @@ import { useState, useRef, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Exercise from '../exercies/Exercise';
 import { TabelElementType } from '../../models/trainingType';
-import { useGetTrainingByIdMutation } from '../../app/slices/trainingApiSlice';
+import {
+	useGetTrainingByIdMutation,
+	useUpdateTrainingMutation,
+} from '../../app/slices/trainingApiSlice';
 
 const TrainingScreen = () => {
 	const [startTime, setStartTime] = useState<string>();
@@ -15,17 +18,25 @@ const TrainingScreen = () => {
 	const { id } = useParams() as { id: string };
 
 	const [getTrainingById, { data }] = useGetTrainingByIdMutation();
+	const [updateTraining, { data: updateData }] = useUpdateTrainingMutation();
 
-	const getTraining = async () => {
+	const getTrainingHandler = async () => {
 		await getTrainingById({ id });
-		if (data) setTraining(data.exercise);
 	};
+	const updateTraininghandler = async (newTraining: TabelElementType[][]) => {
+		await updateTraining({ id, exercise: newTraining });
+	};
+
 	useEffect(() => {
-		getTraining();
+		getTrainingHandler();
 	}, []);
 	useEffect(() => {
 		if (data) setTraining(data.exercise);
 	}, [data]);
+
+	useEffect(() => {
+		if (updateData) setTraining(updateData.exercise);
+	}, [updateData]);
 
 	const handelStartTime = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setStartTime(e.target.value);
@@ -50,13 +61,27 @@ const TrainingScreen = () => {
 	const handleDeleteSeries = (exerciseIndex: number, seriesIndex: number) => {
 		if (training) {
 			const newTraining = [...training];
-			newTraining[exerciseIndex] = [
-				...newTraining[exerciseIndex].slice(0, seriesIndex),
-				...newTraining[exerciseIndex].slice(seriesIndex + 1),
-			];
-			setTraining(newTraining);
+			newTraining[exerciseIndex] = newTraining[exerciseIndex].filter(
+				(series, index) => index !== seriesIndex
+			);
+			if (newTraining[exerciseIndex].length === 0) {
+				newTraining.splice(exerciseIndex, 1);
+			}
+			updateTraininghandler(newTraining);
 		}
 	};
+
+	const handleAddNewSeries = (exerciseIndex: number) => {
+		if (training) {
+			const newTraining = [...training];
+			const newSeries = newTraining[exerciseIndex].slice(-1)[0];
+			const updateNewTraining = [...newTraining[exerciseIndex]];
+			updateNewTraining.push(newSeries);
+			newTraining[exerciseIndex] = updateNewTraining;
+			updateTraininghandler(newTraining);
+		}
+	};
+	
 
 	return (
 		<section className='trainingScreen'>
@@ -114,7 +139,13 @@ const TrainingScreen = () => {
 											/>
 										)
 									)}
-								<button>Dodaj serię</button>
+								<button
+									onClick={() => {
+										handleAddNewSeries(exerciseIndex);
+									}}
+								>
+									Dodaj serię
+								</button>
 							</div>
 						))}
 				</div>
