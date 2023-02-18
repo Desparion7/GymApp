@@ -15,10 +15,10 @@ const StartTrainingScreen = () => {
 		}
 	}, [data]);
 
-	const emptyTraining = [[{}]];
+	const emptyTraining = [[]];
 
 	const handelStartNewTraining = async () => {
-		await createNewTraining({ exercise: emptyTraining });
+		await createNewTraining(emptyTraining);
 	};
 
 	return (

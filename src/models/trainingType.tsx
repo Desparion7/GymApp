@@ -1,5 +1,5 @@
 export interface TabelElementType {
-	name?: string ;
+	name?: string;
 	repeat?: number;
 	time?: number;
 	weight?: number;
@@ -7,4 +7,9 @@ export interface TabelElementType {
 
 export interface trainingType {
 	exercise: TabelElementType[][];
+}
+
+export interface trainingTypeWithID {
+	exercise: TabelElementType[][];
+	id: string;
 }

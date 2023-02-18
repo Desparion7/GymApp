@@ -44,3 +44,4 @@ function App() {
 }
 
 export default App;
+// dodaC komunika gdy inny użytkownik próbuje wczytać nie swój plan treningowy
