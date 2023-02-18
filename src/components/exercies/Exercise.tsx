@@ -2,12 +2,19 @@ import './exercise.css';
 import { useState } from 'react';
 
 export interface exercisePropsType {
-	name: string;
+	name?: string;
 	series?: number;
 	repeat?: number;
 	weight?: number;
+	onDelete: () => void;
 }
-const Exercise = ({ name, series, repeat, weight }: exercisePropsType) => {
+const Exercise = ({
+	name,
+	series,
+	repeat,
+	weight,
+	onDelete,
+}: exercisePropsType) => {
 	const [repeatState, setRepeatState] = useState(repeat);
 	const [weightState, setWeightState] = useState(weight);
 
@@ -16,6 +23,9 @@ const Exercise = ({ name, series, repeat, weight }: exercisePropsType) => {
 	};
 	const handelRepeatState = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setRepeatState(Number(e.target.value));
+	};
+	const handleDeleteClick = () => {
+		onDelete();
 	};
 
 	return (
@@ -43,9 +53,11 @@ const Exercise = ({ name, series, repeat, weight }: exercisePropsType) => {
 						max='999'
 					></input>
 				</div>
-				<button>Usuń serię</button>
+				<button onClick={handleDeleteClick}>Usuń serię</button>
 			</div>
 		</>
 	);
 };
 export default Exercise;
+
+

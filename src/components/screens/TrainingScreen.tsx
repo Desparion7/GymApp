@@ -2,30 +2,30 @@ import './trainingscreen.css';
 import { useState, useRef, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Exercise from '../exercies/Exercise';
-import { exercisePropsType } from '../exercies/Exercise';
+import { TabelElementType } from '../../models/trainingType';
 import { useGetTrainingByIdMutation } from '../../app/slices/trainingApiSlice';
 
 const TrainingScreen = () => {
-	const tabel = [[]];
 	const [startTime, setStartTime] = useState<string>();
 	const [timeError, setTimeError] = useState<boolean>();
+	const [training, setTraining] = useState<TabelElementType[][]>();
 
 	const startTimeRef = useRef<HTMLInputElement>(null);
 	const endTimeRef = useRef<HTMLInputElement>(null);
-
-	const [getTrainingById, { data, isError, isLoading, isSuccess, error }] =
-		useGetTrainingByIdMutation();
-
 	const { id } = useParams() as { id: string };
+
+	const [getTrainingById, { data }] = useGetTrainingByIdMutation();
 
 	const getTraining = async () => {
 		await getTrainingById({ id });
+		if (data) setTraining(data.exercise);
 	};
-
 	useEffect(() => {
-		// getTraining();
-		// console.log(data);
+		getTraining();
 	}, []);
+	useEffect(() => {
+		if (data) setTraining(data.exercise);
+	}, [data]);
 
 	const handelStartTime = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setStartTime(e.target.value);
@@ -44,6 +44,17 @@ const TrainingScreen = () => {
 			if (jsData2 > jsData1) {
 				setTimeError(false);
 			}
+		}
+	};
+
+	const handleDeleteSeries = (exerciseIndex: number, seriesIndex: number) => {
+		if (training) {
+			const newTraining = [...training];
+			newTraining[exerciseIndex] = [
+				...newTraining[exerciseIndex].slice(0, seriesIndex),
+				...newTraining[exerciseIndex].slice(seriesIndex + 1),
+			];
+			setTraining(newTraining);
 		}
 	};
 
@@ -83,23 +94,29 @@ const TrainingScreen = () => {
 			</div>
 			<div className='trainingScreen__exerciesList'>
 				<div>
-					{tabel.map((item, index) => (
-						<>
-							<h3>{`Cwiczenie ${index + 1}`}</h3>
-							{item &&
-								item.length > 0 &&
-								item.map((ex: exercisePropsType, index: number) => (
-									<Exercise
-										key={index}
-										name={ex.name}
-										series={index + 1}
-										repeat={ex.repeat}
-										weight={ex.weight}
-									/>
-								))}
-							<button>Dodaj serię</button>
-						</>
-					))}
+					{training &&
+						training.map((exercise, exerciseIndex) => (
+							<div key={exerciseIndex}>
+								<h3>{`Cwiczenie ${exerciseIndex + 1}`}</h3>
+								{exercise &&
+									exercise.length > 0 &&
+									exercise.map(
+										(series: TabelElementType, seriesIndex: number) => (
+											<Exercise
+												key={seriesIndex}
+												name={series.name}
+												series={seriesIndex + 1}
+												repeat={series.repeat}
+												weight={series.weight}
+												onDelete={() =>
+													handleDeleteSeries(exerciseIndex, seriesIndex)
+												}
+											/>
+										)
+									)}
+								<button>Dodaj serię</button>
+							</div>
+						))}
 				</div>
 				<button>Dodaj Ćwiczenie</button>
 			</div>

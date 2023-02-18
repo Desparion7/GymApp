@@ -1,10 +1,10 @@
 export interface TabelElementType {
-	name?: string;
+	name?: string ;
 	repeat?: number;
 	time?: number;
 	weight?: number;
 }
 
 export interface trainingType {
-	newTraining: TabelElementType[][];
+	exercise: TabelElementType[][];
 }

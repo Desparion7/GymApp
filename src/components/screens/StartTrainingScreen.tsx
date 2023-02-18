@@ -18,7 +18,7 @@ const StartTrainingScreen = () => {
 	const emptyTraining = [[{}]];
 
 	const handelStartNewTraining = async () => {
-		await createNewTraining({ newTraining: emptyTraining });
+		await createNewTraining({ exercise: emptyTraining });
 	};
 
 	return (

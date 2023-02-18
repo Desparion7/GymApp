@@ -6,13 +6,13 @@ import { currentToken } from '../app/api/authSlice';
 import LoadingSpinner from '../UI/LoadingSpinner';
 
 const RefreshLogin = () => {
+	const token = useSelector(currentToken);
 	const effectRan = useRef(false);
 	const [trueSuccess, setTrueSuccess] = useState(false);
 
 	const [refresh, { isUninitialized, isLoading, isSuccess, isError, error }] =
 		useRefreshMutation();
 
-	const token = useSelector(currentToken);
 
 	useEffect(() => {
 		if (effectRan.current === true || process.env.NODE_ENV !== 'development') {
@@ -34,9 +34,7 @@ const RefreshLogin = () => {
 	}, []);
 
 	let content = <p></p>;
-	if (!token) {
-		content = <Outlet />;
-	}
+
 	if (isLoading) {
 		content = <LoadingSpinner />;
 	} else if (isError) {

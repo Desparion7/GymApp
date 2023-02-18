@@ -1,6 +1,5 @@
 import './examplestraining.css';
 const ExamplesTraining = () => {
-	
 	const training = [
 		[
 			{
@@ -132,3 +131,45 @@ const ExamplesTraining = () => {
 };
 
 export default ExamplesTraining;
+
+const training = [
+	[
+		{
+			name: 'Wyciskanie sztangi na ławce płaskiej',
+			repeat: 10,
+			weight: 60,
+		},
+		{
+			name: 'Wyciskanie sztangi na ławce płaskiej',
+			repeat: 8,
+			weight: 70,
+		},
+		{
+			name: 'Wyciskanie sztangi na ławce płaskiej',
+			repeat: 6,
+			weight: 70,
+		},
+		{
+			name: 'Wyciskanie sztangi na ławce płaskiej',
+			repeat: 4,
+			weight: 70,
+		},
+	],
+	[
+		{
+			name: 'Wyciskanie hantelek na ławce dodatniej',
+			repeat: 10,
+			weight: 44,
+		},
+		{
+			name: 'Wyciskanie hantelek na ławce dodatniej',
+			repeat: 8,
+			weight: 44,
+		},
+		{
+			name: 'Wyciskanie hantelek na ławce dodatniej',
+			repeat: 6,
+			weight: 44,
+		},
+	],
+];
