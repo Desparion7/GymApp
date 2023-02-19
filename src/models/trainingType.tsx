@@ -7,6 +7,8 @@ export interface TabelElementType {
 
 export interface trainingType {
 	exercise: TabelElementType[][];
+	user: string;
+	_id: string;
 }
 
 export interface trainingTypeWithID {

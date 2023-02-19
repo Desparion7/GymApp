@@ -20,6 +20,11 @@
 	color: red;
 	font-size: 0.8rem;
 }
+.infoText {
+	color: rgb(21, 61, 194);
+	padding: 0.5rem;
+	font-size: 1.2rem;
+}
 .errorInput {
 	border: 2px solid red;
 	margin: 5px;

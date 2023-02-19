@@ -9,7 +9,7 @@
 }
 .starttrainingScreen__options {
 	position: relative;
-	bottom: 100px;
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 }

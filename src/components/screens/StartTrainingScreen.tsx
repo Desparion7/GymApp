@@ -36,7 +36,7 @@ const StartTrainingScreen = () => {
 				/>
 				<OptionButton
 					img={'../../img/addnew.PNG'}
-					text={'Utwórz nowy zestaw ćwiczeń'}
+					text={'Trening z dobieranymi ćwiczeniami'}
 					handelOnClick={handelStartNewTraining}
 				/>
 			</div>

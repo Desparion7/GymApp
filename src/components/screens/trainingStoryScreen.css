@@ -6,16 +6,28 @@
 	min-height: 83vh;
 }
 .trainingStory h2 {
-	margin-bottom: 1rem;
+	text-align: center;
+	font-size: 1.8rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: var(--text-color2);
+	margin-bottom: 1.5rem;
 }
 .trainingStory__table {
 	margin: 0 2rem;
 }
 .trainingStory__thead {
 	background: var(--main-background-color);
-	margin-bottom: 1rem;
+	padding: 0.5rem;
 	font-size: 1.2rem;
 	font-weight: bold;
+}
+.trainingStory__tbody {
+	padding: 0.5rem;
+}
+.trainingStory__tbody:nth-child(even) {
+	background-color: rgb(221, 212, 212);
 }
 .trainingStory__thead,
 .trainingStory__tbody {
@@ -28,9 +40,18 @@
 }
 .trainingStory__thead-time,
 .trainingStory__tbody-time {
-	text-align: end;
+	text-align: center;
 }
-.trainingStory__tbody-remove {
+.trainingStory__tbody-options {
 	display: flex;
 	justify-content: space-evenly;
+}
+.trainingStory__tbody-options img {
+	width: 50px;
+	height: 40px;
+	transition: transform 0.3s;
+	cursor: pointer;
+}
+.trainingStory__tbody-options img:hover {
+	transform: scale(1.1);
 }

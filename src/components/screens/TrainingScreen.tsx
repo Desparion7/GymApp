@@ -148,7 +148,9 @@ const TrainingScreen = () => {
 					</p>
 				)}
 			</div>
-			{isError && <p className='errorText trainingScreen-errorText'>Błąd połaczenia</p>}
+			{isError && (
+				<p className='errorText trainingScreen-errorText'>Błąd połaczenia</p>
+			)}
 			<div className='trainingScreen__exerciesList'>
 				<div>
 					{training &&
@@ -185,13 +187,15 @@ const TrainingScreen = () => {
 											/>
 										)
 									)}
-								<button
-									onClick={() => {
-										handleAddNewSeries(exerciseIndex);
-									}}
-								>
-									Dodaj serię
-								</button>
+								{exercise?.length > 0 && (
+									<button
+										onClick={() => {
+											handleAddNewSeries(exerciseIndex);
+										}}
+									>
+										Dodaj serię
+									</button>
+								)}
 							</div>
 						))}
 				</div>
