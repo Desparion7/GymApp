@@ -1,0 +1,36 @@
+.trainingStory {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding: 3rem 2rem;
+	min-height: 83vh;
+}
+.trainingStory h2 {
+	margin-bottom: 1rem;
+}
+.trainingStory__table {
+	margin: 0 2rem;
+}
+.trainingStory__thead {
+	background: var(--main-background-color);
+	margin-bottom: 1rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+.trainingStory__thead,
+.trainingStory__tbody {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 20px;
+}
+.trainingStory__thead-options {
+	text-align: center;
+}
+.trainingStory__thead-time,
+.trainingStory__tbody-time {
+	text-align: end;
+}
+.trainingStory__tbody-remove {
+	display: flex;
+	justify-content: space-evenly;
+}

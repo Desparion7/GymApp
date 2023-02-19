@@ -7,6 +7,8 @@ export interface exercisePropsType {
 	repeat?: number;
 	weight?: number;
 	onDelete: () => void;
+	onChangeWeight: (weightState: number) => void;
+	onChangeRepeat: (repeatState: number) => void;
 }
 const Exercise = ({
 	name,
@@ -14,9 +16,11 @@ const Exercise = ({
 	repeat,
 	weight,
 	onDelete,
+	onChangeWeight,
+	onChangeRepeat,
 }: exercisePropsType) => {
-	const [repeatState, setRepeatState] = useState(repeat);
-	const [weightState, setWeightState] = useState(weight);
+	const [repeatState, setRepeatState] = useState<number | undefined>(repeat);
+	const [weightState, setWeightState] = useState<number | undefined>(weight);
 
 	const handelWeightState = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setWeightState(Number(e.target.value));
@@ -26,6 +30,16 @@ const Exercise = ({
 	};
 	const handleDeleteClick = () => {
 		onDelete();
+	};
+	const handelOnBlureWeight = () => {
+		if (weightState) {
+			onChangeWeight(weightState);
+		}
+	};
+	const handelOnBlureRepeat = () => {
+		if (repeatState) {
+			onChangeRepeat(repeatState);
+		}
 	};
 
 	return (
@@ -41,6 +55,7 @@ const Exercise = ({
 						name='repeat'
 						value={repeatState}
 						onChange={handelRepeatState}
+						onBlur={handelOnBlureRepeat}
 						max='999'
 					></input>
 					<label htmlFor='weight'>Ciężar w kg:</label>
@@ -51,6 +66,7 @@ const Exercise = ({
 						value={weightState}
 						onChange={handelWeightState}
 						max='999'
+						onBlur={handelOnBlureWeight}
 					></input>
 				</div>
 				<button onClick={handleDeleteClick}>Usuń serię</button>

@@ -18,7 +18,7 @@ const Profile = () => {
 				<OptionButton
 					img={'../../img/history.PNG'}
 					text={'Historia treningów'}
-					path={'/profile/training'}
+					path={'/profile/history'}
 				/>
 				<OptionButton
 					img={'../../img/diet.PNG'}

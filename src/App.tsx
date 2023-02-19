@@ -5,9 +5,10 @@ import Layout from './components/Layout';
 import RequireAuth from './auth/RequireAuth';
 import RefreshLogin from './auth/RefreshLogin';
 import ProfileScreen from './components/screens/ProfileScreen';
-import TrainingScreen from './components/screens/TrainingScreen';
 import StartTrainingScreen from './components/screens/StartTrainingScreen';
+import TrainingScreen from './components/screens/TrainingScreen';
 import ExamplesTraining from './components/screens/ExamplesTraining';
+import TrainingStoryScreen from './components/screens/TrainingStoryScreen';
 
 function App() {
 	return (
@@ -27,6 +28,7 @@ function App() {
 							path='profile/training/examples'
 							element={<ExamplesTraining />}
 						/>
+						<Route path='profile/history' element={<TrainingStoryScreen />} />
 						<Route path='profile/training/:id' element={<TrainingScreen />} />
 						<Route />
 						{/* Users routes after login */}

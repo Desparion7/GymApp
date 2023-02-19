@@ -18,7 +18,8 @@ const TrainingScreen = () => {
 	const { id } = useParams() as { id: string };
 
 	const [getTrainingById, { data }] = useGetTrainingByIdMutation();
-	const [updateTraining, { data: updateData }] = useUpdateTrainingMutation();
+	const [updateTraining, { data: updateData, isError, error }] =
+		useUpdateTrainingMutation();
 
 	const getTrainingHandler = async () => {
 		await getTrainingById({ id });
@@ -33,7 +34,6 @@ const TrainingScreen = () => {
 	useEffect(() => {
 		if (data) setTraining(data.exercise);
 	}, [data]);
-
 	useEffect(() => {
 		if (updateData) setTraining(updateData.exercise);
 	}, [updateData]);
@@ -81,7 +81,38 @@ const TrainingScreen = () => {
 			updateTraininghandler(newTraining);
 		}
 	};
-	
+	const handleChangeWeight = (
+		exerciseIndex: number,
+		seriesIndex: number,
+		weightState: number
+	) => {
+		if (training) {
+			const newTraining = [...training];
+			const updateNewTraining = [...newTraining[exerciseIndex]];
+			updateNewTraining[seriesIndex] = {
+				...updateNewTraining[seriesIndex],
+				weight: weightState,
+			};
+			newTraining[exerciseIndex] = updateNewTraining;
+			updateTraininghandler(newTraining);
+		}
+	};
+	const handleChangeRepeat = (
+		exerciseIndex: number,
+		seriesIndex: number,
+		repeatState: number
+	) => {
+		if (training) {
+			const newTraining = [...training];
+			const updateNewTraining = [...newTraining[exerciseIndex]];
+			updateNewTraining[seriesIndex] = {
+				...updateNewTraining[seriesIndex],
+				repeat: repeatState,
+			};
+			newTraining[exerciseIndex] = updateNewTraining;
+			updateTraininghandler(newTraining);
+		}
+	};
 
 	return (
 		<section className='trainingScreen'>
@@ -117,6 +148,7 @@ const TrainingScreen = () => {
 					</p>
 				)}
 			</div>
+			{isError && <p className='errorText trainingScreen-errorText'>Błąd połaczenia</p>}
 			<div className='trainingScreen__exerciesList'>
 				<div>
 					{training &&
@@ -136,6 +168,20 @@ const TrainingScreen = () => {
 												onDelete={() =>
 													handleDeleteSeries(exerciseIndex, seriesIndex)
 												}
+												onChangeWeight={(weightState) => {
+													handleChangeWeight(
+														exerciseIndex,
+														seriesIndex,
+														weightState
+													);
+												}}
+												onChangeRepeat={(repeatState) => {
+													handleChangeRepeat(
+														exerciseIndex,
+														seriesIndex,
+														repeatState
+													);
+												}}
 											/>
 										)
 									)}
