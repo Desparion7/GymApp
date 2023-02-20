@@ -45,6 +45,14 @@ const trainingApiSlice = apiSlice.injectEndpoints({
 			}),
 			invalidatesTags: [{ type: 'Training', id: 'LIST' }],
 		}),
+		updateTrainingTime: builder.mutation<trainingType, trainingTypeWithID>({
+			query: ({ id, timeStart, timeEnd }) => ({
+				url: `/training/${id}`,
+				method: 'PATCH',
+				body: { timeStart, timeEnd },
+			}),
+			invalidatesTags: [{ type: 'Training', id: 'LIST' }],
+		}),
 		updateTrainingName: builder.mutation<trainingType, trainingTypeWithID>({
 			query: ({ id, trainingName }) => ({
 				url: `/training/${id}`,
@@ -64,11 +72,12 @@ const trainingApiSlice = apiSlice.injectEndpoints({
 });
 
 export const {
-	useCreateNewTrainingMutation,
 	useGetTrainingByIdQuery,
+	useGetUserAllTrainingsQuery,
+	useCreateNewTrainingMutation,
 	useUpdateTrainingMutation,
 	useUpdateTrainingDataMutation,
-	useGetUserAllTrainingsQuery,
-	useRemoveTrainingByIdMutation,
 	useUpdateTrainingNameMutation,
+	useUpdateTrainingTimeMutation,
+	useRemoveTrainingByIdMutation,
 } = trainingApiSlice;

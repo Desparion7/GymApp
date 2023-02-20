@@ -6,16 +6,21 @@ export interface TabelElementType {
 }
 
 export interface trainingType {
+	_id?: string;
+	user?: string;
+	trainingName: string;
 	exercise: TabelElementType[][];
 	trainingDate: Date;
-	trainingName: string;
-	user?: string;
-	_id?: string;
+	timeStart?: string;
+	timeEnd?: string;
+	traininglength?: string;
 }
 
 export interface trainingTypeWithID {
-	exercise?: TabelElementType[][];
-	id?: string;
-	trainingDate?: Date;
+	id: string;
 	trainingName?: string;
+	exercise?: TabelElementType[][];
+	trainingDate?: Date;
+	timeStart?: string;
+	timeEnd?: string;
 }

@@ -28,14 +28,16 @@ const TrainingStoryScreen = () => {
 				)}
 				{trainingsList?.map((training) => (
 					<div className='trainingStory__tbody' key={training._id}>
-						<div>24-11-1991</div>
-						<div>Przykładowy zestaw ze strony</div>
-						<div className='trainingStory__tbody-time'>125 min</div>
+						<div>{training.trainingDate.toString().substring(0, 10)}</div>
+						<div>{training.trainingName}</div>
+						<div className='trainingStory__tbody-time'>
+							{training.traininglength ? `${training.traininglength} min` : ''}
+						</div>
 						<div className='trainingStory__tbody-options'>
 							<img
 								src='../../img/trash.PNG'
 								onClick={() => {
-									handelRemoveTraining(training._id);
+									if (training?._id) handelRemoveTraining(training._id);
 								}}
 							/>
 							<Link to={`/profile/training/${training._id}`}>

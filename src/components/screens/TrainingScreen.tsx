@@ -8,36 +8,54 @@ import {
 	useUpdateTrainingMutation,
 	useUpdateTrainingDataMutation,
 	useUpdateTrainingNameMutation,
+	useUpdateTrainingTimeMutation,
 } from '../../app/slices/trainingApiSlice';
 
 const TrainingScreen = () => {
 	const [time, setTime] = useState<string>('');
+	const [timeStart, setTimeStart] = useState<string>('');
+	const [timeEnd, setTimeEnd] = useState<string>('');
 	const [trainingName, setTrainingName] = useState<string>('');
+	const [changeTrainingName, setChangeTrainingName] = useState<boolean>(false);
+
 	const { id } = useParams() as { id: string };
 
+	//trainingAPI slice hooks
 	const { data: training } = useGetTrainingByIdQuery({ id });
-
-	const [updateTrainingData, { isError: isErrorDate, error: errorDate }] =
-		useUpdateTrainingDataMutation();
-
-	const [updateTraining, { isError, error }] = useUpdateTrainingMutation();
+	const [updateTrainingData] = useUpdateTrainingDataMutation();
+	const [updateTraining, { isError }] = useUpdateTrainingMutation();
 	const [updateTrainingName] = useUpdateTrainingNameMutation();
+	const [updateTrainingTime] = useUpdateTrainingTimeMutation();
 
 	useEffect(() => {
 		if (training) {
 			setTime(training.trainingDate.toString().substring(0, 10));
 			setTrainingName(training.trainingName);
+
+			if (training.timeStart) {
+				setTimeStart(training.timeStart);
+			}
+			if (training.timeEnd) {
+				setTimeEnd(training.timeEnd);
+			}
 		}
 	}, [training]);
 
+	// function to update changes in time
 	const handleTime = async (e: React.ChangeEvent<HTMLInputElement>) => {
 		const newDate = new Date(e.target.value);
 		await updateTrainingData({ id, trainingDate: newDate });
 	};
+	const handleTimeStart = (e: React.ChangeEvent<HTMLInputElement>) => {
+		updateTrainingTime({ id, timeStart: e.target.value });
+	};
+	const handleTimeEnd = (e: React.ChangeEvent<HTMLInputElement>) => {
+		updateTrainingTime({ id, timeStart: timeStart, timeEnd: e.target.value });
+	};
+	// function to update changes in exercise
 	const updateHandlerTrainingName = async () => {
 		await updateTrainingName({ id, trainingName: trainingName });
 	};
-
 	const updateTrainingHandler = async (newTraining: TabelElementType[][]) => {
 		await updateTraining({ id, exercise: newTraining });
 	};
@@ -101,29 +119,72 @@ const TrainingScreen = () => {
 			<h2>Przebieg treningu</h2>
 			<div className='trainingScreen__info'>
 				<div className='trainingScreen__info-name'>
-					<label htmlFor='trainingName-input'>Nazwa:</label>
-					<input
-						type='text'
-						id='trainingName-input'
-						name='trainingName-input'
-						value={trainingName}
-						onChange={(e) => {
-							setTrainingName(e.target.value);
-						}}
-						onBlur={() => {
-							updateHandlerTrainingName();
-						}}
-					/>
+					<div className='trainingScreen__info-name-box'>
+						<p>{trainingName}</p>
+						<img
+							src='../../img/edit.PNG'
+							title='zmień nazwę'
+							onClick={() => setChangeTrainingName(!changeTrainingName)}
+						/>
+					</div>
+					{changeTrainingName && (
+						<input
+							type='text'
+							id='trainingName-input'
+							name='trainingName-input'
+							value={trainingName}
+							onChange={(e) => {
+								setTrainingName(e.target.value);
+							}}
+							onBlur={() => {
+								updateHandlerTrainingName();
+								setChangeTrainingName(false);
+							}}
+							onKeyDown={(e) => {
+								if (e.key === 'Enter') {
+									setChangeTrainingName(false);
+								}
+							}}
+						/>
+					)}
 				</div>
-				<div className='trainingScreen__info-date'>
-					<label htmlFor='datetime-input-start'>Data treningu:</label>
-					<input
-						type='date'
-						id='datetime-input-start'
-						name='datetime-start'
-						value={time}
-						onChange={(e) => handleTime(e)}
-					/>
+				<div className='trainingScreen__info-datetime'>
+					<div className='trainingScreen__info-datetime-date'>
+						<label htmlFor='datetime-input-start'>Data treningu:</label>
+						<input
+							type='date'
+							id='datetime-input-start'
+							name='datetime-start'
+							value={time}
+							onChange={(e) => handleTime(e)}
+						/>
+					</div>
+					<div className='trainingScreen__info-datetime-time'>
+						<label htmlFor='datetime-input-start'>Czas rozpoczęcia:</label>
+						<input
+							type='time'
+							id='datetime-input-start'
+							name='datetime-start'
+							value={timeStart}
+							onChange={(e) => {
+								setTimeStart(e.target.value);
+							}}
+							onBlur={(e) => handleTimeStart(e)}
+						/>
+					</div>
+					<div className='trainingScreen__info-datetime-time'>
+						<label htmlFor='datetime-input-end'>Czas zakończenia:</label>
+						<input
+							type='time'
+							id='datetime-input-end'
+							name='datetime-end'
+							value={timeEnd}
+							onChange={(e) => {
+								setTimeEnd(e.target.value);
+							}}
+							onBlur={(e) => handleTimeEnd(e)}
+						/>
+					</div>
 				</div>
 			</div>
 			{isError && (
