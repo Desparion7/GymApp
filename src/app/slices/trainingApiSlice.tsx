@@ -1,21 +1,14 @@
 import { apiSlice } from '../api/apiSlice';
-import {
-	trainingType,
-	trainingTypeWithID,
-	TabelElementType,
-} from '../../models/trainingType';
+import { trainingType, trainingTypeWithID } from '../../models/trainingType';
 
 const trainingApiSlice = apiSlice.injectEndpoints({
 	endpoints: (builder) => ({
-		createNewTraining: builder.mutation<any, TabelElementType[][]>({
-			query: (emptyTraining) => ({
-				url: '/training',
-				method: 'POST',
-				body: {
-					emptyTraining,
-				},
+		getTrainingById: builder.query<trainingType, { id: string }>({
+			query: ({ id }) => ({
+				url: `/training/${id}`,
+				method: 'GET',
 			}),
-			// invalidatesTags: [{ type: 'Training', id: 'LIST' }],
+			providesTags: [{ type: 'Training', id: 'LIST' }],
 		}),
 		getUserAllTrainings: builder.query<trainingType[], void>({
 			query: () => ({
@@ -24,12 +17,17 @@ const trainingApiSlice = apiSlice.injectEndpoints({
 			}),
 			providesTags: [{ type: 'Trainings', id: 'LIST' }],
 		}),
-		getTrainingById: builder.mutation<trainingType, { id: string }>({
-			query: ({ id }) => ({
-				url: `/training/${id}`,
-				method: 'GET',
+		createNewTraining: builder.mutation<any, trainingType>({
+			query: ({ exercise, trainingDate, trainingName }) => ({
+				url: '/training',
+				method: 'POST',
+				body: {
+					exercise,
+					trainingDate,
+					trainingName,
+				},
 			}),
-			// invalidatesTags: [{ type: 'Training', id: 'LIST' }],
+			invalidatesTags: [{ type: 'Trainings', id: 'LIST' }],
 		}),
 		updateTraining: builder.mutation<trainingType, trainingTypeWithID>({
 			query: ({ id, exercise }) => ({
@@ -37,7 +35,23 @@ const trainingApiSlice = apiSlice.injectEndpoints({
 				method: 'PATCH',
 				body: { exercise },
 			}),
-			// invalidatesTags: [{ type: 'Training', id: 'LIST' }],
+			invalidatesTags: [{ type: 'Training', id: 'LIST' }],
+		}),
+		updateTrainingData: builder.mutation<trainingType, trainingTypeWithID>({
+			query: ({ id, trainingDate }) => ({
+				url: `/training/${id}`,
+				method: 'PATCH',
+				body: { trainingDate },
+			}),
+			invalidatesTags: [{ type: 'Training', id: 'LIST' }],
+		}),
+		updateTrainingName: builder.mutation<trainingType, trainingTypeWithID>({
+			query: ({ id, trainingName }) => ({
+				url: `/training/${id}`,
+				method: 'PATCH',
+				body: { trainingName },
+			}),
+			invalidatesTags: [{ type: 'Training', id: 'LIST' }],
 		}),
 		removeTrainingById: builder.mutation<void, { id: string }>({
 			query: ({ id }) => ({
@@ -51,8 +65,10 @@ const trainingApiSlice = apiSlice.injectEndpoints({
 
 export const {
 	useCreateNewTrainingMutation,
-	useGetTrainingByIdMutation,
+	useGetTrainingByIdQuery,
 	useUpdateTrainingMutation,
+	useUpdateTrainingDataMutation,
 	useGetUserAllTrainingsQuery,
 	useRemoveTrainingByIdMutation,
+	useUpdateTrainingNameMutation,
 } = trainingApiSlice;

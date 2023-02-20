@@ -33,7 +33,7 @@ const RefreshLogin = () => {
 		// eslint-disable-next-line
 	}, []);
 
-	let content = <p></p>;
+	let content ;
 
 	if (isLoading) {
 		content = <LoadingSpinner />;

@@ -13,20 +13,26 @@
 	letter-spacing: 2px;
 	color: var(--text-color2);
 }
-.trainingScreen__datetime {
+.trainingScreen__info {
+	display: flex;
 	margin-top: 1rem;
+	gap: 20px;
+}
+.trainingScreen__info-name,
+.trainingScreen__info-date {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
 	gap: 20px;
 }
-.trainingScreen__datetime label {
+
+.trainingScreen label {
 	font-size: 1rem;
 	padding: 0.3rem;
 }
-.trainingScreen__datetime input {
+.trainingScreen input {
 	font-size: 1rem;
-	padding: 0.3rem;
+	/* padding: 0.3rem; */
 }
 .trainingScreen-errorText {
 	text-align: start;
