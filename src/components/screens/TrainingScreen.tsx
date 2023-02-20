@@ -142,6 +142,7 @@ const TrainingScreen = () => {
 							}}
 							onKeyDown={(e) => {
 								if (e.key === 'Enter') {
+									updateHandlerTrainingName();
 									setChangeTrainingName(false);
 								}
 							}}
@@ -194,8 +195,11 @@ const TrainingScreen = () => {
 				<div>
 					{training?.exercise &&
 						training?.exercise.map((exercise, exerciseIndex) => (
-							<div key={exerciseIndex}>
-								<h3>{`Cwiczenie ${exerciseIndex + 1}`}</h3>
+							<div
+								className='trainingScreen__exerciesList-box'
+								key={exerciseIndex}
+							>
+								<h3>{`Ćwiczenie ${exerciseIndex + 1}`}</h3>
 								{exercise &&
 									exercise.length > 0 &&
 									exercise.map(
@@ -227,18 +231,20 @@ const TrainingScreen = () => {
 										)
 									)}
 								{exercise?.length > 0 && (
-									<button
-										onClick={() => {
-											handleAddNewSeries(exerciseIndex);
-										}}
-									>
-										Dodaj serię
-									</button>
+									<div className='trainingScreen__exerciesList-box-btn'>
+										<button
+											onClick={() => {
+												handleAddNewSeries(exerciseIndex);
+											}}
+										>
+											Dodaj serię
+										</button>
+									</div>
 								)}
 							</div>
 						))}
 				</div>
-				<button>Dodaj Ćwiczenie</button>
+				<button className='trainingScreen__exerciesList-add-btn'>Dodaj Ćwiczenie</button>
 			</div>
 		</section>
 	);

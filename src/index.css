@@ -14,6 +14,7 @@
 	);
 	--text-color1: rgb(244, 243, 238);
 	--text-color2: #34a62b;
+	--text-color-hover: rgb(233, 219, 19);
 }
 
 .errorText {

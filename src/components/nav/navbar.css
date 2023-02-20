@@ -14,7 +14,7 @@
 	transition: color 0.3s;
 }
 .navbar a:hover {
-	color: rgb(233, 219, 19);
+	color: var(--text-color-hover);
 }
 .navbar h1 {
 	text-transform: uppercase;

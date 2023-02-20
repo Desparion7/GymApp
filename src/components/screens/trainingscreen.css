@@ -45,6 +45,10 @@
 .trainingScreen__info-name img {
 	width: 40px;
 	cursor: pointer;
+	transition: transform 0.3s;
+}
+.trainingScreen__info-name img:hover {
+	transform: scale(1.1);
 }
 .trainingScreen__info-datetime {
 	display: flex;
@@ -59,4 +63,43 @@
 
 .trainingScreen__exerciesList {
 	margin-top: 1rem;
+	width: 80%;
+}
+.trainingScreen__exerciesList-box {
+	margin: 0.5rem 0;
+	margin-bottom: 1rem;
+}
+.trainingScreen__exerciesList-box h3 {
+	font-size: 1.2rem;
+	letter-spacing: 2px;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0.5rem 0;
+	padding: 0.3rem;
+	border-radius: 5px;
+	background: var(--main-background-color);
+}
+.trainingScreen__exerciesList-box-btn {
+	text-align: end;
+}
+.trainingScreen__exerciesList-box-btn button,
+.trainingScreen__exerciesList-add-btn {
+	padding: 0.5rem;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: color 0.3s;
+	background: var(--main-background-color);
+	color: var(--text-color1);
+}
+.trainingScreen__exerciesList-box-btn button {
+	margin-top: 0.5rem;
+	margin-right: 0.5rem;
+}
+.trainingScreen__exerciesList-add-btn:hover,
+.trainingScreen__exerciesList-box-btn button:hover {
+	color: var(--text-color-hover);
+}
+.trainingScreen__exerciesList-add-btn {
+	font-size: 1.2rem;
 }

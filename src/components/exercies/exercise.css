@@ -5,19 +5,40 @@
 	gap: 20px;
 }
 .exerciesList__name {
+	display: flex;
+	align-items: center;
+	font-size: 1rem;
 	min-width: 50%;
-	max-width: 50%;
-	height: auto;
+	line-height: 2rem;
+	padding-left: 0.2rem;
 }
 .exerciesList__details {
 	display: flex;
 	justify-content: space-between;
-	gap: 20px;
-	width: 45%;
+	align-items: start;
+	gap: 10px;
+	width: 50%;
+}
+.exerciesList__details label {
+	font-size: 1rem;
+	padding-top: 0.5rem;
 }
 .exerciesList__details input {
-	width: 60px;
-	height: 40px;
+	width: 55px;
+	height: 30px;
 	font-size: 1rem;
-	padding-left: 0.8rem;
+	padding-left: 0.5rem;
+	margin-top: 0.2rem;
+}
+.exerciesList__exercie-removeBtn {
+	border: none;
+	background: transparent;
+}
+.exerciesList__exercie-removeBtn img {
+	width: 40px;
+	transition: transform 0.3s;
+	cursor: pointer;
+}
+.exerciesList__exercie-removeBtn img:hover {
+	transform: scale(1.1);
 }
