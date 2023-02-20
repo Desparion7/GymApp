@@ -9,6 +9,7 @@ import StartTrainingScreen from './components/screens/StartTrainingScreen';
 import TrainingScreen from './components/screens/TrainingScreen';
 import ExamplesTraining from './components/screens/ExamplesTraining';
 import TrainingStoryScreen from './components/screens/TrainingStoryScreen';
+import AtlasScreen from './components/screens/AtlasScreen';
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 				{/* Public routes */}
 				<Route index element={<Login />} />
 				<Route path='signin' element={<SignIn />} />
+				<Route path='atlas' element={<AtlasScreen />} />
 				{/* Public routes */}
 				{/* Routes after login */}
 				<Route element={<RefreshLogin />}>

@@ -1,4 +1,4 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Navigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { useRefreshMutation } from '../app/slices/authApiSlice';
 import { useSelector } from 'react-redux';
@@ -12,7 +12,6 @@ const RefreshLogin = () => {
 
 	const [refresh, { isUninitialized, isLoading, isSuccess, isError, error }] =
 		useRefreshMutation();
-
 
 	useEffect(() => {
 		if (effectRan.current === true || process.env.NODE_ENV !== 'development') {
@@ -33,12 +32,12 @@ const RefreshLogin = () => {
 		// eslint-disable-next-line
 	}, []);
 
-	let content ;
+	let content;
 
 	if (isLoading) {
 		content = <LoadingSpinner />;
 	} else if (isError) {
-		<Link to='/'>Musisz się zalogować</Link>;
+		content = <Navigate to='/' />;
 	} else if (isSuccess && trueSuccess) {
 		console.log('success');
 		content = <Outlet />;
@@ -47,7 +46,7 @@ const RefreshLogin = () => {
 		content = <Outlet />;
 	}
 
-	return content;
+	return <>{content}</>;
 };
 
 export default RefreshLogin;

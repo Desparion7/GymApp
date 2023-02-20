@@ -1,0 +1,8 @@
+.atlas {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 3rem 2rem;
+	min-height: 83vh;
+}

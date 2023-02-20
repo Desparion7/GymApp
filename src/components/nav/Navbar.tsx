@@ -21,13 +21,13 @@ const Navbar = () => {
 				<div className='navbar__options'>
 					<ul className='navbar__options-ul'>
 						<li>
-							<Link to='/'>Atlas ćwiczeń</Link>
+							<Link to='/atlas'>Atlas ćwiczeń</Link>
 						</li>
 						<li>
 							<Link to='/'>Plany treningowe</Link>
 						</li>
 						<li>
-							<Link to='/'>Ciekawostki</Link>
+							<Link to='/profile'>Mój profil</Link>
 						</li>
 						{username ? (
 							<li>
