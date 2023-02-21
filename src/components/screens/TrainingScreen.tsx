@@ -1,4 +1,4 @@
-import './trainingScreen.css';
+import '../../css/TrainingScreen.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Exercise from '../exercies/Exercise';

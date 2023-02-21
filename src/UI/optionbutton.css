@@ -6,8 +6,8 @@
 	letter-spacing: 2px;
 }
 .optionButton img {
-	width: 450px;
-	height: 340px;
+	width: 400px;
+	height: 300px;
 	cursor: pointer;
 	transition: transform 0.3s;
 }

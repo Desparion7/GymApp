@@ -1,4 +1,4 @@
-import './examplestraining.css';
+import '../../css/ExamplesTraining.css';
 const ExamplesTraining = () => {
 	const training = [
 		[

@@ -16,6 +16,14 @@
 	--text-color2: #34a62b;
 	--text-color-hover: rgb(233, 219, 19);
 }
+h2 {
+	text-align: center;
+	font-size: 1.8rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: var(--text-color2);
+}
 
 .errorText {
 	color: red;

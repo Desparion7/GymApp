@@ -1,4 +1,4 @@
-import './trainingStoryScreen.css';
+import '../../css/TrainingStoryScreen.css';
 import { Link } from 'react-router-dom';
 import {
 	useGetUserAllTrainingsQuery,

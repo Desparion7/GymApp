@@ -1,4 +1,4 @@
-import './starttrainingscreen.css';
+import '../../css/StartTrainingScreen.css';
 import OptionButton from '../../UI/OptionButton';
 import { useCreateNewTrainingMutation } from '../../app/slices/trainingApiSlice';
 import { useEffect } from 'react';

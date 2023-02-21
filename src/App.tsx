@@ -10,6 +10,7 @@ import TrainingScreen from './components/screens/TrainingScreen';
 import ExamplesTraining from './components/screens/ExamplesTraining';
 import TrainingStoryScreen from './components/screens/TrainingStoryScreen';
 import AtlasScreen from './components/screens/AtlasScreen';
+import ChestScreen from './components/exercies-category-screen/ChestScreen';
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 				<Route index element={<Login />} />
 				<Route path='signin' element={<SignIn />} />
 				<Route path='atlas' element={<AtlasScreen />} />
+				<Route path='atlas/chest' element={<ChestScreen />} />
 				{/* Public routes */}
 				{/* Routes after login */}
 				<Route element={<RefreshLogin />}>

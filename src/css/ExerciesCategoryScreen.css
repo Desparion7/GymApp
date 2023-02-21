@@ -1,0 +1,75 @@
+.exerciesCategoryScreen {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding: 3rem 2rem;
+	min-height: 83vh;
+}
+.exerciesCategoryScreen h3 {
+	text-align: start;
+	margin: 1rem 0;
+	font-size: 1.5rem;
+}
+.exerciesCategoryScreen__box {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.exerciesCategoryScreen__box-info {
+	max-width: 50%;
+}
+.exerciesCategoryScreen__box-info-text {
+	font-size: 1.2rem;
+	line-height: 1.6rem;
+}
+.exerciesCategoryScreen__box-info-text p {
+	margin-bottom: 0.5rem;
+}
+
+.exerciesCategoryScreen__box-img img {
+	width: 100%;
+}
+.exerciesCategoryScreen__exercises {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 20px;
+	margin-top: 1.5rem;
+}
+.exerciesCategoryScreen__exercise-smallbox {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0.5rem;
+	width: 350px;
+	height: auto;
+}
+.exerciesCategoryScreen__exercise-smallbox h4 {
+	text-align: center;
+	font-size: 1.5rem;
+	margin: 0.5rem 0;
+}
+.exerciesCategoryScreen__exercise-smallbox-img {
+	cursor: pointer;
+	margin: 0.5rem;
+}
+.exerciesCategoryScreen__exercise-smallbox-img img {
+	width: 100%;
+	height: 100%;
+}
+
+@media screen and (max-width: 900px) {
+	.exerciesCategoryScreen__box {
+		flex-direction: column;
+	}
+	.exerciesCategoryScreen__info {
+		max-width: 100%;
+	}
+}
+@media screen and (max-width: 500px) {
+	.exerciesCategoryScreen {
+		align-items: start;
+	}
+}

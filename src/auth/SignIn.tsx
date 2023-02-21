@@ -112,7 +112,7 @@ const SignIn = () => {
 					<>
 						<div className='public__welcomeText'>
 							<h2>
-								Zarejestuj się <span>Menadżerze treningu.</span>{' '}
+								Zarejestuj się w <span>Menadżerze treningu.</span>{' '}
 							</h2>
 							<p>Każda przygoda ma swój początek.</p>
 						</div>
