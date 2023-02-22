@@ -11,26 +11,32 @@ const ExerciseScreen = () => {
 			<h2>Atlas ćwiczeń</h2>
 			<h3>{data?.exerciseName}</h3>
 			<div className='exerciseScreen__info'>
-				<img
-					src={data?.imgPath}
-					alt='Wyciskanie sztangi na ławce płaskiej'
-				/>
+				<img src={data?.imgPath} alt='Wyciskanie sztangi na ławce płaskiej' />
 				<div className='exerciseScreen__info-muscles'>
-					<div>
-						<p>Mięsnie główne zaangażowane w ruch:</p>
-						<ul>
-							<li>piersiowy większy</li>
-							<li>trójgłowy ramienia</li>
-							<li>naramienny przedni</li>
-						</ul>
-					</div>
-					<div>
-						<p>Mięsnie pomcnicze zaangażowane w ruch:</p>
-						<ul>
-							<li>zębaty przedni</li>
-							<li>kruczo-ramienny</li>
-						</ul>
-					</div>
+					{data?.muscle1 && data?.muscle1?.length !== 0 && (
+						<div>
+							<p>Mięsnie główne zaangażowane w ruch:</p>
+							<ul>
+								{data?.muscle1.map((muscle) => (
+									<>
+										<li>{muscle}</li>
+									</>
+								))}
+							</ul>
+						</div>
+					)}
+					{data?.muscle2 && data?.muscle2.length !== 0 && (
+						<div>
+							<p>Mięsnie pomcnicze zaangażowane w ruch::</p>
+							<ul>
+								{data?.muscle2.map((muscle) => (
+									<>
+										<li>{muscle}</li>
+									</>
+								))}
+							</ul>
+						</div>
+					)}
 				</div>
 			</div>
 			<div className='exerciseScreen__video'>
