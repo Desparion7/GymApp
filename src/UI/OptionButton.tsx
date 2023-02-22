@@ -1,4 +1,4 @@
-import './OptionButton.css';
+import './optionbutton.css';
 import { Link } from 'react-router-dom';
 
 interface PropsType {
