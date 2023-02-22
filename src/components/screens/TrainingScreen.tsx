@@ -1,5 +1,5 @@
 import '../../css/TrainingScreen.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import Exercise from '../exercies/Exercise';
 import { TabelElementType } from '../../models/trainingType';
@@ -59,60 +59,67 @@ const TrainingScreen = () => {
 	const updateTrainingHandler = async (newTraining: TabelElementType[][]) => {
 		await updateTraining({ id, exercise: newTraining });
 	};
-	const handleDeleteSeries = (exerciseIndex: number, seriesIndex: number) => {
-		if (training?.exercise) {
-			const newTraining = [...training.exercise];
-			newTraining[exerciseIndex] = newTraining[exerciseIndex].filter(
-				(series, index) => index !== seriesIndex
-			);
-			if (newTraining[exerciseIndex].length === 0) {
-				newTraining.splice(exerciseIndex, 1);
+	const handleDeleteSeries = useCallback(
+		(exerciseIndex: number, seriesIndex: number) => {
+			if (training?.exercise) {
+				const newTraining = [...training.exercise];
+				newTraining[exerciseIndex] = newTraining[exerciseIndex].filter(
+					(series, index) => index !== seriesIndex
+				);
+				if (newTraining[exerciseIndex].length === 0) {
+					newTraining.splice(exerciseIndex, 1);
+				}
+				updateTrainingHandler(newTraining);
 			}
-			updateTrainingHandler(newTraining);
-		}
-	};
-	const handleAddNewSeries = (exerciseIndex: number) => {
-		if (training?.exercise) {
-			const newTraining = [...training.exercise];
-			const newSeries = newTraining[exerciseIndex].slice(-1)[0];
-			const updateNewTraining = [...newTraining[exerciseIndex]];
-			updateNewTraining.push(newSeries);
-			newTraining[exerciseIndex] = updateNewTraining;
-			updateTrainingHandler(newTraining);
-		}
-	};
-	const handleChangeWeight = (
-		exerciseIndex: number,
-		seriesIndex: number,
-		weightState: number
-	) => {
-		if (training?.exercise) {
-			const newTraining = [...training.exercise];
-			const updateNewTraining = [...newTraining[exerciseIndex]];
-			updateNewTraining[seriesIndex] = {
-				...updateNewTraining[seriesIndex],
-				weight: weightState,
-			};
-			newTraining[exerciseIndex] = updateNewTraining;
-			updateTrainingHandler(newTraining);
-		}
-	};
-	const handleChangeRepeat = (
-		exerciseIndex: number,
-		seriesIndex: number,
-		repeatState: number
-	) => {
-		if (training?.exercise) {
-			const newTraining = [...training.exercise];
-			const updateNewTraining = [...newTraining[exerciseIndex]];
-			updateNewTraining[seriesIndex] = {
-				...updateNewTraining[seriesIndex],
-				repeat: repeatState,
-			};
-			newTraining[exerciseIndex] = updateNewTraining;
-			updateTrainingHandler(newTraining);
-		}
-	};
+		},
+		[training, updateTrainingHandler]
+	);
+
+	const handleAddNewSeries = useCallback(
+		(exerciseIndex: number) => {
+			if (training?.exercise) {
+				const newTraining = [...training.exercise];
+				const newSeries = newTraining[exerciseIndex].slice(-1)[0];
+				const updateNewTraining = [...newTraining[exerciseIndex]];
+				updateNewTraining.push(newSeries);
+				newTraining[exerciseIndex] = updateNewTraining;
+				updateTrainingHandler(newTraining);
+			}
+		},
+		[training, updateTrainingHandler]
+	);
+
+	const handleChangeWeight = useCallback(
+		(exerciseIndex: number, seriesIndex: number, weightState: number) => {
+			if (training?.exercise) {
+				const newTraining = [...training.exercise];
+				const updateNewTraining = [...newTraining[exerciseIndex]];
+				updateNewTraining[seriesIndex] = {
+					...updateNewTraining[seriesIndex],
+					weight: weightState,
+				};
+				newTraining[exerciseIndex] = updateNewTraining;
+				updateTrainingHandler(newTraining);
+			}
+		},
+		[training, updateTrainingHandler]
+	);
+
+	const handleChangeRepeat = useCallback(
+		(exerciseIndex: number, seriesIndex: number, repeatState: number) => {
+			if (training?.exercise) {
+				const newTraining = [...training.exercise];
+				const updateNewTraining = [...newTraining[exerciseIndex]];
+				updateNewTraining[seriesIndex] = {
+					...updateNewTraining[seriesIndex],
+					repeat: repeatState,
+				};
+				newTraining[exerciseIndex] = updateNewTraining;
+				updateTrainingHandler(newTraining);
+			}
+		},
+		[training, updateTrainingHandler]
+	);
 
 	return (
 		<section className='trainingScreen'>
@@ -244,7 +251,9 @@ const TrainingScreen = () => {
 							</div>
 						))}
 				</div>
-				<button className='trainingScreen__exerciesList-add-btn'>Dodaj Ćwiczenie</button>
+				<button className='trainingScreen__exerciesList-add-btn'>
+					Dodaj Ćwiczenie
+				</button>
 			</div>
 		</section>
 	);

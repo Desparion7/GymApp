@@ -10,7 +10,16 @@ import TrainingScreen from './components/screens/TrainingScreen';
 import ExamplesTraining from './components/screens/ExamplesTraining';
 import TrainingStoryScreen from './components/screens/TrainingStoryScreen';
 import AtlasScreen from './components/screens/AtlasScreen';
-import ChestScreen from './components/exercies-category-screen/ChestScreen';
+import ChestScreen from './components/exerciesCategory/ChestScreen';
+import BackScreen from './components/exerciesCategory/BackScreen';
+import LegsScreen from './components/exerciesCategory/LegsScreen';
+import LegsAndButtScreen from './components/exerciesCategory/LegsAndButtScreen';
+import ShouldersScreen from './components/exerciesCategory/ShouldersScreen';
+import TricepsScreen from './components/exerciesCategory/TricepsScreen';
+import BicepsScreen from './components/exerciesCategory/BicepsScreen';
+import BellyScreen from './components/exerciesCategory/BellyScreen';
+import CalvesScreen from './components/exerciesCategory/CalvesScreen';
+import ExerciseScreen from './components/screens/ExerciseScreen';
 
 function App() {
 	return (
@@ -20,7 +29,26 @@ function App() {
 				<Route index element={<Login />} />
 				<Route path='signin' element={<SignIn />} />
 				<Route path='atlas' element={<AtlasScreen />} />
-				<Route path='atlas/chest' element={<ChestScreen />} />
+				<Route path='atlas/klatka-piersiowa' element={<ChestScreen />} />
+				<Route path='atlas/klatka-piersiowa/:url' element={<ExerciseScreen />} />	
+				<Route path='atlas/plecy' element={<BackScreen />} />
+				<Route path='atlas/plecy/:id' element={<ExerciseScreen />} />		
+				<Route path='atlas/czworoglowe-uda' element={<LegsScreen />} />
+				<Route path='atlas/czworoglowe-uda/:id' element={<ExerciseScreen />} />
+				<Route path='atlas/dwuglowe-uda' element={<LegsAndButtScreen />} />
+				<Route path='atlas/dwuglowe-uda/:id' element={<ExerciseScreen />} />
+				<Route path='atlas/brzuch' element={<BellyScreen />} />
+				<Route path='atlas/brzuch/:id' element={<ExerciseScreen />} />
+				<Route path='atlas/biceps' element={<BicepsScreen />} />
+				<Route path='atlas/biceps/:id' element={<ExerciseScreen />} />
+				<Route path='atlas/triceps' element={<TricepsScreen />} />
+				<Route path='atlas/triceps/:id' element={<ExerciseScreen />} />
+				<Route path='atlas/barki' element={<ShouldersScreen />} />
+				<Route path='atlas/barki/:id' element={<ExerciseScreen />} />
+				<Route path='atlas/łydki' element={<CalvesScreen />} />
+				<Route path='atlas/łydki/:id' element={<ExerciseScreen />} />
+				<Route path='atlas/ćwiczenia-domowe' element={<BackScreen />} />
+				<Route path='atlas/moje-ćwiczenia' element={<BackScreen />} />
 				{/* Public routes */}
 				{/* Routes after login */}
 				<Route element={<RefreshLogin />}>

@@ -1,0 +1,53 @@
+.exerciseScreen {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding: 3rem 2rem;
+	min-height: 83vh;
+}
+.exerciseScreen h2 {
+	margin-bottom: 0.5rem;
+}
+.exerciseScreen h3 {
+	margin-bottom: 1rem;
+}
+.exerciseScreen__info {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 40px;
+}
+
+.exerciseScreen__info img {
+	width: 350px;
+	height: auto;
+}
+.exerciseScreen__info-muscles {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.exerciseScreen__info-muscles p {
+	margin: 0.5rem 0;
+}
+.exerciseScreen__info-muscles li {
+	margin-left: 20px;
+}
+
+.exerciseScreen__video {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	margin-top: 2rem;
+}
+
+@media screen and (max-width: 800px) {
+	.exerciseScreen__info,
+	.exerciseScreen__video {
+		justify-content: center;
+	}
+}
+@media screen and (max-width: 450px) {
+	.exerciseScreen__info img {
+		width: 300px;
+	}
+}
