@@ -5,12 +5,11 @@ const RequireAuth = () => {
 	const location = useLocation();
 	const { username } = useAuthToken();
 
-	const content =
-		username || username === '' ? (
-			<Outlet />
-		) : (
-			<Navigate to='/' state={{ from: location }} replace />
-		);
+	const content = username ? (
+		<Outlet />
+	) : (
+		<Navigate to='/' state={{ from: location }} replace />
+	);
 
 	return content;
 };

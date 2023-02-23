@@ -37,7 +37,7 @@ const RefreshLogin = () => {
 	if (isLoading) {
 		content = <LoadingSpinner />;
 	} else if (isError) {
-		content = <Navigate to='/' />;
+		content = <Outlet />;
 	} else if (isSuccess && trueSuccess) {
 		console.log('success');
 		content = <Outlet />;

@@ -1,10 +1,29 @@
 import '../../css/ExerciseScreen.css';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { useGetExerciseByUrlQuery } from '../../app/slices/exercisesApiSclice';
+import useAuthToken from '../../hooks/useAuthToken';
+import { lastUsedTraining } from '../../app/api/userInfoSlice';
 
 const ExerciseScreen = () => {
 	const { url } = useParams() as { url: string };
 	const { data } = useGetExerciseByUrlQuery({ url });
+	const { username } = useAuthToken();
+	const navigate = useNavigate();
+
+	const trainingId = useSelector(lastUsedTraining);
+
+	const handelAddExerciseToTraining = () => {
+		if (!username) {
+			navigate(`/`);
+			return
+		}
+		if (trainingId === null) {
+			navigate(`/profile`);
+		} else {
+			navigate(`/profile/training/${trainingId}`);
+		}
+	};
 
 	return (
 		<div className='exerciseScreen'>
@@ -13,14 +32,17 @@ const ExerciseScreen = () => {
 			<div className='exerciseScreen__info'>
 				<img src={data?.imgPath} alt={data?.exerciseName} />
 				<div className='exerciseScreen__info-muscles'>
+					<button onClick={handelAddExerciseToTraining}>
+						Dodaj ćwiczenie do treningu
+					</button>
+					<button>Dodaj ćwiczenie do zestawu</button>
+
 					{data?.muscle1 && data?.muscle1?.length !== 0 && (
 						<div>
 							<p>Mięsnie główne zaangażowane w ruch:</p>
 							<ul>
-								{data?.muscle1.map((muscle) => (
-									<>
-										<li>{muscle}</li>
-									</>
+								{data?.muscle1.map((muscle, index) => (
+									<li key={index}>{muscle}</li>
 								))}
 							</ul>
 						</div>
@@ -29,10 +51,8 @@ const ExerciseScreen = () => {
 						<div>
 							<p>Mięsnie pomcnicze zaangażowane w ruch::</p>
 							<ul>
-								{data?.muscle2.map((muscle) => (
-									<>
-										<li>{muscle}</li>
-									</>
+								{data?.muscle2.map((muscle, index) => (
+									<li key={index}>{muscle}</li>
 								))}
 							</ul>
 						</div>

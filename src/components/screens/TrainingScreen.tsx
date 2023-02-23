@@ -10,6 +10,8 @@ import {
 	useUpdateTrainingNameMutation,
 	useUpdateTrainingTimeMutation,
 } from '../../app/slices/trainingApiSlice';
+import { setlastUsedTrainingId } from '../../app/api/userInfoSlice';
+import { useDispatch } from 'react-redux';
 
 const TrainingScreen = () => {
 	const [time, setTime] = useState<string>('');
@@ -17,6 +19,8 @@ const TrainingScreen = () => {
 	const [timeEnd, setTimeEnd] = useState<string>('');
 	const [trainingName, setTrainingName] = useState<string>('');
 	const [changeTrainingName, setChangeTrainingName] = useState<boolean>(false);
+
+	const dispatch = useDispatch();
 
 	const { id } = useParams() as { id: string };
 
@@ -40,6 +44,11 @@ const TrainingScreen = () => {
 			}
 		}
 	}, [training]);
+
+	// Set to state training Id
+	useEffect(() => {
+		dispatch(setlastUsedTrainingId(id));
+	}, []);
 
 	// function to update changes in time
 	const handleTime = async (e: React.ChangeEvent<HTMLInputElement>) => {
