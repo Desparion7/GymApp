@@ -214,7 +214,6 @@ const TrainingScreen = () => {
 											<Exercise
 												key={seriesIndex}
 												name={series.name}
-												series={seriesIndex + 1}
 												repeat={series.repeat}
 												weight={series.weight}
 												onDelete={() =>

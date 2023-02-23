@@ -11,7 +11,7 @@ const ExerciseScreen = () => {
 			<h2>Atlas ćwiczeń</h2>
 			<h3>{data?.exerciseName}</h3>
 			<div className='exerciseScreen__info'>
-				<img src={data?.imgPath} alt='Wyciskanie sztangi na ławce płaskiej' />
+				<img src={data?.imgPath} alt={data?.exerciseName} />
 				<div className='exerciseScreen__info-muscles'>
 					{data?.muscle1 && data?.muscle1?.length !== 0 && (
 						<div>

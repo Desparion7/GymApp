@@ -1,7 +1,48 @@
-import React from 'react';
+import '../../css/ExerciesCategoryScreen.css';
+import { Link } from 'react-router-dom';
 
 const LegsAndButtScreen = () => {
-	return <div>LegsAndButtScreen</div>;
+	return (
+		<div className='exerciesCategoryScreen'>
+			<h2>Atlas ćwiczeń</h2>
+			<div className='exerciesCategoryScreen__box'>
+				<div className='exerciesCategoryScreen__box-info'>
+					<h3>Dwugłowy Uda/Pośladki</h3>
+					<div className='exerciesCategoryScreen__box-info-text'>
+						<p>
+							W tej kategorii zamieszczone zostały ćwiczenia mocno angażujące
+							mięśnie dwugłowe ud oraz pośladkowe. W ćwiczeniach opartych na
+							wzorcu ruchowym hip hinge, który wykorzystywany jest w martwym
+							ciągu, właśnie te mięśnie działają w ścisłej synergii.
+						</p>
+						<p>
+							Głównym zadaniem mięśnia dwugłowego jest zginanie kolan, np. w
+							ćwiczeniu żuraw. Pośladki zaś są bardzo mocnym prostownikiem stawu
+							biodrowego, dlatego wykonują główną pracę przy takim ćwiczeniu jak
+							unoszenie bioder ze sztangą.
+						</p>
+					</div>
+				</div>
+				<div className='exerciesCategoryScreen__box-img'>
+					<img
+						src='../../img/photo/legsbutt-1.PNG'
+						alt='muscles anatomy model'
+					/>
+				</div>
+			</div>
+			<h3>Ćwiczenia na mięśnie dwugłowe/pośladki</h3>
+			<div className='exerciesCategoryScreen__exercises'>
+				<div className='exerciesCategoryScreen__exercise-smallbox'>
+					<h4></h4>
+					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
+						<Link to=''>
+							<img src='../../img/photo/exercise/legsbutt-1.PNG' alt='' />
+						</Link>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default LegsAndButtScreen;

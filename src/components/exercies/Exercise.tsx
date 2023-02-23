@@ -1,9 +1,8 @@
 import './exercise.css';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 
 export interface exercisePropsType {
 	name?: string;
-	series?: number;
 	repeat?: number;
 	weight?: number;
 	onDelete: () => void;
@@ -76,4 +75,15 @@ const Exercise = ({
 		</div>
 	);
 };
-export default Exercise;
+
+const MemoizedExercise = memo<typeof Exercise>(
+	Exercise,
+	(prevProp, nextProp) => {
+		return (
+			prevProp.name === nextProp.name &&
+			prevProp.repeat === nextProp.repeat &&
+			prevProp.weight === nextProp.weight
+		);
+	}
+);
+export default MemoizedExercise;
