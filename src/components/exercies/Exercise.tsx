@@ -1,10 +1,12 @@
 import './exercise.css';
-import { useState, memo } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export interface exercisePropsType {
 	name?: string;
 	repeat?: number;
 	weight?: number;
+	url?: string;
 	onDelete: () => void;
 	onChangeWeight: (weightState: number) => void;
 	onChangeRepeat: (repeatState: number) => void;
@@ -13,6 +15,7 @@ const Exercise = ({
 	name,
 	repeat,
 	weight,
+	url,
 	onDelete,
 	onChangeWeight,
 	onChangeRepeat,
@@ -42,7 +45,13 @@ const Exercise = ({
 
 	return (
 		<div className='exerciesList__exercie'>
-			<div className='exerciesList__name'>{name}</div>
+			{url ? (
+				<Link to={`/atlas/${url}`}>
+					<div className='exerciesList__name'>{name}</div>
+				</Link>
+			) : (
+				<div className='exerciesList__name'>{name}</div>
+			)}
 			<div className='exerciesList__details'>
 				<label htmlFor='repeat'>Powtórzenia:</label>
 				<input
@@ -76,14 +85,4 @@ const Exercise = ({
 	);
 };
 
-const MemoizedExercise = memo<typeof Exercise>(
-	Exercise,
-	(prevProp, nextProp) => {
-		return (
-			prevProp.name === nextProp.name &&
-			prevProp.repeat === nextProp.repeat &&
-			prevProp.weight === nextProp.weight
-		);
-	}
-);
-export default MemoizedExercise;
+export default Exercise;

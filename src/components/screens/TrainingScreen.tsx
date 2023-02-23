@@ -12,6 +12,7 @@ import {
 } from '../../app/slices/trainingApiSlice';
 import { setlastUsedTrainingId } from '../../app/api/userInfoSlice';
 import { useDispatch } from 'react-redux';
+import AddNewExercise from '../exercies/AddNewExercise';
 
 const TrainingScreen = () => {
 	const [time, setTime] = useState<string>('');
@@ -225,6 +226,7 @@ const TrainingScreen = () => {
 												name={series.name}
 												repeat={series.repeat}
 												weight={series.weight}
+												url={series.url}
 												onDelete={() =>
 													handleDeleteSeries(exerciseIndex, seriesIndex)
 												}
@@ -259,9 +261,7 @@ const TrainingScreen = () => {
 							</div>
 						))}
 				</div>
-				<button className='trainingScreen__exerciesList-add-btn'>
-					Dodaj Ćwiczenie
-				</button>
+				<AddNewExercise trainingToUpdate={training?.exercise} id={id} />
 			</div>
 		</section>
 	);

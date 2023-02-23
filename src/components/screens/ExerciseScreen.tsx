@@ -1,22 +1,29 @@
 import '../../css/ExerciseScreen.css';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useGetExerciseByUrlQuery } from '../../app/slices/exercisesApiSclice';
 import useAuthToken from '../../hooks/useAuthToken';
-import { lastUsedTraining } from '../../app/api/userInfoSlice';
+import { lastUsedTraining, setlastExercise } from '../../app/api/userInfoSlice';
 
 const ExerciseScreen = () => {
-	const { url } = useParams() as { url: string };
+	const { url, category } = useParams() as { url: string; category: string };
 	const { data } = useGetExerciseByUrlQuery({ url });
 	const { username } = useAuthToken();
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	const trainingId = useSelector(lastUsedTraining);
 
 	const handelAddExerciseToTraining = () => {
+		dispatch(
+			setlastExercise({
+				exerciseName: data?.exerciseName,
+				url: `${category}/${data?.url}`,
+			})
+		);
 		if (!username) {
 			navigate(`/`);
-			return
+			return;
 		}
 		if (trainingId === null) {
 			navigate(`/profile`);

@@ -30,30 +30,16 @@ function App() {
 				<Route path='signin' element={<SignIn />} />
 				<Route element={<RefreshLogin />}>
 					<Route path='atlas' element={<AtlasScreen />} />
+					<Route path='atlas/:category/:url' element={<ExerciseScreen />} />
 					<Route path='atlas/klatka-piersiowa' element={<ChestScreen />} />
-					<Route
-						path='atlas/klatka-piersiowa/:url'
-						element={<ExerciseScreen />}
-					/>
 					<Route path='atlas/plecy' element={<BackScreen />} />
-					<Route path='atlas/plecy/:url' element={<ExerciseScreen />} />
 					<Route path='atlas/czworoglowe-uda' element={<LegsScreen />} />
-					<Route
-						path='atlas/czworoglowe-uda/:url'
-						element={<ExerciseScreen />}
-					/>
 					<Route path='atlas/dwuglowe-uda' element={<LegsAndButtScreen />} />
-					<Route path='atlas/dwuglowe-uda/:url' element={<ExerciseScreen />} />
 					<Route path='atlas/brzuch' element={<BellyScreen />} />
-					<Route path='atlas/brzuch/:url' element={<ExerciseScreen />} />
 					<Route path='atlas/biceps' element={<BicepsScreen />} />
-					<Route path='atlas/biceps/:url' element={<ExerciseScreen />} />
 					<Route path='atlas/triceps' element={<TricepsScreen />} />
-					<Route path='atlas/triceps/:url' element={<ExerciseScreen />} />
 					<Route path='atlas/barki' element={<ShouldersScreen />} />
-					<Route path='atlas/barki/:url' element={<ExerciseScreen />} />
 					<Route path='atlas/łydki' element={<CalvesScreen />} />
-					<Route path='atlas/łydki/:url' element={<ExerciseScreen />} />
 					<Route path='atlas/ćwiczenia-domowe' element={<BackScreen />} />
 					<Route path='atlas/moje-ćwiczenia' element={<BackScreen />} />
 					{/* Public routes */}

@@ -3,6 +3,7 @@ export interface TabelElementType {
 	repeat?: number;
 	time?: number;
 	weight?: number;
+	url?: string;
 }
 
 export interface trainingType {
