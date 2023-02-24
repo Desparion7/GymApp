@@ -53,26 +53,31 @@ const Exercise = ({
 				<div className='exerciesList__name'>{name}</div>
 			)}
 			<div className='exerciesList__details'>
-				<label htmlFor='repeat'>Powtórzenia:</label>
-				<input
-					className='exerciesList__repeat'
-					type='number'
-					name='repeat'
-					value={repeatState}
-					onChange={handelRepeatState}
-					onBlur={handelOnBlureRepeat}
-					max='999'
-				></input>
-				<label htmlFor='weight'>Ciężar w kg:</label>
-				<input
-					className='exerciesList__weight'
-					type='number'
-					name='weight'
-					value={weightState}
-					onChange={handelWeightState}
-					max='999'
-					onBlur={handelOnBlureWeight}
-				></input>
+				<div>
+					<label htmlFor='repeat'>Powtórzenia:</label>
+					<input
+						className='exerciesList__repeat'
+						type='number'
+						name='repeat'
+						value={repeatState}
+						onChange={handelRepeatState}
+						onBlur={handelOnBlureRepeat}
+						max='999'
+					></input>
+				</div>
+
+				<div>
+					<label htmlFor='weight'> kg:</label>
+					<input
+						className='exerciesList__weight'
+						type='number'
+						name='weight'
+						value={weightState}
+						onChange={handelWeightState}
+						max='999'
+						onBlur={handelOnBlureWeight}
+					></input>
+				</div>
 				<button
 					className='exerciesList__exercie-removeBtn'
 					title='usuń serię'

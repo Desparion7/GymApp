@@ -3,10 +3,12 @@
 	flex-direction: row;
 	justify-content: space-between;
 	gap: 20px;
+	border-bottom: 1px solid rgb(173, 173, 173);
+	padding: 0.3rem;
 }
 .exerciesList__exercie a {
-	/* text-decoration: none; */
 	color: black;
+	/* text-decoration: none; */
 }
 .exerciesList__exercie a:hover {
 	font-weight: bold;
@@ -17,15 +19,14 @@
 	align-items: center;
 	font-size: 1rem;
 	min-width: 50%;
-	line-height: 2rem;
-	padding-left: 0.2rem;
+	line-height: 1.5rem;
 }
 .exerciesList__details {
 	display: flex;
 	justify-content: space-between;
 	align-items: start;
 	gap: 10px;
-	width: 50%;
+	width: 40%;
 }
 .exerciesList__details label {
 	font-size: 1rem;
@@ -49,4 +50,22 @@
 }
 .exerciesList__exercie-removeBtn img:hover {
 	transform: scale(1.1);
+}
+
+@media screen and (max-width: 1100px) {
+	.exerciesList__exercie {
+		flex-direction: column;
+		gap: 0;
+		border-bottom: 1px solid rgb(173, 173, 173);
+	}
+	.exerciesList__name {
+		display: block;
+		padding: 0.5rem 0.3rem;
+		width: 100%;
+		background: rgb(217, 216, 216);
+	}
+	.exerciesList__details {
+		width: 100%;
+		padding: 0 0.3rem;
+	}
 }

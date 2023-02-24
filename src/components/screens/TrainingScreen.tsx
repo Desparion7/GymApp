@@ -149,6 +149,7 @@ const TrainingScreen = () => {
 							type='text'
 							id='trainingName-input'
 							name='trainingName-input'
+							maxLength={50}
 							value={trainingName}
 							onChange={(e) => {
 								setTrainingName(e.target.value);

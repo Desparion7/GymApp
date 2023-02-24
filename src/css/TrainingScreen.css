@@ -44,6 +44,7 @@
 }
 .trainingScreen__info-name img {
 	width: 40px;
+	max-height: 40px;
 	cursor: pointer;
 	transition: transform 0.3s;
 }
@@ -63,7 +64,7 @@
 
 .trainingScreen__exerciesList {
 	margin-top: 1rem;
-	width: 80%;
+	min-width: 80%;
 }
 .trainingScreen__exerciesList-box {
 	margin: 0.5rem 0;
@@ -102,4 +103,31 @@
 }
 .trainingScreen__exerciesList-add-btn {
 	font-size: 1.2rem;
+}
+
+@media screen and (max-width: 500px) {
+	.trainingScreen {
+		padding: 3rem 1rem;
+	}
+	.trainingScreen__info-name-box p {
+		font-size: 1.4rem;
+	}
+	.trainingScreen__info-datetime {
+		display: block;
+		text-align: start;
+	}
+	.trainingScreen__info-datetime-date {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.trainingScreen label {
+		padding: 0;
+		padding-right: 1rem;
+		font-size: 1.2rem;
+		margin-bottom: 0.3rem;
+	}
+	.trainingScreen__info-datetime-time {
+		margin: 0.5rem 0;
+	}
 }
