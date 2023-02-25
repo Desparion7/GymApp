@@ -29,10 +29,43 @@ const BellyScreen = () => {
 			<h3>Ćwiczenia brzuch</h3>
 			<div className='exerciesCategoryScreen__exercises'>
 				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4></h4>
+					<h4>Przyciąganie kolan do klatki w zwisie na drążku</h4>
 					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to=''>
-							<img src='../../img/photo/exercise/legsbutt-1.PNG' alt='' />
+						<Link to='przyciąganie-kolan-do-klatki-w-zwisie-na-drążku'>
+							<img
+								src='../../img/photo/exercise/belly-1.PNG'
+								alt='Przyciąganie kolan do klatki w zwisie na drążku'
+							/>
+						</Link>
+					</div>
+				</div>
+				<div className='exerciesCategoryScreen__exercise-smallbox'>
+					<h4>Izometryczny skurcz mięśni brzucha. Deska/ścianka/plank</h4>
+					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
+						<Link to='plank'>
+							<img
+								src='../../img/photo/exercise/belly-2.PNG'
+								alt='Izometryczny skurcz mięśni brzucha. Deska/ścianka/plank'
+							/>
+						</Link>
+					</div>
+				</div>
+				<div className='exerciesCategoryScreen__exercise-smallbox'>
+					<h4>Spięcia brzucha z linkami wyciągu górnego</h4>
+					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
+						<Link to='spięcia-brzucha-z-linkami-wyciągu-górnego'>
+							<img
+								src='../../img/photo/exercise/belly-3.PNG'
+								alt='Spięcia brzucha z linkami wyciągu górnego'
+							/>
+						</Link>
+					</div>
+				</div>
+				<div className='exerciesCategoryScreen__exercise-smallbox'>
+					<h4>Scyzoryk</h4>
+					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
+						<Link to='scyzoryk'>
+							<img src='../../img/photo/exercise/belly-4.PNG' alt='Scyzoryk' />
 						</Link>
 					</div>
 				</div>

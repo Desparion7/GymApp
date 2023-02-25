@@ -32,10 +32,57 @@ const ShouldersScreen = () => {
 			<h3>Ćwiczenia na barki</h3>
 			<div className='exerciesCategoryScreen__exercises'>
 				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4></h4>
+					<h4>Wyciskanie sztangi nad głowę</h4>
 					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to=''>
-							<img src='../../img/photo/exercise/legsbutt-1.PNG' alt='' />
+						<Link to='wyciskanie-sztangi-nad-głowę'>
+							<img
+								src='../../img/photo/exercise/shoulders-1.PNG'
+								alt='Wyciskanie sztangi nad głowę'
+							/>
+						</Link>
+					</div>
+				</div>
+				<div className='exerciesCategoryScreen__exercise-smallbox'>
+					<h4>Wyciskanie hantli nad głowę siedząc</h4>
+					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
+						<Link to='wyciskanie-hantli-nad-głowę-siedząc'>
+							<img
+								src='../../img/photo/exercise/shoulders-2.PNG'
+								alt='Wyciskanie hantli nad głowę siedząc'
+							/>
+						</Link>
+					</div>
+				</div>
+				<div className='exerciesCategoryScreen__exercise-smallbox'>
+					<h4>Odwodzenie ramion w bok ze sztangielkami</h4>
+					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
+						<Link to='odwodzenie-ramion-w-bok-ze-sztangielkami'>
+							<img
+								src='../../img/photo/exercise/shoulders-3.PNG'
+								alt='Odwodzenie ramion w bok ze sztangielkami'
+							/>
+						</Link>
+					</div>
+				</div>
+				<div className='exerciesCategoryScreen__exercise-smallbox'>
+					<h4>Przyciąganie liny z wyciągu do twarzy (Face pull)</h4>
+					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
+						<Link to='przyciąganie-liny-z-wyciągu-do-twarzy-(Face pull)'>
+							<img
+								src='../../img/photo/exercise/shoulders-4.PNG'
+								alt='Przyciąganie liny z wyciągu do twarzy (Face pull)'
+							/>
+						</Link>
+					</div>
+				</div>
+				<div className='exerciesCategoryScreen__exercise-smallbox'>
+					<h4>Naprzemianstronne unoszenie ramion w przód ze sztangielkami</h4>
+					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
+						<Link to='naprzemianstronne-unoszenie-ramion-w-przód-ze-sztangielkami'>
+							<img
+								src='../../img/photo/exercise/shoulders-5.PNG'
+								alt='Naprzemianstronne unoszenie ramion w przód ze sztangielkami'
+							/>
 						</Link>
 					</div>
 				</div>

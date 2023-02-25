@@ -24,22 +24,22 @@ const CalvesScreen = () => {
 					</div>
 				</div>
 				<div className='exerciesCategoryScreen__box-img'>
-					<img
-						src='../../img/photo/calves-1.PNG'
-						alt='muscles anatomy model'
-					/>
+					<img src='../../img/photo/calves-1.PNG' alt='muscles anatomy model' />
 				</div>
 			</div>
 			<h3>Ćwiczenia na łydki</h3>
 			<div className='exerciesCategoryScreen__exercises'>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4></h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to=''>
-							<img src='../../img/photo/exercise/legsbutt-1.PNG' alt='' />
-						</Link>
+				<Link to='wspięcia-na-palcach-stojąc-ze-sztangą-trzymaną-na-plecach'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Wspięcia na palcach stojąc ze sztangą trzymaną na plecach</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
+							<img
+								src='../../img/photo/exercise/calves-1.PNG'
+								alt='Wspięcia na palcach stojąc ze sztangą trzymaną na plecach'
+							/>
+						</div>
 					</div>
-				</div>
+				</Link>
 			</div>
 		</div>
 	);

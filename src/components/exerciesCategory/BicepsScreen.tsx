@@ -29,14 +29,52 @@ const BicepsScreen = () => {
 			</div>
 			<h3>Ćwiczenia na biceps</h3>
 			<div className='exerciesCategoryScreen__exercises'>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4></h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to=''>
-							<img src='../../img/photo/exercise/legsbutt-1.PNG' alt='' />
-						</Link>
+				<Link to='Zginanie-przedramion-z-gryfem-łamanym-na-modlitewniku'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Zginanie przedramion z gryfem łamanym na modlitewniku</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
+							<img
+								src='../../img/photo/exercise/biceps-1.PNG'
+								alt='zginanie przedramion z gryfem łamanym na modlitewniku'
+							/>
+						</div>
 					</div>
-				</div>
+				</Link>
+				<Link to='zginanie-przedramion-z-hantlami-w-chwycie-młotkowym'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Zginanie przedramion z hantlami w chwycie młotkowym</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
+							<img
+								src='../../img/photo/exercise/biceps-2.PNG'
+								alt='Zginanie przedramion z hantlami w chwycie młotkowym'
+							/>
+						</div>
+					</div>
+				</Link>
+				<Link to='zginanie-przedramion-ze-sztangą-stojąc'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Zginanie przedramion ze sztangą stojąc</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
+							<img
+								src='../../img/photo/exercise/biceps-3.PNG'
+								alt='Zginanie przedramion ze sztangą stojąc'
+							/>
+						</div>
+					</div>
+				</Link>
+				<Link to='zginanie-przedramion-stojąc-z-wykorzystaniem-wyciągów-górnych'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>
+							Zginanie przedramion stojąc z wykorzystaniem wyciągów górnych
+						</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
+							<img
+								src='../../img/photo/exercise/biceps-4.PNG'
+								alt='Zginanie przedramion stojąc z wykorzystaniem wyciągów górnych'
+							/>
+						</div>
+					</div>
+				</Link>
 			</div>
 		</div>
 	);

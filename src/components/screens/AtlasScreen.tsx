@@ -72,14 +72,6 @@ const AtlasScreen = () => {
 					</Link>
 				</div>
 				<div className='atlas__category-exerciseBox'>
-					<Link to='ćwiczenia-domowe'>
-						<img src='../../img/photo/home.PNG' alt='man exercise in home' />
-						<div className='atlas__category-exerciseBox-title'>
-							Ćwiczenia domowe
-						</div>
-					</Link>
-				</div>
-				<div className='atlas__category-exerciseBox'>
 					<Link to='moje-ćwiczenia'>
 						<img src='../../img/photo/custom.PNG' alt='gym equipment' />
 						<div className='atlas__category-exerciseBox-title'>

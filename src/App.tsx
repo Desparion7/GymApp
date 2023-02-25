@@ -40,7 +40,6 @@ function App() {
 					<Route path='atlas/triceps' element={<TricepsScreen />} />
 					<Route path='atlas/barki' element={<ShouldersScreen />} />
 					<Route path='atlas/łydki' element={<CalvesScreen />} />
-					<Route path='atlas/ćwiczenia-domowe' element={<BackScreen />} />
 					<Route path='atlas/moje-ćwiczenia' element={<BackScreen />} />
 					{/* Public routes */}
 					{/* Routes after login */}
