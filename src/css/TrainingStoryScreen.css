@@ -17,41 +17,83 @@
 .trainingStory__table {
 	margin: 0 2rem;
 }
-.trainingStory__thead {
+.trainingStory__tabel-thead {
 	background: var(--main-background-color);
 	padding: 0.5rem;
 	font-size: 1.2rem;
 	font-weight: bold;
 }
-.trainingStory__tbody {
+.trainingStory__tabel-tbody {
 	padding: 0.5rem;
 }
-.trainingStory__tbody:nth-child(even) {
+.trainingStory__tabel-tbody:nth-child(even) {
 	background-color: rgb(221, 212, 212);
 }
-.trainingStory__thead,
-.trainingStory__tbody {
+.trainingStory__tabel-thead,
+.trainingStory__tabel-tbody {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 20px;
 }
-.trainingStory__thead-options {
+.trainingStory__tabel-thead-options {
 	text-align: center;
 }
-.trainingStory__thead-time,
-.trainingStory__tbody-time {
+.trainingStory__tabel-thead-time,
+.trainingStory__tabel-tbody-time {
 	text-align: center;
 }
-.trainingStory__tbody-options {
+.trainingStory__tabel-tbody-options,
+.trainingStory__mobile-options {
 	display: flex;
 	justify-content: space-evenly;
 }
-.trainingStory__tbody-options img {
+.trainingStory__tabel-tbody-options img,
+.trainingStory__mobile-options img {
 	width: 50px;
 	height: 40px;
 	transition: transform 0.3s;
 	cursor: pointer;
 }
-.trainingStory__tbody-options img:hover {
+.trainingStory__tabel-tbody-options img:hover {
 	transform: scale(1.1);
+}
+/* Mobile */
+.trainingStory__mobile {
+	display: none;
+}
+.trainingStory__mobile-box {
+	margin-bottom: 0.5rem;
+	padding: 0.5rem;
+	font-size: 1.2rem;
+	border: 1px solid rgb(49, 49, 49);
+	border-radius: 5px;
+}
+.trainingStory__mobile-box-time {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 0.5rem;
+}
+.trainingStory__mobile-box-set,
+.trainingStory__mobile-box-set-name {
+	text-align: center;
+	margin: 0.5rem 0;
+}
+.trainingStory__mobile-box-set-name {
+	font-weight: bold;
+}
+.trainingStory__mobile-options {
+	margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 900px) {
+	.trainingStory {
+		padding: 1rem 1rem;
+	}
+	.trainingStory__table {
+		display: none;
+	}
+	.trainingStory__mobile {
+		display: block;
+	}
 }

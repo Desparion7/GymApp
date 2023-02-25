@@ -16,9 +16,9 @@ const StartTrainingScreen = () => {
 		}
 	}, [CreatedTraining]);
 
-	const exercise = [[]];
+	const exercise = [] as any[];
 	const trainingDate = new Date();
-	const trainingName='Nowy zestaw'
+	const trainingName = 'Nowy zestaw';
 
 	const handelStartNewTraining = async () => {
 		await createNewTraining({ exercise, trainingDate, trainingName });

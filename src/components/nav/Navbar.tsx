@@ -59,11 +59,19 @@ const Navbar = () => {
 							<Link to='/'>Plany treningowe</Link>
 						</li>
 						<li>
-							<Link to='/'>Ciekawostki</Link>
+							<Link to='/profile'>Mój profil</Link>
 						</li>
-						<li>
-							<Link to='/'>Zaloguj się</Link>
-						</li>
+						{username ? (
+							<li>
+								<Link to='/' onClick={sendLogout}>
+									Wyloguj się
+								</Link>
+							</li>
+						) : (
+							<li>
+								<Link to='/'>Zaloguj się</Link>
+							</li>
+						)}
 					</ul>
 				</div>
 			)}

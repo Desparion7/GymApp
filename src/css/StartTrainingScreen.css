@@ -11,5 +11,18 @@
 	position: relative;
 	display: flex;
 	flex-direction: row;
+	justify-content: space-around;
 	flex-wrap: wrap;
+	top: -100px;
+}
+
+@media screen and (max-width: 1300px) {
+	.starttrainingScreen__options {
+		top: 0px;
+	}
+}
+@media screen and (max-width: 500px) {
+	.starttrainingScreen {
+		padding: 2rem;
+	}
 }

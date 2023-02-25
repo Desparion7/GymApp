@@ -16,7 +16,7 @@
 	align-items: center;
 }
 .exerciesCategoryScreen__box-info {
-	max-width: 50%;
+	width: 50%;
 }
 .exerciesCategoryScreen__box-info-text {
 	font-size: 1.2rem;
@@ -38,7 +38,6 @@
 }
 .exerciesCategoryScreen__exercise-smallbox {
 	width: 350px;
-	height: auto;
 }
 .exerciesCategoryScreen__exercise-smallbox h4 {
 	text-align: center;
@@ -48,20 +47,36 @@
 }
 
 .exerciesCategoryScreen__exercise-smallbox-img img {
-	width: 350px;
-	height: 230px;
+	width: 100%;
 }
 
 @media screen and (max-width: 900px) {
 	.exerciesCategoryScreen__box {
 		flex-direction: column;
 	}
-	.exerciesCategoryScreen__info {
-		max-width: 100%;
+	.exerciesCategoryScreen__box-info {
+		width: 100%;
 	}
 }
 @media screen and (max-width: 500px) {
 	.exerciesCategoryScreen {
-		align-items: start;
+		align-items: center;
+	}
+	.exerciesCategoryScreen h3 {
+		text-align: center;
+	}
+	.exerciesCategoryScreen__box-info-text p {
+		font-size: 1rem;
+	}
+	.exerciesCategoryScreen__box-info-text {
+		text-align: justify;
+	}
+}
+@media screen and (max-width: 400px) {
+	.exerciesCategoryScreen__exercise-smallbox h4 {
+		font-size: 1.2rem;
+	}
+	.exerciesCategoryScreen__exercise-smallbox {
+		width: 300px;
 	}
 }
