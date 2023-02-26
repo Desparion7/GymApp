@@ -39,10 +39,10 @@ const ExerciseScreen = () => {
 			<div className='exerciseScreen__info'>
 				<img src={data?.imgPath} alt={data?.exerciseName} />
 				<div className='exerciseScreen__info-muscles'>
-					<button onClick={handelAddExerciseToTraining}>
+					<button className='greenBtn' onClick={handelAddExerciseToTraining}>
 						Dodaj ćwiczenie do treningu
 					</button>
-					<button>Dodaj ćwiczenie do zestawu</button>
+					<button className='greenBtn'>Dodaj ćwiczenie do zestawu</button>
 
 					{data?.muscle1 && data?.muscle1?.length !== 0 && (
 						<div>

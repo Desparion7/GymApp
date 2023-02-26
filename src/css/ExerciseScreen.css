@@ -24,13 +24,16 @@
 .exerciseScreen__info-muscles {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 5px;
 }
 .exerciseScreen__info-muscles p {
 	margin: 0.5rem 0;
 }
 .exerciseScreen__info-muscles li {
 	margin-left: 20px;
+}
+.exerciseScreen__info-muscles button {
+	font-size: 0.9rem;
 }
 
 .exerciseScreen__video {

@@ -21,13 +21,13 @@ const TrainingPlansScreen = () => {
 				<div className='trainingPlansScreen__box'>
 					<div>
 						<Link to='zestaw-ogólnorozwojowy-1-3' className='trainingPlansScreen__box-name'>
-							Zestaw ogólnorozwojowy 1/3 <span>➡</span>
+							Zestaw ogólnorozwojowy nr 1 <span>➡</span>
 						</Link>
 						<Link to='/' className='trainingPlansScreen__box-name'>
-							Zestaw ogólnorozwojowy 2/3 <span>➡</span>
+							Zestaw ogólnorozwojowy nr 2 <span>➡</span>
 						</Link>
 						<Link to='/' className='trainingPlansScreen__box-name'>
-							Zestaw ogólnorozwojowy 3/3 <span>➡</span>
+							Zestaw ogólnorozwojowy nr 3 <span>➡</span>
 						</Link>
 					</div>
 					<div>

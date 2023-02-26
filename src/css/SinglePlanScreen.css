@@ -5,9 +5,11 @@
 	padding: 3rem 2rem;
 	min-height: 83vh;
 }
+.singlePlanScreen h2 {
+	margin-bottom: 1rem;
+}
 .singlePlanScreen__box {
 	width: 70%;
-	/* border-bottom: 1px solid grey; */
 }
 .singlePlanScreen__box h3 {
 	background: var(--main-background-color);
@@ -28,7 +30,19 @@
 	color: var(--text-color2);
 	font-weight: bold;
 }
-.singlePlanScreen__box-exercise-name {
+
+@media screen and (max-width: 1000px) {
+	.singlePlanScreen__box {
+		width: 100%;
+	}
 }
-.singlePlanScreen__box-exercise-repeat {
+@media screen and (max-width: 650px) {
+	.singlePlanScreen h2{
+		font-size: 1.5rem;
+	}
+	.singlePlanScreen__box-exercise {
+		flex-direction: column;
+		align-items: start;
+		border-bottom: 1px solid rgb(186, 185, 185);
+	}
 }
