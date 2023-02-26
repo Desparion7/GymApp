@@ -1,7 +1,7 @@
 import '../../css/TrainingScreen.css';
 import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import Exercise from '../exercies/Exercise';
+import Exercise from '../UI/Exercise';
 import { TabelElementType } from '../../models/trainingType';
 import {
 	useGetTrainingByIdQuery,
@@ -12,7 +12,7 @@ import {
 } from '../../app/slices/trainingApiSlice';
 import { setlastUsedTrainingId } from '../../app/api/userInfoSlice';
 import { useDispatch } from 'react-redux';
-import AddNewExercise from '../exercies/AddNewExercise';
+import AddNewExercise from '../UI/AddNewExercise';
 
 const TrainingScreen = () => {
 	const [time, setTime] = useState<string>('');

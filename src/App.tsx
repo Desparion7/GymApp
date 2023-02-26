@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Login from './auth/Login';
 import SignIn from './auth/SignIn';
-import Layout from './components/Layout';
+import Layout from './components/UI/Layout';
 import RequireAuth from './auth/RequireAuth';
 import RefreshLogin from './auth/RefreshLogin';
 import ProfileScreen from './components/screens/ProfileScreen';
@@ -20,6 +20,8 @@ import BicepsScreen from './components/exerciesCategory/BicepsScreen';
 import BellyScreen from './components/exerciesCategory/BellyScreen';
 import CalvesScreen from './components/exerciesCategory/CalvesScreen';
 import ExerciseScreen from './components/screens/ExerciseScreen';
+import TrainingPlansScreen from './components/screens/TrainingPlansScreen';
+import SinglePlanScreen from './components/screens/SinglePlanScreen';
 
 function App() {
 	return (
@@ -41,6 +43,8 @@ function App() {
 					<Route path='atlas/barki' element={<ShouldersScreen />} />
 					<Route path='atlas/łydki' element={<CalvesScreen />} />
 					<Route path='atlas/moje-ćwiczenia' element={<BackScreen />} />
+					<Route path='planytreningowe' element={<TrainingPlansScreen />} />
+					<Route path='planytreningowe/:path' element={<SinglePlanScreen />} />
 					{/* Public routes */}
 					{/* Routes after login */}
 

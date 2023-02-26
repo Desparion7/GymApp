@@ -1,5 +1,5 @@
 import '../../css/StartTrainingScreen.css';
-import OptionButton from '../../UI/OptionButton';
+import OptionButton from '../UI/OptionButton';
 import { useCreateNewTrainingMutation } from '../../app/slices/trainingApiSlice';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';

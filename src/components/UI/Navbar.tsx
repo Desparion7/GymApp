@@ -24,7 +24,7 @@ const Navbar = () => {
 							<Link to='/atlas'>Atlas ćwiczeń</Link>
 						</li>
 						<li>
-							<Link to='/'>Plany treningowe</Link>
+							<Link to='/planytreningowe'>Plany treningowe</Link>
 						</li>
 						<li>
 							<Link to='/profile'>Mój profil</Link>
@@ -53,10 +53,10 @@ const Navbar = () => {
 				<div className='navbarMobile__options animation-top-down'>
 					<ul className='navbarMobile__options-ul'>
 						<li>
-							<Link to='/'>Atlas ćwiczeń</Link>
+							<Link to='/atlas'>Atlas ćwiczeń</Link>
 						</li>
 						<li>
-							<Link to='/'>Plany treningowe</Link>
+							<Link to='/planytreningowe'>Plany treningowe</Link>
 						</li>
 						<li>
 							<Link to='/profile'>Mój profil</Link>

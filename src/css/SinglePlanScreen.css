@@ -1,0 +1,34 @@
+.singlePlanScreen {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding: 3rem 2rem;
+	min-height: 83vh;
+}
+.singlePlanScreen__box {
+	width: 70%;
+	/* border-bottom: 1px solid grey; */
+}
+.singlePlanScreen__box h3 {
+	background: var(--main-background-color);
+	padding: 0.3rem;
+}
+.singlePlanScreen__box-exercise {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0.5rem 0;
+}
+.singlePlanScreen__box-exercise a {
+	text-decoration: none;
+	color: black;
+	transition: color 0.3s font-weight 0.3s;
+}
+.singlePlanScreen__box-exercise a:hover {
+	color: var(--text-color2);
+	font-weight: bold;
+}
+.singlePlanScreen__box-exercise-name {
+}
+.singlePlanScreen__box-exercise-repeat {
+}

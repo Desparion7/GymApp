@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useLoginMutation } from '../app/slices/authApiSlice';
 import { setCredentials } from '../app/api/authSlice';
 import useAuthToken from '../hooks/useAuthToken';
-import LoadingSpinner from '../UI/LoadingSpinner';
+import LoadingSpinner from '../components/UI/LoadingSpinner';
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
