@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { stat } from 'fs';
+
 
 interface userInfoStateType {
 	lastUsedTrainingId: string | null;
@@ -7,6 +7,7 @@ interface userInfoStateType {
 	lastExercise: {
 		exerciseName: string;
 		url: string;
+		time: boolean;
 	};
 }
 

@@ -19,6 +19,7 @@ const ExerciseScreen = () => {
 			setlastExercise({
 				exerciseName: data?.exerciseName,
 				url: `${category}/${data?.url}`,
+				time: data?.time,
 			})
 		);
 		if (!username) {

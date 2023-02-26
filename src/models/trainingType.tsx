@@ -1,7 +1,7 @@
 export interface TabelElementType {
 	name?: string;
 	repeat?: number;
-	time?: number;
+	time?: boolean;
 	weight?: number;
 	url?: string;
 }

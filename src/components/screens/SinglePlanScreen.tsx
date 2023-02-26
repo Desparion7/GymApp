@@ -48,7 +48,8 @@ const SinglePlanScreen = () => {
 							) : (
 								<div>{seria.name}</div>
 							)}
-							<div>{`Powtórzenia: ${seria.repeat}`}</div>
+							{!seria.time && <div>{`Powtórzenia: ${seria.repeat}`}</div>}
+							{seria.time && <div>{`Czas w min: ${seria.repeat}`}</div>}
 						</div>
 					))}
 				</div>

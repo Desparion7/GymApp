@@ -227,6 +227,7 @@ const TrainingScreen = () => {
 												name={series.name}
 												repeat={series.repeat}
 												weight={series.weight}
+												time={series.time}
 												url={series.url}
 												onDelete={() =>
 													handleDeleteSeries(exerciseIndex, seriesIndex)

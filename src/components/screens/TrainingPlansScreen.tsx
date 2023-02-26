@@ -23,7 +23,7 @@ const TrainingPlansScreen = () => {
 						<Link to='zestaw-ogólnorozwojowy-1-3' className='trainingPlansScreen__box-name'>
 							Zestaw ogólnorozwojowy nr 1 <span>➡</span>
 						</Link>
-						<Link to='/' className='trainingPlansScreen__box-name'>
+						<Link to='zestaw-ogólnorozwojowy-2-3' className='trainingPlansScreen__box-name'>
 							Zestaw ogólnorozwojowy nr 2 <span>➡</span>
 						</Link>
 						<Link to='/' className='trainingPlansScreen__box-name'>

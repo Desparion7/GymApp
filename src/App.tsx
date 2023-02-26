@@ -7,7 +7,6 @@ import RefreshLogin from './auth/RefreshLogin';
 import ProfileScreen from './components/screens/ProfileScreen';
 import StartTrainingScreen from './components/screens/StartTrainingScreen';
 import TrainingScreen from './components/screens/TrainingScreen';
-import ExamplesTraining from './components/screens/ExamplesTraining';
 import TrainingStoryScreen from './components/screens/TrainingStoryScreen';
 import AtlasScreen from './components/screens/AtlasScreen';
 import ChestScreen from './components/exerciesCategory/ChestScreen';
@@ -52,10 +51,7 @@ function App() {
 						{/* Users routes after login */}
 						<Route path='profile' element={<ProfileScreen />} />
 						<Route path='profile/training' element={<StartTrainingScreen />} />
-						<Route
-							path='profile/training/examples'
-							element={<ExamplesTraining />}
-						/>
+					
 						<Route path='profile/history' element={<TrainingStoryScreen />} />
 						<Route path='profile/training/:id' element={<TrainingScreen />} />
 						<Route />

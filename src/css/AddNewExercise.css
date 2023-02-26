@@ -51,10 +51,19 @@
 .addNewExercise__btn:hover {
 	color: var(--text-color-hover);
 }
-
-.addNewExercise__box2 input {
-	padding: 0.5rem;
+.addNewExercise__box2-inputs {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 	width: 45%;
+	padding-top: 0.5rem;
+}
+
+.addNewExercise__box2-inputs input {
+	padding: 0.5rem;
+}
+.addNewExercise__box2-inputs label {
+	font-size: 0.9rem;
 }
 
 @media screen and (max-width: 1000px) {
@@ -71,12 +80,24 @@
 	.addNewExercise__box1-text {
 		font-size: 0.9rem;
 		margin: 1rem 0;
+		padding-left: 0.5rem;
 	}
 	.addNewExercise__btn {
 		padding: 0.3rem 0.4rem;
 		font-size: 0.8rem;
 	}
+	.addNewExercise__box2 {
+		/* justify-content: center; */
+		gap: 10px;
+	}
 	.addNewExercise__box2 input {
 		font-size: 0.8rem;
+	}
+	.addNewExercise__box2-inputs {
+		width: 100%;
+	}
+	.addNewExercise__box2-inputs div {
+		display: flex;
+		padding-left: 0.5rem;
 	}
 }

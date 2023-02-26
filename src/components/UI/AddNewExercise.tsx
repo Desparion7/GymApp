@@ -14,6 +14,7 @@ interface AddPropsType {
 const AddNewExercise = ({ trainingToUpdate, id }: AddPropsType) => {
 	const [noExerciseError, setNoExerciseError] = useState<boolean>(false);
 	const [exerciseNameInput, setExerciseNameInput] = useState<string>('');
+	const [timeCheckbox, setTimeCheckbox] = useState<boolean>(false);
 	const navigate = useNavigate();
 	const lastExercise = useSelector(lastUsedExercise);
 
@@ -32,14 +33,26 @@ const AddNewExercise = ({ trainingToUpdate, id }: AddPropsType) => {
 		if (trainingToUpdate) {
 			let newExercise;
 			if (lastExercise.exerciseName) {
-				newExercise = [
-					{
-						name: lastExercise.exerciseName,
-						repeat: 1,
-						weight: 0,
-						url: lastExercise.url,
-					},
-				];
+				if (lastExercise.time) {
+					newExercise = [
+						{
+							name: lastExercise.exerciseName,
+							repeat: 1,
+							weight: 0,
+							time: lastExercise.time,
+							url: lastExercise.url,
+						},
+					];
+				} else {
+					newExercise = [
+						{
+							name: lastExercise.exerciseName,
+							repeat: 1,
+							weight: 0,
+							url: lastExercise.url,
+						},
+					];
+				}
 			} else {
 				setNoExerciseError(true);
 				return;
@@ -48,19 +61,30 @@ const AddNewExercise = ({ trainingToUpdate, id }: AddPropsType) => {
 			updateTrainingHandler(newTraining);
 		}
 	};
+
 	//function do add new exercise from input
 	const handelAddExerciseInput = () => {
-		console.log(exerciseNameInput);
 		if (exerciseNameInput.trim().length !== 0) {
 			if (trainingToUpdate) {
 				let newExercise;
-				newExercise = [
-					{
-						name: exerciseNameInput,
-						repeat: 1,
-						weight: 0,
-					},
-				];
+				if (timeCheckbox) {
+					newExercise = [
+						{
+							name: exerciseNameInput,
+							repeat: 1,
+							weight: 0,
+							time: true,
+						},
+					];
+				} else {
+					newExercise = [
+						{
+							name: exerciseNameInput,
+							repeat: 1,
+							weight: 0,
+						},
+					];
+				}
 				//
 				setNoExerciseError(false);
 				//
@@ -103,14 +127,28 @@ const AddNewExercise = ({ trainingToUpdate, id }: AddPropsType) => {
 				<p className='errorText'>Nie wybrano żadnego ćwieczenia</p>
 			)}
 			<div className='addNewExercise__box2'>
-				<input
-					placeholder='Utwórz własne ćwiczenie'
-					type='text'
-					maxLength={50}
-					onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-						setExerciseNameInput(e.target.value);
-					}}
-				/>
+				<div className='addNewExercise__box2-inputs'>
+					<input
+						placeholder='Utwórz własne ćwiczenie'
+						type='text'
+						maxLength={50}
+						onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+							setExerciseNameInput(e.target.value);
+						}}
+					/>
+					<div>
+						<label htmlFor='timecheckbox'>Ćwiczenie czasowe</label>
+						<input
+							name='timecheckbox'
+							id='timecheckbox'
+							type='checkbox'
+							onChange={() => {
+								setTimeCheckbox(!timeCheckbox);
+							}}
+						/>
+					</div>
+				</div>
+
 				<button
 					className='addNewExercise__btn'
 					onClick={handelAddExerciseInput}

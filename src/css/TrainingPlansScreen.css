@@ -8,6 +8,10 @@
 .trainingPlansScreen__main {
 	position: relative;
 	width: 60%;
+	top: 100px;
+}
+.trainingPlansScreen__main h2 {
+	margin-bottom: 1.5rem;
 }
 .trainingPlansScreen h3 {
 	margin: 1rem 0;
@@ -48,14 +52,16 @@
 	.trainingPlansScreen__main {
 		width: 100%;
 	}
-}
-@media screen and (max-width: 950px) {
 	.trainingPlansScreen__box {
 		display: flex;
 		flex-direction: column;
 	}
 }
+
 @media screen and (max-width: 500px) {
+	.trainingPlansScreen__main {
+		top: 0;
+	}
 	.trainingPlansScreen__box a {
 		font-size: 0.9rem;
 	}

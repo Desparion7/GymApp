@@ -6,6 +6,7 @@ export interface exercisePropsType {
 	name?: string;
 	repeat?: number;
 	weight?: number;
+	time?: boolean;
 	url?: string;
 	onDelete: () => void;
 	onChangeWeight: (weightState: number) => void;
@@ -15,6 +16,7 @@ const Exercise = ({
 	name,
 	repeat,
 	weight,
+	time,
 	url,
 	onDelete,
 	onChangeWeight,
@@ -54,7 +56,8 @@ const Exercise = ({
 			)}
 			<div className='exerciesList__details'>
 				<div>
-					<label htmlFor='repeat'>Powtórzenia:</label>
+					{!time && <label htmlFor='repeat'>Powtórzenia:</label>}
+					{time && <label htmlFor='repeat'>Czas w min:</label>}
 					<input
 						className='exerciesList__repeat'
 						type='number'
