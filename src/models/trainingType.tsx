@@ -35,3 +35,10 @@ export interface trainingTypeWithID {
 	timeStart?: string;
 	timeEnd?: string;
 }
+export interface trainingSetType {
+	_id?: string;
+	user?: string;
+	trainingName: string;
+	exercise: TabelElementType[][];
+}
+

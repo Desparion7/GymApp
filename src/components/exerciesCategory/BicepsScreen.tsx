@@ -29,7 +29,7 @@ const BicepsScreen = () => {
 			</div>
 			<h3>Ćwiczenia na biceps</h3>
 			<div className='exerciesCategoryScreen__exercises'>
-				<Link to='Zginanie-przedramion-z-gryfem-łamanym-na-modlitewniku'>
+				<Link to='zginanie-przedramion-z-gryfem-łamanym-na-modlitewniku'>
 					<div className='exerciesCategoryScreen__exercise-smallbox'>
 						<h4>Zginanie przedramion z gryfem łamanym na modlitewniku</h4>
 						<div className='exerciesCategoryScreen__exercise-smallbox-img'>

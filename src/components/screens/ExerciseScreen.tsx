@@ -29,7 +29,7 @@ const ExerciseScreen = () => {
 		if (trainingId === null) {
 			navigate(`/profile`);
 		} else {
-			navigate(`/profile/training/${trainingId}`);
+			navigate(`/profile/trening/${trainingId}`);
 		}
 	};
 

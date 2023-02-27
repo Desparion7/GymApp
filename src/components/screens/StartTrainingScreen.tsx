@@ -12,7 +12,7 @@ const StartTrainingScreen = () => {
 
 	useEffect(() => {
 		if (CreatedTraining?._id) {
-			navigate(`/profile/training/${CreatedTraining._id}`);
+			navigate(`/profile/trening/${CreatedTraining._id}`);
 		}
 	}, [CreatedTraining]);
 
@@ -26,11 +26,12 @@ const StartTrainingScreen = () => {
 
 	return (
 		<div className='starttrainingScreen'>
+			<h2>Wybierz zestaw ćwiczeń</h2>
 			<div className='starttrainingScreen__options'>
 				<OptionButton
 					img={'../../img/adduser.PNG'}
 					text={'Dodaj mój zestaw ćwiczeń'}
-					path={'/profile/training'}
+					path={'/profile/moje-plany-treningowe'}
 				/>
 				<OptionButton
 					img={'../../img/addapp.PNG'}

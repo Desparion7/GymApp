@@ -15,7 +15,7 @@ const SinglePlanScreen = () => {
 
 	useEffect(() => {
 		if (CreatedTraining?._id) {
-			navigate(`/profile/training/${CreatedTraining._id}`);
+			navigate(`/profile/trening/${CreatedTraining._id}`);
 		}
 	}, [CreatedTraining]);
 

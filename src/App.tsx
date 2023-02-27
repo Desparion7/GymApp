@@ -21,6 +21,8 @@ import CalvesScreen from './components/exerciesCategory/CalvesScreen';
 import ExerciseScreen from './components/screens/ExerciseScreen';
 import TrainingPlansScreen from './components/screens/TrainingPlansScreen';
 import SinglePlanScreen from './components/screens/SinglePlanScreen';
+import MyPlansScreen from './components/screens/MyPlansScreen';
+import MyPlanScreen from './components/screens/MyPlanScreen';
 
 function App() {
 	return (
@@ -50,10 +52,19 @@ function App() {
 					<Route element={<RequireAuth />}>
 						{/* Users routes after login */}
 						<Route path='profile' element={<ProfileScreen />} />
-						<Route path='profile/training' element={<StartTrainingScreen />} />
-					
+						<Route path='profile/trening' element={<StartTrainingScreen />} />
+
 						<Route path='profile/history' element={<TrainingStoryScreen />} />
-						<Route path='profile/training/:id' element={<TrainingScreen />} />
+						<Route path='profile/trening/:id' element={<TrainingScreen />} />
+						<Route
+							path='profile/moje-plany-treningowe'
+							element={<MyPlansScreen />}
+						/>
+						<Route />
+						<Route
+							path='profile/moje-plany-treningowe/:id'
+							element={<MyPlanScreen />}
+						/>
 						<Route />
 						{/* Users routes after login */}
 						{/* Admin routes */}
@@ -71,3 +82,4 @@ function App() {
 
 export default App;
 // dodaC komunika gdy inny użytkownik próbuje wczytać nie swój plan treningowy
+// bo wybraniu ćwiczenia z atlasu przenieść użytkownika na dół treningu zeby widział że ćwiczenie jest wybrane

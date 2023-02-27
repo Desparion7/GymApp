@@ -13,27 +13,27 @@ const Profile = () => {
 				<OptionButton
 					img={'../../img/start.PNG'}
 					text={'Rozpocznij trening'}
-					path={'/profile/training'}
+					path={'/profile/trening'}
 				/>
 				<OptionButton
 					img={'../../img/sets.PNG'}
 					text={'Moje zestawy ćwiczeń'}
-					path={'/profile/training'}
+					path={'/profile/moje-plany-treningowe'}
 				/>
 				<OptionButton
 					img={'../../img/diet.PNG'}
 					text={'Moja Dieta'}
-					path={'/profile/training'}
+					path={'/profile/'}
 				/>
 				<OptionButton
 					img={'../../img/records.PNG'}
 					text={'Moje rekordy'}
-					path={'/profile/training'}
+					path={'/profile/'}
 				/>
 				<OptionButton
 					img={'../../img/gears.PNG'}
 					text={'Ustawienia konta'}
-					path={'/profile/training'}
+					path={'/profile/'}
 				/>
 			</div>
 		</section>

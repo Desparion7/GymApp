@@ -26,18 +26,18 @@ const TrainingPlansScreen = () => {
 						<Link to='zestaw-ogólnorozwojowy-2-3' className='trainingPlansScreen__box-name'>
 							Zestaw ogólnorozwojowy nr 2 <span>➡</span>
 						</Link>
-						<Link to='/' className='trainingPlansScreen__box-name'>
+						<Link to='zestaw-ogólnorozwojowy-3-3' className='trainingPlansScreen__box-name'>
 							Zestaw ogólnorozwojowy nr 3 <span>➡</span>
 						</Link>
 					</div>
 					<div>
-						<Link to='/' className='trainingPlansScreen__box-name'>
+						<Link to='zestaw-klatka-piersiowa-triceps' className='trainingPlansScreen__box-name'>
 							Zestaw klatka piersiowa i triceps <span>➡</span>
 						</Link>
-						<Link to='/' className='trainingPlansScreen__box-name'>
+						<Link to='zestaw-plecy-barki' className='trainingPlansScreen__box-name'>
 							Zestaw plecy i barki <span>➡</span>
 						</Link>
-						<Link to='/' className='trainingPlansScreen__box-name'>
+						<Link to='zestaw-nogi-biceps' className='trainingPlansScreen__box-name'>
 							Zestaw nogi i biceps <span>➡</span>
 						</Link>
 					</div>

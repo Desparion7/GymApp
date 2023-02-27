@@ -1,0 +1,65 @@
+.myPlans {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding: 3rem 2rem;
+	min-height: 83vh;
+}
+.myPlans h3 {
+	margin-top: 1rem;
+	color: rgb(49, 96, 188);
+}
+.myPlans__box {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 2rem;
+	gap: 20px;
+}
+.myPlans__box-plan,
+.myPlans__box-newplan {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	width: 250px;
+	height: 180px;
+	padding: 1rem;
+	border: 1px solid rgb(157, 157, 157);
+	border-radius: 5px;
+}
+
+.myPlans__box-plan button {
+	width: 50px;
+	height: 50px;
+	margin: 0 1.5rem;
+	border: none;
+	cursor: pointer;
+	transition: transform 0.3s;
+}
+.myPlans__box-plan button:hover,
+.myPlans__box-newplan:hover > button {
+	transform: scale(1.2);
+}
+.myPlans__box-plan img {
+	width: 50px;
+	height: 40px;
+}
+
+.myPlans__box-newplan {
+	cursor: pointer;
+}
+.myPlans__box-newplan button {
+	position: relative;
+	border: none;
+	cursor: pointer;
+	transition: transform 0.3s;
+	background: transparent;
+	width: 100px;
+	height: 90px;
+}
+.myPlans__box-newplan img {
+	width: 100px;
+	height: 90px;
+}

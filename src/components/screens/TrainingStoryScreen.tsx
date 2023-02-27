@@ -45,7 +45,7 @@ const TrainingStoryScreen = () => {
 										if (training?._id) handelRemoveTraining(training._id);
 									}}
 								/>
-								<Link to={`/profile/training/${training._id}`}>
+								<Link to={`/profile/trening/${training._id}`}>
 									<img src='../../img/edit.PNG' />
 								</Link>
 							</div>
@@ -77,7 +77,7 @@ const TrainingStoryScreen = () => {
 								{training.trainingName}
 							</div>
 							<div className='trainingStory__mobile-options'>
-								<Link to={`/profile/training/${training._id}`}>
+								<Link to={`/profile/trening/${training._id}`}>
 									<img src='../../img/edit.PNG' />
 								</Link>
 								<img
