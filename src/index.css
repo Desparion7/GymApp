@@ -4,6 +4,13 @@
 	box-sizing: border-box;
 	font-family: 'Open Sans', sans-serif;
 }
+body {
+	background: linear-gradient(
+		267deg,
+		rgba(254, 254, 254, 1) 0%,
+		rgb(250, 252, 234) 14%
+	);
+}
 
 :root {
 	--main-background-color: linear-gradient(
@@ -13,7 +20,7 @@
 		rgb(91, 174, 39) 86%
 	);
 	--text-color1: rgb(244, 243, 238);
-	--text-color2: #34a62b;
+	--text-color2: #4ec046;
 	--text-color-hover: rgb(233, 219, 19);
 }
 h2 {
@@ -51,10 +58,12 @@ h2 {
 	transition: background 0.3s;
 }
 .greenBtn {
-	background: var(--text-color2);
+	background: var(--main-background-color);
+	transition: color 0.3s background 0.3s;
 }
 .greenBtn:hover {
-	background: #2b8f24;
+	/* background: #2b8f24; */
+	color: var(--text-color-hover);
 }
 .greyBtn {
 	background: #344;

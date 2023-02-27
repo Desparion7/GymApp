@@ -36,7 +36,7 @@ const TrainingStoryScreen = () => {
 							<div className='trainingStory__tabel-tbody-time'>
 								{training.traininglength
 									? `${training.traininglength} min`
-									: ''}
+									: 'nie podano'}
 							</div>
 							<div className='trainingStory__tabel-tbody-options'>
 								<img
@@ -67,12 +67,12 @@ const TrainingStoryScreen = () => {
 									<span>
 										{training.traininglength
 											? `${training.traininglength} min`
-											: 'nie podano'}
+											: 'brak'}
 									</span>
 								</div>
 							</div>
 
-							<div className='trainingStory__mobile-box-set'>Zestaw:</div>
+							{/* <div className='trainingStory__mobile-box-set'>Zestaw:</div> */}
 							<div className='trainingStory__mobile-box-set-name'>
 								{training.trainingName}
 							</div>
