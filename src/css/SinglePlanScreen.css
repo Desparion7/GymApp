@@ -31,7 +31,7 @@
 	transition: color 0.3s font-weight 0.3s;
 }
 .singlePlanScreen__box-exercise a:hover {
-	color: var(--text-color2);
+	color: var(--text-color-hover1);
 	font-weight: bold;
 }
 

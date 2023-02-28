@@ -17,7 +17,9 @@
 	font-weight: 900;
 	letter-spacing: 2px;
 }
-
+.public__welcomeText span {
+	color: var(--text-color2);
+}
 span {
 	color: var(--text-color-hover1);
 }
@@ -103,7 +105,7 @@ span {
 	}
 }
 @media screen and (max-width: 375px) {
-	.public{
+	.public {
 		padding: 1rem 1rem;
 	}
 	.public__welcomeText h2 {

@@ -2,22 +2,18 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { lastUsedExercise } from '../../app/api/userInfoSlice';
 import { TabelElementType } from '../../models/trainingType';
-import { useUpdateTrainingMutation } from '../../app/slices/trainingApiSlice';
 import '../../css/AddNewExercise.css';
 import { useState } from 'react';
 
 interface AddPropsType {
 	trainingToUpdate: TabelElementType[][] | undefined;
-	id: string;
 	handleAddNewExercise: (
 		newTraining: TabelElementType[][],
-		id: string
 	) => Promise<void>;
 }
 
 const AddNewExercise = ({
 	trainingToUpdate,
-	id,
 	handleAddNewExercise,
 }: AddPropsType) => {
 	const [noExerciseError, setNoExerciseError] = useState<boolean>(false);
@@ -26,8 +22,8 @@ const AddNewExercise = ({
 	const navigate = useNavigate();
 	const lastExercise = useSelector(lastUsedExercise);
 
-	const updateTrainingHandler = (	newTraining: TabelElementType[][],id: string) => {
-		handleAddNewExercise(newTraining, id);
+	const updateTrainingHandler = (	newTraining: TabelElementType[][]) => {
+		handleAddNewExercise(newTraining);
 	};
 
 	//function do search for new exercise
@@ -64,7 +60,7 @@ const AddNewExercise = ({
 				return;
 			}
 			const newTraining = [...trainingToUpdate, newExercise];
-			updateTrainingHandler(newTraining, id);
+			updateTrainingHandler(newTraining);
 		}
 	};
 
@@ -95,7 +91,7 @@ const AddNewExercise = ({
 				setNoExerciseError(false);
 				//
 				const newTraining = [...trainingToUpdate, newExercise];
-				updateTrainingHandler(newTraining, id);
+				updateTrainingHandler(newTraining);
 			}
 		} else {
 			setNoExerciseError(true);

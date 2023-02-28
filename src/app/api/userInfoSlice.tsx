@@ -44,4 +44,8 @@ export const { setlastUsedTrainingId, setlastUsedSetId, setlastExercise } =
 export const lastUsedTraining = (state: any) =>
 	state.userInfo.lastUsedTrainingId;
 
+export const lastUsedSet = (state: any) =>
+	state.userInfo.lastUsedSetId;
+
 export const lastUsedExercise = (state: any) => state.userInfo.lastExercise;
+

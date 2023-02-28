@@ -10,6 +10,7 @@ const Navbar = () => {
 		username: string;
 		isAdmin: boolean;
 	};
+
 	const [sendLogout] = useSendLogoutMutation();
 
 	const content = (
@@ -33,7 +34,7 @@ const Navbar = () => {
 						)}
 						{username ? (
 							<li>
-								<Link to='/' onClick={sendLogout}>
+								<Link to='/info' onClick={sendLogout}>
 									Wyloguj się
 								</Link>
 							</li>

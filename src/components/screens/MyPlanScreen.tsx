@@ -1,18 +1,22 @@
-import '../../css/MyPlanScreen.css';
+import '../../css/TrainingScreen.css';
 import { useState, useEffect, useCallback } from 'react';
 import {
 	useGetTrainingSetByIdQuery,
 	useUpdateTrainingSetNameMutation,
 	useUpdateTrainingSetMutation,
 } from '../../app/slices/trainingSetApi';
+import { setlastUsedSetId } from '../../app/api/userInfoSlice';
 import { useParams } from 'react-router-dom';
-import Exercise from '../UI/Exercise';
+import { useDispatch } from 'react-redux';
 import { TabelElementType } from '../../models/trainingType';
+import Exercise from '../UI/Exercise';
+import AddNewExercise from '../UI/AddNewExercise';
 
 const MyPlanScreen = () => {
 	const [setName, setSetName] = useState<string>('');
 	const [changeSetName, setChangeSetName] = useState<boolean>(false);
 	const { id } = useParams() as { id: string };
+	const dispatch = useDispatch();
 
 	//trainingSetAPI slice hooks
 	const { data: trainingSet } = useGetTrainingSetByIdQuery({ id });
@@ -24,6 +28,10 @@ const MyPlanScreen = () => {
 			setSetName(trainingSet.trainingName);
 		}
 	}, [trainingSet]);
+
+	useEffect(() => {
+		dispatch(setlastUsedSetId(id));
+	}, []);
 
 	// function to update Training set name
 	const updateHandlerTrainingSetName = async () => {
@@ -96,7 +104,7 @@ const MyPlanScreen = () => {
 	);
 
 	return (
-		<section className='myPlan'>
+		<section className='trainingScreen'>
 			<h2>mój zestaw</h2>
 			<div>
 				<div className='trainingScreen__info-name'>
@@ -186,7 +194,10 @@ const MyPlanScreen = () => {
 							</div>
 						))}
 				</div>
-				{/* <AddNewExercise trainingToUpdate={training?.exercise} id={id} /> */}
+				<AddNewExercise
+					trainingToUpdate={trainingSet?.exercise}
+					handleAddNewExercise={updateTrainingHandler}
+				/>
 			</div>
 		</section>
 	);

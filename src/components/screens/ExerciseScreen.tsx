@@ -3,7 +3,11 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useGetExerciseByUrlQuery } from '../../app/slices/exercisesApiSclice';
 import useAuthToken from '../../hooks/useAuthToken';
-import { lastUsedTraining, setlastExercise } from '../../app/api/userInfoSlice';
+import {
+	lastUsedTraining,
+	setlastExercise,
+	lastUsedSet,
+} from '../../app/api/userInfoSlice';
 
 const ExerciseScreen = () => {
 	const { url, category } = useParams() as { url: string; category: string };
@@ -13,7 +17,8 @@ const ExerciseScreen = () => {
 	const dispatch = useDispatch();
 
 	const trainingId = useSelector(lastUsedTraining);
-
+	const setId = useSelector(lastUsedSet);
+	// function do add exercise to active training
 	const handelAddExerciseToTraining = () => {
 		dispatch(
 			setlastExercise({
@@ -32,6 +37,25 @@ const ExerciseScreen = () => {
 			navigate(`/profile/trening/${trainingId}`);
 		}
 	};
+	// function do add exercise to active set
+	const handelAddExerciseToSet = () => {
+		dispatch(
+			setlastExercise({
+				exerciseName: data?.exerciseName,
+				url: `${category}/${data?.url}`,
+				time: data?.time,
+			})
+		);
+		if (!username) {
+			navigate(`/`);
+			return;
+		}
+		if (setId === null) {
+			navigate(`/profile/moje-plany-treningowe`);
+		} else {
+			navigate(`/profile/moje-plany-treningowe/${setId}`);
+		}
+	};
 
 	return (
 		<div className='exerciseScreen'>
@@ -43,7 +67,9 @@ const ExerciseScreen = () => {
 					<button className='greenBtn' onClick={handelAddExerciseToTraining}>
 						Dodaj ćwiczenie do treningu
 					</button>
-					<button className='greenBtn'>Dodaj ćwiczenie do zestawu</button>
+					<button className='greenBtn' onClick={handelAddExerciseToSet}>
+						Dodaj ćwiczenie do zestawu
+					</button>
 
 					{data?.muscle1 && data?.muscle1?.length !== 0 && (
 						<div>
