@@ -41,4 +41,9 @@ export interface trainingSetType {
 	trainingName: string;
 	exercise: TabelElementType[][];
 }
-
+export interface trainingEmptySetType {
+	_id?: string;
+	user?: string;
+	trainingName: string;
+	exercise: any[];
+}

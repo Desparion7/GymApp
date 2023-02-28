@@ -5,9 +5,13 @@
 	padding: 3rem 2rem;
 	min-height: 83vh;
 }
-.myPlans h3 {
+.myPlans-info {
 	margin-top: 1rem;
 	color: rgb(49, 96, 188);
+}
+.myPlans-error {
+	margin-top: 1rem;
+	color: rgb(216, 56, 117);
 }
 .myPlans__box {
 	display: flex;
@@ -39,7 +43,7 @@
 	transition: transform 0.3s;
 }
 .myPlans__box-plan button:hover,
-.myPlans__box-newplan:hover > button {
+.myPlans__box-newplan button:hover {
 	transform: scale(1.2);
 }
 .myPlans__box-plan img {
@@ -47,9 +51,6 @@
 	height: 40px;
 }
 
-.myPlans__box-newplan {
-	cursor: pointer;
-}
 .myPlans__box-newplan button {
 	position: relative;
 	border: none;

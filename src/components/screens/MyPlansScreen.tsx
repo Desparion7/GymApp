@@ -1,18 +1,34 @@
 import '../../css/MyPlansScreen.css';
+import { useEffect } from 'react';
 import {
 	useGetAllSetsQuery,
 	useDeleteSetMutation,
+	useCreateNewSetMutation,
 } from '../../app/slices/trainingSetApi';
 import { trainingSetType } from '../../models/trainingType';
 import LoadingSpinner from '../UI/LoadingSpinner';
+import { useNavigate } from 'react-router-dom';
 
 const MyPlansScreen = () => {
-	const { data: trainingsSets, isLoading } = useGetAllSetsQuery();
+	const navigate = useNavigate();
 
-	const [deleteSet, data] = useDeleteSetMutation();
+	const { data: trainingsSets, isLoading } = useGetAllSetsQuery();
+	const [deleteSet, { isSuccess, isError }] = useDeleteSetMutation();
+	const [createNewSet, { data }] = useCreateNewSetMutation();
+
+	useEffect(() => {
+		if (data?._id) {
+			navigate(`${data?._id}`);
+		}
+	}, [data]);
 
 	const handleDeleteSet = async (id: string) => {
 		await deleteSet({ id });
+	};
+	const handleCreateNewSet = async () => {
+		const trainingName = 'Nowy zestaw';
+		const exercise = [] as any[];
+		await createNewSet({ trainingName, exercise });
 	};
 
 	return (
@@ -20,7 +36,15 @@ const MyPlansScreen = () => {
 			{isLoading && <LoadingSpinner />}
 			<h2>moje zestawy cwiczeń</h2>
 			{trainingsSets?.length === 0 && (
-				<h3>Aktualnie nie masz utworzonych zestawów ćwiczeń</h3>
+				<h3 className='myPlans-info'>
+					Aktualnie nie masz utworzonych zestawów ćwiczeń
+				</h3>
+			)}
+			{isSuccess && (
+				<h3 className='myPlans-info'>Zestaw został pomyślnie usunięty</h3>
+			)}
+			{isError && (
+				<h3 className='myPlans-error'>Nie udało się usunąć zestawu</h3>
 			)}
 			<div className='myPlans__box'>
 				{trainingsSets?.map((set: trainingSetType) => (
@@ -36,29 +60,20 @@ const MyPlansScreen = () => {
 							>
 								<img src='../../img/trash.PNG' />
 							</button>
-							<button>
+							<button
+								onClick={() => {
+									navigate(`${set?._id}`);
+								}}
+							>
 								<img src='../../img/edit.PNG' />
 							</button>
 						</div>
 					</div>
 				))}
 
-				<div className='myPlans__box-plan'>
-					<h4>
-						Trening klatki piersiowej i brzucha super extra fajny mega super
-					</h4>
-					<div>
-						<button>
-							<img src='../../img/trash.PNG' />
-						</button>
-						<button>
-							<img src='../../img/edit.PNG' />
-						</button>
-					</div>
-				</div>
 				<div className='myPlans__box-newplan'>
 					<h4>Utwórz nowy zestaw</h4>
-					<button>
+					<button onClick={handleCreateNewSet}>
 						<img src='../../img/plus.png' />
 					</button>
 				</div>

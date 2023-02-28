@@ -1,5 +1,8 @@
 import { apiSlice } from '../api/apiSlice';
-import { trainingSetType } from '../../models/trainingType';
+import {
+	trainingSetType,
+	trainingEmptySetType,
+} from '../../models/trainingType';
 
 const trainingSetApiSlice = apiSlice.injectEndpoints({
 	endpoints: (builder) => ({
@@ -9,6 +12,14 @@ const trainingSetApiSlice = apiSlice.injectEndpoints({
 				method: 'GET',
 			}),
 			providesTags: [{ type: 'Sets', id: 'LIST' }],
+		}),
+		createNewSet: builder.mutation<trainingSetType, trainingEmptySetType>({
+			query: ({ trainingName, exercise }) => ({
+				url: '/set',
+				method: 'POST',
+				body: { trainingName, exercise },
+			}),
+			invalidatesTags: [{ type: 'Sets', id: 'LIST' }],
 		}),
 		deleteSet: builder.mutation<void, { id: string }>({
 			query: ({ id }) => ({
@@ -20,4 +31,8 @@ const trainingSetApiSlice = apiSlice.injectEndpoints({
 	}),
 });
 
-export const { useGetAllSetsQuery, useDeleteSetMutation } = trainingSetApiSlice;
+export const {
+	useGetAllSetsQuery,
+	useCreateNewSetMutation,
+	useDeleteSetMutation,
+} = trainingSetApiSlice;
