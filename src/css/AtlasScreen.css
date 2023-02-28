@@ -39,5 +39,5 @@
 }
 
 .atlas__category-exerciseBox a:hover > .atlas__category-exerciseBox-title {
-	color: green;
+	color: var(--text-color2);
 }

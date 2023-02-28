@@ -45,7 +45,7 @@
 	cursor: pointer;
 	transition: color 0.3s;
 	white-space: nowrap;
-	background: var(--main-background-color);
+	background: var(--main-btn-color);
 	color: var(--text-color1);
 }
 .addNewExercise__btn:hover {

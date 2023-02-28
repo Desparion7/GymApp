@@ -59,7 +59,7 @@ const MyPlansScreen = () => {
 				<div className='myPlans__box-newplan'>
 					<h4>Utwórz nowy zestaw</h4>
 					<button>
-						<img src='../../img/plus.PNG' />
+						<img src='../../img/plus.png' />
 					</button>
 				</div>
 			</div>

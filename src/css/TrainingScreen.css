@@ -20,7 +20,7 @@
 .trainingScreen input {
 	font-size: 1rem;
 	padding: 0.2rem;
-	border: 1px solid green;
+	border: 1px solid rgb(107, 10, 177);
 	border-radius: 5px;
 }
 .trainingScreen__info {
@@ -91,7 +91,7 @@
 	border-radius: 5px;
 	cursor: pointer;
 	transition: color 0.3s;
-	background: var(--main-background-color);
+	background: var(--main-btn-color);
 	color: var(--text-color1);
 }
 .trainingScreen__exerciesList-box-btn button {

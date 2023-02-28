@@ -39,7 +39,7 @@
 	font-weight: bold;
 }
 .trainingPlansScreen__box a:hover {
-	color: var(--text-color2);
+	color: var(--text-color-hover1);
 	font-weight: bold;
 }
 

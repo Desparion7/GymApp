@@ -16,12 +16,18 @@ body {
 	--main-background-color: linear-gradient(
 		267deg,
 		rgb(43, 167, 101) 1%,
-		rgba(60, 145, 31, 1) 25%,
-		rgb(91, 174, 39) 86%
+		rgb(33, 151, 112) 25%,
+		rgb(60, 187, 132) 86%
 	);
 	--text-color1: rgb(244, 243, 238);
-	--text-color2: #4ec046;
+	--text-color2: #2a9f6c;
 	--text-color-hover: rgb(233, 219, 19);
+	--text-color-hover1: rgb(135, 29, 216);
+	--main-btn-color: linear-gradient(
+		267deg,
+		rgb(118, 13, 199) 25%,
+		rgb(159, 22, 228) 86%
+	);
 }
 h2 {
 	text-align: center;
@@ -58,11 +64,10 @@ h2 {
 	transition: background 0.3s;
 }
 .greenBtn {
-	background: var(--main-background-color);
+	background: var(--main-btn-color);
 	transition: color 0.3s background 0.3s;
 }
 .greenBtn:hover {
-	/* background: #2b8f24; */
 	color: var(--text-color-hover);
 }
 .greyBtn {

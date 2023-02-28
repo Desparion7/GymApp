@@ -12,7 +12,7 @@
 }
 .exerciesList__exercie a:hover {
 	font-weight: bold;
-	color: var(--text-color2);
+	color: var(--text-color-hover1);
 }
 .exerciesList__name {
 	display: flex;

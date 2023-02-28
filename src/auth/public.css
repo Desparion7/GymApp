@@ -19,7 +19,7 @@
 }
 
 span {
-	color: var(--text-color2);
+	color: var(--text-color-hover1);
 }
 .public__welcomeText p {
 	font-size: 1.5rem;

@@ -26,9 +26,11 @@ const Navbar = () => {
 						<li>
 							<Link to='/planytreningowe'>Plany treningowe</Link>
 						</li>
-						<li>
-							<Link to='/profile'>Mój profil</Link>
-						</li>
+						{username && (
+							<li>
+								<Link to='/profile'>Mój profil</Link>
+							</li>
+						)}
 						{username ? (
 							<li>
 								<Link to='/' onClick={sendLogout}>
@@ -58,9 +60,11 @@ const Navbar = () => {
 						<li>
 							<Link to='/planytreningowe'>Plany treningowe</Link>
 						</li>
-						<li>
-							<Link to='/profile'>Mój profil</Link>
-						</li>
+						{username && (
+							<li>
+								<Link to='/profile'>Mój profil</Link>
+							</li>
+						)}
 						{username ? (
 							<li>
 								<Link to='/' onClick={sendLogout}>
