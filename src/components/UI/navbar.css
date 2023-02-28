@@ -7,12 +7,12 @@
 	align-items: center;
 	padding: 1rem 4rem;
 	background: var(--main-background-color);
-	color: var(--text-color1);
+	color: var(--text-color-hover);
 }
 .navbar a {
 	display: block;
 	text-decoration: none;
-	color: var(--text-color1);
+	color: var(--text-color-hover);
 	transition: color 0.3s;
 }
 .navbar a:hover {
@@ -43,7 +43,7 @@
 	transition: color 0.3s;
 }
 .navbar__options-ul a:hover {
-	color: rgb(233, 219, 19);
+	color: var(--text-color-hover);
 }
 /* Mobile burger menu */
 .navbarMobile__containter {

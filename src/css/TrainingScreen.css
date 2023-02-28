@@ -33,6 +33,7 @@
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
+	text-transform: uppercase;
 }
 .trainingScreen__info-name-box {
 	display: flex;

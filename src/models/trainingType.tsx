@@ -17,6 +17,7 @@ export interface trainingEmptyType {
 	traininglength?: string;
 }
 export interface trainingType {
+	id: string;
 	_id?: string;
 	user?: string;
 	trainingName: string;
@@ -35,15 +36,24 @@ export interface trainingTypeWithID {
 	timeStart?: string;
 	timeEnd?: string;
 }
-export interface trainingSetType {
-	_id?: string;
-	user?: string;
-	trainingName: string;
-	exercise: TabelElementType[][];
-}
 export interface trainingEmptySetType {
 	_id?: string;
 	user?: string;
 	trainingName: string;
 	exercise: any[];
+}
+export interface trainingSetType {
+	id?: string;
+	_id?: string;
+	user?: string;
+	trainingName: string;
+	exercise: TabelElementType[][];
+}
+
+export interface trainingSetTypeWithID {
+	id?: string;
+	_id?: string;
+	user?: string;
+	trainingName?: string;
+	exercise?: TabelElementType[][];
 }

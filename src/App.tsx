@@ -83,3 +83,4 @@ function App() {
 export default App;
 // dodaC komunika gdy inny użytkownik próbuje wczytać nie swój plan treningowy
 // bo wybraniu ćwiczenia z atlasu przenieść użytkownika na dół treningu zeby widział że ćwiczenie jest wybrane
+//  postarać się wyeksportować funkcję zmieniające trening i zestaw zeby obsługiwały aktualizajce w dwóch miejscach
