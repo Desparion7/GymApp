@@ -85,6 +85,10 @@ const TrainingScreen = () => {
 		[training, updateTrainingHandler]
 	);
 
+	const handleAddNewExercise = async (newTraining: TabelElementType[][], id:string) => {
+		await updateTraining({ id, exercise: newTraining });
+	};
+
 	const handleAddNewSeries = useCallback(
 		(exerciseIndex: number) => {
 			if (training?.exercise) {
@@ -263,7 +267,11 @@ const TrainingScreen = () => {
 							</div>
 						))}
 				</div>
-				<AddNewExercise trainingToUpdate={training?.exercise} id={id} />
+				<AddNewExercise
+					trainingToUpdate={training?.exercise}
+					id={id}
+					handleAddNewExercise={handleAddNewExercise}
+				/>
 			</div>
 		</section>
 	);

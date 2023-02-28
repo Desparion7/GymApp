@@ -9,19 +9,25 @@ import { useState } from 'react';
 interface AddPropsType {
 	trainingToUpdate: TabelElementType[][] | undefined;
 	id: string;
+	handleAddNewExercise: (
+		newTraining: TabelElementType[][],
+		id: string
+	) => Promise<void>;
 }
 
-const AddNewExercise = ({ trainingToUpdate, id }: AddPropsType) => {
+const AddNewExercise = ({
+	trainingToUpdate,
+	id,
+	handleAddNewExercise,
+}: AddPropsType) => {
 	const [noExerciseError, setNoExerciseError] = useState<boolean>(false);
 	const [exerciseNameInput, setExerciseNameInput] = useState<string>('');
 	const [timeCheckbox, setTimeCheckbox] = useState<boolean>(false);
 	const navigate = useNavigate();
 	const lastExercise = useSelector(lastUsedExercise);
 
-	const [updateTraining, { isError, error }] = useUpdateTrainingMutation();
-
-	const updateTrainingHandler = async (newTraining: TabelElementType[][]) => {
-		await updateTraining({ id, exercise: newTraining });
+	const updateTrainingHandler = (	newTraining: TabelElementType[][],id: string) => {
+		handleAddNewExercise(newTraining, id);
 	};
 
 	//function do search for new exercise
@@ -58,7 +64,7 @@ const AddNewExercise = ({ trainingToUpdate, id }: AddPropsType) => {
 				return;
 			}
 			const newTraining = [...trainingToUpdate, newExercise];
-			updateTrainingHandler(newTraining);
+			updateTrainingHandler(newTraining, id);
 		}
 	};
 
@@ -89,7 +95,7 @@ const AddNewExercise = ({ trainingToUpdate, id }: AddPropsType) => {
 				setNoExerciseError(false);
 				//
 				const newTraining = [...trainingToUpdate, newExercise];
-				updateTrainingHandler(newTraining);
+				updateTrainingHandler(newTraining, id);
 			}
 		} else {
 			setNoExerciseError(true);
