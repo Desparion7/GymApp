@@ -8,7 +8,7 @@ const exampleTrainingApiSlice = apiSlice.injectEndpoints({
 				url: `/exampletraining/${path}`,
 				method: 'GET',
 			}),
-		}),
+		}), 
 	}),
 });
 

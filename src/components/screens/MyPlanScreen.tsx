@@ -1,12 +1,14 @@
 import '../../css/TrainingScreen.css';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import {
 	useGetTrainingSetByIdQuery,
 	useUpdateTrainingSetNameMutation,
 	useUpdateTrainingSetMutation,
 } from '../../app/slices/trainingSetApi';
+import { useCreateNewTrainingMutation } from '../../app/slices/trainingApiSlice';
+
 import { setlastUsedSetId } from '../../app/api/userInfoSlice';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { TabelElementType } from '../../models/trainingType';
 import {
@@ -24,11 +26,14 @@ const MyPlanScreen = () => {
 	const [changeSetName, setChangeSetName] = useState<boolean>(false);
 	const { id } = useParams() as { id: string };
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	//trainingSetAPI slice hooks
 	const { data: trainingSet } = useGetTrainingSetByIdQuery({ id });
 	const [updateTrainingSetName] = useUpdateTrainingSetNameMutation();
 	const [updateTrainingSet] = useUpdateTrainingSetMutation();
+	const [createNewTraining, { data: CreatedTraining }] =
+		useCreateNewTrainingMutation();
 
 	useEffect(() => {
 		if (trainingSet) {
@@ -39,6 +44,21 @@ const MyPlanScreen = () => {
 	useEffect(() => {
 		dispatch(setlastUsedSetId(id));
 	}, []);
+
+	useEffect(() => {
+		if (CreatedTraining?._id) {
+			navigate(`/profile/trening/${CreatedTraining._id}`);
+		}
+	}, [CreatedTraining]);
+
+	const handelStartNewTraining = async () => {
+		if (trainingSet) {
+			const exercise = trainingSet.exercise;
+			const trainingDate = new Date();
+			const trainingName = trainingSet?.trainingName;
+			await createNewTraining({ exercise, trainingDate, trainingName });
+		}
+	};
 
 	// function to update Training set name
 	const updateHandlerTrainingSetName = async () => {
@@ -84,6 +104,9 @@ const MyPlanScreen = () => {
 							}}
 						/>
 					)}
+					<button className='greenBtn' onClick={handelStartNewTraining}>
+						Rozpocznij trening z danym zestawem
+					</button>
 				</div>
 			</div>
 			<div className='trainingScreen__exerciesList'>

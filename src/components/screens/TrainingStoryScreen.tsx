@@ -1,17 +1,39 @@
 import '../../css/TrainingStoryScreen.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import {
 	useGetUserAllTrainingsQuery,
 	useRemoveTrainingByIdMutation,
 } from '../../app/slices/trainingApiSlice';
+import LoadingSpinner from '../UI/LoadingSpinner';
+import { Paginate } from '../UI/Paginate';
+import { useEffect } from 'react';
 
 const TrainingStoryScreen = () => {
-	const { data: trainingsList, isLoading } = useGetUserAllTrainingsQuery();
+	const params = useParams();
+	const navigate = useNavigate();
+	const pageNumber = params.pageNumber;
+
+	const { data, isLoading } = useGetUserAllTrainingsQuery(pageNumber);
+
+	const trainingsList = data?.trainings;
+	const page = data?.page;
+	const pages = data?.pages;
+
 	const [removeTrainingById] = useRemoveTrainingByIdMutation();
 
 	const handelRemoveTraining = async (id: string) => {
 		await removeTrainingById({ id });
 	};
+
+	// naviagation to before page after removed all trainigs on page
+	useEffect(() => {
+		if (pageNumber && Number(pageNumber) > 1) {
+			if (trainingsList?.length === 0) {
+				console.log('ok');
+				navigate(`/profile/history/${Number(pageNumber) - 1}`);
+			}
+		}
+	}, [trainingsList]);
 
 	return (
 		<>
@@ -26,6 +48,7 @@ const TrainingStoryScreen = () => {
 							Usuń / Edytuj
 						</div>
 					</div>
+					{isLoading && <LoadingSpinner />}
 					{trainingsList?.length === 0 && !isLoading && (
 						<p className='infoText'>Nie znaleziono żadnych treningów.</p>
 					)}
@@ -51,6 +74,7 @@ const TrainingStoryScreen = () => {
 							</div>
 						</div>
 					))}
+					{pages && page ? <Paginate pages={pages} page={page} /> : <></>}
 				</div>
 				<div className='trainingStory__mobile'>
 					{trainingsList?.map((training) => (
@@ -89,6 +113,7 @@ const TrainingStoryScreen = () => {
 							</div>
 						</div>
 					))}
+					{pages && page ? <Paginate pages={pages} page={page} /> : <></>}
 				</div>
 			</section>
 		</>

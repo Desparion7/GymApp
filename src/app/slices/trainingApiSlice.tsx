@@ -5,6 +5,12 @@ import {
 	trainingEmptyType,
 } from '../../models/trainingType';
 
+interface TrainingsAndPageType {
+	trainings: trainingType[];
+	page: number;
+	pages: number;
+}
+
 const trainingApiSlice = apiSlice.injectEndpoints({
 	endpoints: (builder) => ({
 		getTrainingById: builder.query<trainingType, { id: string }>({
@@ -14,9 +20,9 @@ const trainingApiSlice = apiSlice.injectEndpoints({
 			}),
 			providesTags: [{ type: 'Training', id: 'LIST' }],
 		}),
-		getUserAllTrainings: builder.query<trainingType[], void>({
-			query: () => ({
-				url: `/training`,
+		getUserAllTrainings: builder.query<TrainingsAndPageType, string | undefined>({
+			query: (pageParams) => ({
+				url: `/training?_page=${pageParams}`,
 				method: 'GET',
 			}),
 			providesTags: [{ type: 'Trainings', id: 'LIST' }],
@@ -87,6 +93,7 @@ const trainingApiSlice = apiSlice.injectEndpoints({
 export const {
 	useGetTrainingByIdQuery,
 	useGetUserAllTrainingsQuery,
+	// useGetUserAllTrainings2Mutation,
 	useCreateNewTrainingMutation,
 	useUpdateTrainingMutation,
 	useUpdateTrainingDataMutation,

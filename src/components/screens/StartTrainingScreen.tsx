@@ -34,12 +34,12 @@ const StartTrainingScreen = () => {
 					path={'/profile/moje-plany-treningowe'}
 				/>
 				<OptionButton
-					img={'../../img/addapp.PNG'}
+					img={'../../img/addnew.PNG'}
 					text={'Dodaj zestaw ze strony'}
 					path={'/planytreningowe'}
 				/>
 				<OptionButton
-					img={'../../img/addnew.PNG'}
+					img={'../../img/addapp.PNG'}
 					text={'Trening z dobieranymi ćwiczeniami'}
 					handelOnClick={handelStartNewTraining}
 				/>

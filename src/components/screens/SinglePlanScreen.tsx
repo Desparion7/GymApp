@@ -36,6 +36,9 @@ const SinglePlanScreen = () => {
 	return (
 		<section className='singlePlanScreen'>
 			<h2>{data?.trainingName}</h2>
+			<button className='greenBtn' onClick={handelStartNewTraining}>
+				Rozpocznij trening
+			</button>
 			{data?.exercise.map((exercise, index) => (
 				<div className='singlePlanScreen__box' key={index}>
 					<h3>{`Ćwiczenie ${index + 1}`}</h3>
@@ -54,9 +57,6 @@ const SinglePlanScreen = () => {
 					))}
 				</div>
 			))}
-			<button className='greenBtn' onClick={handelStartNewTraining}>
-				Rozpocznij trening
-			</button>
 		</section>
 	);
 };

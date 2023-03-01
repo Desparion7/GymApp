@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: 63vh;
+	min-height: 83vh;
 }
 .lds-ring {
 	display: inline-block;

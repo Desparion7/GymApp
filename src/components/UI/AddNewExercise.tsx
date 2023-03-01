@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { lastUsedExercise } from '../../app/api/userInfoSlice';
 import { TabelElementType } from '../../models/trainingType';
 import './addNewExercise.css';
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 interface AddPropsType {
 	trainingToUpdate: TabelElementType[][] | undefined;
@@ -20,9 +20,18 @@ const AddNewExercise = ({
 	const navigate = useNavigate();
 	const lastExercise = useSelector(lastUsedExercise);
 
+	const newExerciseRef = useRef<HTMLDivElement>(null);
+
 	const updateTrainingHandler = (newTraining: TabelElementType[][]) => {
 		handleAddNewExercise(newTraining);
 	};
+
+	useEffect(() => {
+		if (newExerciseRef.current) {
+			console.log('ok');
+			newExerciseRef.current.scrollIntoView();
+		}
+	}, [lastExercise]);
 
 	//function do search for new exercise
 	const handelSearchExercise = () => {
@@ -100,7 +109,10 @@ const AddNewExercise = ({
 			<div className='addNewExercise__box1'>
 				<div className='addNewExercise__box1-search'>
 					{lastExercise.exerciseName ? (
-						<div className='addNewExercise__box1-text'>
+						<div
+							className=' addNewExercise__box1-text addNewExercise__box1-text-color'
+							ref={newExerciseRef}
+						>
 							{lastExercise.exerciseName}
 						</div>
 					) : (
@@ -129,7 +141,7 @@ const AddNewExercise = ({
 			<div className='addNewExercise__box2'>
 				<div className='addNewExercise__box2-inputs'>
 					<input
-						placeholder='Utwórz własne ćwiczenie'
+						placeholder='Wprowadz swoją nazwę'
 						type='text'
 						maxLength={50}
 						onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

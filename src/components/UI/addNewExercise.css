@@ -18,9 +18,15 @@
 	display: flex;
 	align-items: center;
 }
-.addNewExercise__box1-text {
+.addNewExercise__box1-text,
+.addNewExercise__box1-text-color {
 	font-size: 1.3rem;
 	width: 100%;
+}
+.addNewExercise__box1-text-color {
+	color: var(--text-color-hover1);
+	font-weight: bold;
+
 }
 .addNewExercise__box1-search-btn {
 	margin: 0.5rem;

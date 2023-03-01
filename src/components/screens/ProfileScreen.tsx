@@ -6,14 +6,14 @@ const Profile = () => {
 		<section className='profile'>
 			<div className='profile_optionsBox'>
 				<OptionButton
-					img={'../../img/history.PNG'}
-					text={'Moje treningi'}
-					path={'/profile/history'}
-				/>
-				<OptionButton
 					img={'../../img/start.PNG'}
 					text={'Rozpocznij trening'}
 					path={'/profile/trening'}
+				/>
+				<OptionButton
+					img={'../../img/history.PNG'}
+					text={'Historia treningów'}
+					path={'/profile/history'}
 				/>
 				<OptionButton
 					img={'../../img/sets.PNG'}
