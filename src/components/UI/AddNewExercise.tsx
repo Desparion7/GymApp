@@ -2,14 +2,12 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { lastUsedExercise } from '../../app/api/userInfoSlice';
 import { TabelElementType } from '../../models/trainingType';
-import '../../css/AddNewExercise.css';
+import './addNewExercise.css';
 import { useState } from 'react';
 
 interface AddPropsType {
 	trainingToUpdate: TabelElementType[][] | undefined;
-	handleAddNewExercise: (
-		newTraining: TabelElementType[][],
-	) => Promise<void>;
+	handleAddNewExercise: (newTraining: TabelElementType[][]) => Promise<void>;
 }
 
 const AddNewExercise = ({
@@ -22,7 +20,7 @@ const AddNewExercise = ({
 	const navigate = useNavigate();
 	const lastExercise = useSelector(lastUsedExercise);
 
-	const updateTrainingHandler = (	newTraining: TabelElementType[][]) => {
+	const updateTrainingHandler = (newTraining: TabelElementType[][]) => {
 		handleAddNewExercise(newTraining);
 	};
 

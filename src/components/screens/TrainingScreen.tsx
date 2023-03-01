@@ -13,6 +13,12 @@ import {
 import { setlastUsedTrainingId } from '../../app/api/userInfoSlice';
 import { useDispatch } from 'react-redux';
 import AddNewExercise from '../UI/AddNewExercise';
+import {
+	handleDeleteSeries,
+	handleAddNewSeries,
+	handleChangeWeight,
+	handleChangeRepeat,
+} from '../../hooks/manageTraining';
 
 const TrainingScreen = () => {
 	const [time, setTime] = useState<string>('');
@@ -69,67 +75,7 @@ const TrainingScreen = () => {
 	const updateTrainingHandler = async (newTraining: TabelElementType[][]) => {
 		await updateTraining({ id, exercise: newTraining });
 	};
-	const handleDeleteSeries = useCallback(
-		(exerciseIndex: number, seriesIndex: number) => {
-			if (training?.exercise) {
-				const newTraining = [...training.exercise];
-				newTraining[exerciseIndex] = newTraining[exerciseIndex].filter(
-					(series, index) => index !== seriesIndex
-				);
-				if (newTraining[exerciseIndex].length === 0) {
-					newTraining.splice(exerciseIndex, 1);
-				}
-				updateTrainingHandler(newTraining);
-			}
-		},
-		[training, updateTrainingHandler]
-	);
 
-	const handleAddNewSeries = useCallback(
-		(exerciseIndex: number) => {
-			if (training?.exercise) {
-				const newTraining = [...training.exercise];
-				const newSeries = newTraining[exerciseIndex].slice(-1)[0];
-				const updateNewTraining = [...newTraining[exerciseIndex]];
-				updateNewTraining.push(newSeries);
-				newTraining[exerciseIndex] = updateNewTraining;
-				updateTrainingHandler(newTraining);
-			}
-		},
-		[training, updateTrainingHandler]
-	);
-
-	const handleChangeWeight = useCallback(
-		(exerciseIndex: number, seriesIndex: number, weightState: number) => {
-			if (training?.exercise) {
-				const newTraining = [...training.exercise];
-				const updateNewTraining = [...newTraining[exerciseIndex]];
-				updateNewTraining[seriesIndex] = {
-					...updateNewTraining[seriesIndex],
-					weight: weightState,
-				};
-				newTraining[exerciseIndex] = updateNewTraining;
-				updateTrainingHandler(newTraining);
-			}
-		},
-		[training, updateTrainingHandler]
-	);
-
-	const handleChangeRepeat = useCallback(
-		(exerciseIndex: number, seriesIndex: number, repeatState: number) => {
-			if (training?.exercise) {
-				const newTraining = [...training.exercise];
-				const updateNewTraining = [...newTraining[exerciseIndex]];
-				updateNewTraining[seriesIndex] = {
-					...updateNewTraining[seriesIndex],
-					repeat: repeatState,
-				};
-				newTraining[exerciseIndex] = updateNewTraining;
-				updateTrainingHandler(newTraining);
-			}
-		},
-		[training, updateTrainingHandler]
-	);
 
 	return (
 		<section className='trainingScreen'>
@@ -230,20 +176,29 @@ const TrainingScreen = () => {
 												time={series.time}
 												url={series.url}
 												onDelete={() =>
-													handleDeleteSeries(exerciseIndex, seriesIndex)
+													handleDeleteSeries(
+														exerciseIndex,
+														seriesIndex,
+														training,
+														updateTrainingHandler
+													)
 												}
 												onChangeWeight={(weightState) => {
 													handleChangeWeight(
 														exerciseIndex,
 														seriesIndex,
-														weightState
+														weightState,
+														training,
+														updateTrainingHandler
 													);
 												}}
 												onChangeRepeat={(repeatState) => {
 													handleChangeRepeat(
 														exerciseIndex,
 														seriesIndex,
-														repeatState
+														repeatState,
+														training,
+														updateTrainingHandler
 													);
 												}}
 											/>
@@ -253,7 +208,11 @@ const TrainingScreen = () => {
 									<div className='trainingScreen__exerciesList-box-btn'>
 										<button
 											onClick={() => {
-												handleAddNewSeries(exerciseIndex);
+												handleAddNewSeries(
+													exerciseIndex,
+													training,
+													updateTrainingHandler
+												);
 											}}
 										>
 											Dodaj serię

@@ -9,6 +9,13 @@ import { setlastUsedSetId } from '../../app/api/userInfoSlice';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { TabelElementType } from '../../models/trainingType';
+import {
+	handleDeleteSeries,
+	handleAddNewSeries,
+	handleChangeWeight,
+	handleChangeRepeat,
+} from '../../hooks/manageTraining';
+
 import Exercise from '../UI/Exercise';
 import AddNewExercise from '../UI/AddNewExercise';
 
@@ -41,67 +48,6 @@ const MyPlanScreen = () => {
 	const updateTrainingHandler = async (newTraining: TabelElementType[][]) => {
 		await updateTrainingSet({ id, exercise: newTraining });
 	};
-
-	const handleDeleteSeries = useCallback(
-		(exerciseIndex: number, seriesIndex: number) => {
-			if (trainingSet?.exercise) {
-				const newTraining = [...trainingSet.exercise];
-				newTraining[exerciseIndex] = newTraining[exerciseIndex].filter(
-					(series, index) => index !== seriesIndex
-				);
-				if (newTraining[exerciseIndex].length === 0) {
-					newTraining.splice(exerciseIndex, 1);
-				}
-				updateTrainingHandler(newTraining);
-			}
-		},
-		[trainingSet, updateTrainingHandler]
-	);
-
-	const handleAddNewSeries = useCallback(
-		(exerciseIndex: number) => {
-			if (trainingSet?.exercise) {
-				const newTraining = [...trainingSet.exercise];
-				const newSeries = newTraining[exerciseIndex].slice(-1)[0];
-				const updateNewTraining = [...newTraining[exerciseIndex]];
-				updateNewTraining.push(newSeries);
-				newTraining[exerciseIndex] = updateNewTraining;
-				updateTrainingHandler(newTraining);
-			}
-		},
-		[trainingSet, updateTrainingHandler]
-	);
-
-	const handleChangeWeight = useCallback(
-		(exerciseIndex: number, seriesIndex: number, weightState: number) => {
-			if (trainingSet?.exercise) {
-				const newTraining = [...trainingSet.exercise];
-				const updateNewTraining = [...newTraining[exerciseIndex]];
-				updateNewTraining[seriesIndex] = {
-					...updateNewTraining[seriesIndex],
-					weight: weightState,
-				};
-				newTraining[exerciseIndex] = updateNewTraining;
-				updateTrainingHandler(newTraining);
-			}
-		},
-		[trainingSet, updateTrainingHandler]
-	);
-	const handleChangeRepeat = useCallback(
-		(exerciseIndex: number, seriesIndex: number, repeatState: number) => {
-			if (trainingSet?.exercise) {
-				const newTraining = [...trainingSet.exercise];
-				const updateNewTraining = [...newTraining[exerciseIndex]];
-				updateNewTraining[seriesIndex] = {
-					...updateNewTraining[seriesIndex],
-					repeat: repeatState,
-				};
-				newTraining[exerciseIndex] = updateNewTraining;
-				updateTrainingHandler(newTraining);
-			}
-		},
-		[trainingSet, updateTrainingHandler]
-	);
 
 	return (
 		<section className='trainingScreen'>
@@ -161,20 +107,29 @@ const MyPlanScreen = () => {
 												time={series.time}
 												url={series.url}
 												onDelete={() =>
-													handleDeleteSeries(exerciseIndex, seriesIndex)
+													handleDeleteSeries(
+														exerciseIndex,
+														seriesIndex,
+														trainingSet,
+														updateTrainingHandler
+													)
 												}
 												onChangeWeight={(weightState) => {
 													handleChangeWeight(
 														exerciseIndex,
 														seriesIndex,
-														weightState
+														weightState,
+														trainingSet,
+														updateTrainingHandler
 													);
 												}}
 												onChangeRepeat={(repeatState) => {
 													handleChangeRepeat(
 														exerciseIndex,
 														seriesIndex,
-														repeatState
+														repeatState,
+														trainingSet,
+														updateTrainingHandler
 													);
 												}}
 											/>
@@ -184,7 +139,11 @@ const MyPlanScreen = () => {
 									<div className='trainingScreen__exerciesList-box-btn'>
 										<button
 											onClick={() => {
-												handleAddNewSeries(exerciseIndex);
+												handleAddNewSeries(
+													exerciseIndex,
+													trainingSet,
+													updateTrainingHandler
+												);
 											}}
 										>
 											Dodaj serię
