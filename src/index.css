@@ -87,5 +87,6 @@ h2 {
 	}
 	.infoText {
 		text-align: center;
+		margin: 0.5rem 0;
 	}
 }

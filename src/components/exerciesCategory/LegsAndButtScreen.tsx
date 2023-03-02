@@ -32,39 +32,39 @@ const LegsAndButtScreen = () => {
 			</div>
 			<h3>Ćwiczenia na mięśnie dwugłowe/pośladki</h3>
 			<div className='exerciesCategoryScreen__exercises'>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Klasyczny martwy ciąg</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='klasyczny-martwy-ciąg'>
+				<Link to='klasyczny-martwy-ciąg'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Klasyczny martwy ciąg</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/legsB-1.PNG'
 								alt='klasyczny martwy ciąg'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Unoszenie bioder ze sztangą w oparciu o ławeczkę</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='unoszenie-bioder-ze-sztangą-w-oparciu-o-ławeczkę'>
+				</Link>
+				<Link to='unoszenie-bioder-ze-sztangą-w-oparciu-o-ławeczkę'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Unoszenie bioder ze sztangą w oparciu o ławeczkę</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/legsB-2.PNG'
 								alt='Unoszenie bioder ze sztangą w oparciu o ławeczkę'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Odwodzenie nóg na maszynie</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='odwodzenie-nóg-na-maszynie'>
+				</Link>
+				<Link to='odwodzenie-nóg-na-maszynie'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Odwodzenie nóg na maszynie</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/legsB-3.PNG'
 								alt='Odwodzenie nóg na maszynie'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
+				</Link>
 			</div>
 		</div>
 	);

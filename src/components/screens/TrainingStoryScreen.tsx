@@ -6,9 +6,12 @@ import {
 } from '../../app/slices/trainingApiSlice';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import { Paginate } from '../UI/Paginate';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Modal from '../UI/Modal';
 
 const TrainingStoryScreen = () => {
+	const [showModal, setShowModal] = useState(false);
+	const [modalProductID, setModalProductID] = useState('');
 	const params = useParams();
 	const navigate = useNavigate();
 	const pageNumber = params.pageNumber;
@@ -21,15 +24,19 @@ const TrainingStoryScreen = () => {
 
 	const [removeTrainingById] = useRemoveTrainingByIdMutation();
 
+	// function used with modal to remove training
 	const handelRemoveTraining = async (id: string) => {
 		await removeTrainingById({ id });
+		setShowModal(false);
+	};
+	const closeModalHandler = () => {
+		setShowModal(false);
 	};
 
 	// naviagation to before page after removed all trainigs on page
 	useEffect(() => {
 		if (pageNumber && Number(pageNumber) > 1) {
 			if (trainingsList?.length === 0) {
-				console.log('ok');
 				navigate(`/profile/history/${Number(pageNumber) - 1}`);
 			}
 		}
@@ -37,6 +44,19 @@ const TrainingStoryScreen = () => {
 
 	return (
 		<>
+			{showModal && (
+				<Modal
+					modalTitle={'Usuwanie treningu'}
+					modalText={
+						'Czy chcesz usunąc dany trening. Zmiana jest nieodwracalna.'
+					}
+					rightBtn={handelRemoveTraining}
+					rightBtnText={'Tak'}
+					leftBtn={closeModalHandler}
+					leftBtnText={'Anuluj'}
+					id={modalProductID}
+				></Modal>
+			)}
 			<section className='trainingStory'>
 				<h2>Historia moich treningów</h2>
 				<div className='trainingStory__table'>
@@ -65,7 +85,8 @@ const TrainingStoryScreen = () => {
 								<img
 									src='../../img/trash.PNG'
 									onClick={() => {
-										if (training?._id) handelRemoveTraining(training._id);
+										if (training?._id) setModalProductID(training?._id);
+										setShowModal(true);
 									}}
 								/>
 								<Link to={`/profile/trening/${training._id}`}>
@@ -95,8 +116,6 @@ const TrainingStoryScreen = () => {
 									</span>
 								</div>
 							</div>
-
-							{/* <div className='trainingStory__mobile-box-set'>Zestaw:</div> */}
 							<div className='trainingStory__mobile-box-set-name'>
 								{training.trainingName}
 							</div>
@@ -107,7 +126,8 @@ const TrainingStoryScreen = () => {
 								<img
 									src='../../img/trash.PNG'
 									onClick={() => {
-										if (training?._id) handelRemoveTraining(training._id);
+										if (training?._id) setModalProductID(training?._id);
+										setShowModal(true);
 									}}
 								/>
 							</div>

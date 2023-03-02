@@ -1,37 +1,23 @@
 import '../../css/TrainingScreen.css';
 import { useState, useEffect } from 'react';
-import {
-	useGetTrainingSetByIdQuery,
-	useUpdateTrainingSetNameMutation,
-	useUpdateTrainingSetMutation,
-} from '../../app/slices/trainingSetApi';
+import { useGetTrainingSetByIdQuery } from '../../app/slices/trainingSetApi';
 import { useCreateNewTrainingMutation } from '../../app/slices/trainingApiSlice';
 
 import { setlastUsedSetId } from '../../app/api/userInfoSlice';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { TabelElementType } from '../../models/trainingType';
-import {
-	handleDeleteSeries,
-	handleAddNewSeries,
-	handleChangeWeight,
-	handleChangeRepeat,
-} from '../../hooks/manageTraining';
 
-import Exercise from '../UI/Exercise';
-import AddNewExercise from '../UI/AddNewExercise';
+import ExerciseStatic from '../UI/ExerciseStatic';
 
 const MyPlanScreen = () => {
 	const [setName, setSetName] = useState<string>('');
-	const [changeSetName, setChangeSetName] = useState<boolean>(false);
 	const { id } = useParams() as { id: string };
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	//trainingSetAPI slice hooks
 	const { data: trainingSet } = useGetTrainingSetByIdQuery({ id });
-	const [updateTrainingSetName] = useUpdateTrainingSetNameMutation();
-	const [updateTrainingSet] = useUpdateTrainingSetMutation();
 	const [createNewTraining, { data: CreatedTraining }] =
 		useCreateNewTrainingMutation();
 
@@ -60,15 +46,6 @@ const MyPlanScreen = () => {
 		}
 	};
 
-	// function to update Training set name
-	const updateHandlerTrainingSetName = async () => {
-		await updateTrainingSetName({ id, trainingName: setName });
-	};
-	// function to update Training set exercises
-	const updateTrainingHandler = async (newTraining: TabelElementType[][]) => {
-		await updateTrainingSet({ id, exercise: newTraining });
-	};
-
 	return (
 		<section className='trainingScreen'>
 			<h2>mój zestaw</h2>
@@ -76,36 +53,18 @@ const MyPlanScreen = () => {
 				<div className='trainingScreen__info-name'>
 					<div className='trainingScreen__info-name-box'>
 						<p>{setName}</p>
-						<img
-							src='../../img/edit.PNG'
-							title='zmień nazwę'
-							onClick={() => setChangeSetName(!changeSetName)}
-						/>
 					</div>
-					{changeSetName && (
-						<input
-							type='text'
-							id='trainingName-input'
-							name='trainingName-input'
-							maxLength={50}
-							value={setName}
-							onChange={(e) => {
-								setSetName(e.target.value);
-							}}
-							onBlur={() => {
-								updateHandlerTrainingSetName();
-								setChangeSetName(false);
-							}}
-							onKeyDown={(e) => {
-								if (e.key === 'Enter') {
-									updateHandlerTrainingSetName();
-									setChangeSetName(false);
-								}
-							}}
-						/>
-					)}
+
 					<button className='greenBtn' onClick={handelStartNewTraining}>
 						Rozpocznij trening z danym zestawem
+					</button>
+					<button
+						className='greenBtn'
+						onClick={() => {
+							navigate(`/profile/moje-plany-treningowe/${id}-edit`);
+						}}
+					>
+						Edytuj zestaw
 					</button>
 				</div>
 			</div>
@@ -122,64 +81,19 @@ const MyPlanScreen = () => {
 									exercise.length > 0 &&
 									exercise.map(
 										(series: TabelElementType, seriesIndex: number) => (
-											<Exercise
+											<ExerciseStatic
 												key={seriesIndex}
 												name={series.name}
 												repeat={series.repeat}
 												weight={series.weight}
 												time={series.time}
 												url={series.url}
-												onDelete={() =>
-													handleDeleteSeries(
-														exerciseIndex,
-														seriesIndex,
-														trainingSet,
-														updateTrainingHandler
-													)
-												}
-												onChangeWeight={(weightState) => {
-													handleChangeWeight(
-														exerciseIndex,
-														seriesIndex,
-														weightState,
-														trainingSet,
-														updateTrainingHandler
-													);
-												}}
-												onChangeRepeat={(repeatState) => {
-													handleChangeRepeat(
-														exerciseIndex,
-														seriesIndex,
-														repeatState,
-														trainingSet,
-														updateTrainingHandler
-													);
-												}}
 											/>
 										)
 									)}
-								{exercise?.length > 0 && (
-									<div className='trainingScreen__exerciesList-box-btn'>
-										<button
-											onClick={() => {
-												handleAddNewSeries(
-													exerciseIndex,
-													trainingSet,
-													updateTrainingHandler
-												);
-											}}
-										>
-											Dodaj serię
-										</button>
-									</div>
-								)}
 							</div>
 						))}
 				</div>
-				<AddNewExercise
-					trainingToUpdate={trainingSet?.exercise}
-					handleAddNewExercise={updateTrainingHandler}
-				/>
 			</div>
 		</section>
 	);

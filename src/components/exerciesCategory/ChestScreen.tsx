@@ -29,83 +29,83 @@ const ChestScreen = () => {
 			</div>
 			<h3>Ćwiczenia na klatke piersiową</h3>
 			<div className='exerciesCategoryScreen__exercises'>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Wyciskanie sztangi na ławce płaskiej</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='wyciskanie-sztangi-na-ławce-płaskiej'>
+				<Link to='wyciskanie-sztangi-na-ławce-płaskiej'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Wyciskanie sztangi na ławce płaskiej</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/chest-1.PNG'
 								alt='Wyciskanie sztangi na ławce płaskiej'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Wyciskanie sztangi na ławce skośnej głową w dół</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='wyciskanie-sztangi-na-ławce-skośnej-głową-w-dół'>
+				</Link>
+				<Link to='wyciskanie-sztangi-na-ławce-skośnej-głową-w-dół'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Wyciskanie sztangi na ławce skośnej głową w dół</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/chest-2.PNG'
 								alt='Wyciskanie sztangi na ławce skośnej głową w dół'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Wyciskanie sztangi na ławce dodatniej 30-45°</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='wyciskanie-sztangi-na-ławce-dodatniej-30-45°'>
+				</Link>
+				<Link to='wyciskanie-sztangi-na-ławce-dodatniej-30-45°'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Wyciskanie sztangi na ławce dodatniej 30-45°</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/chest-3.PNG'
 								alt='Wyciskanie sztangi na ławce dodatniej 30-45°'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Wyciskanie hantelek na ławce płaskiej</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='wyciskanie-hantelek-na-ławce-płaskiej'>
+				</Link>
+				<Link to='wyciskanie-hantelek-na-ławce-płaskiej'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Wyciskanie hantelek na ławce płaskiej</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/chest-4.PNG'
 								alt='Wyciskanie hantelek na ławce płaskiej'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Wyciskanie hantelek na ławce dodatniej 30-45°</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='wyciskanie-hantelek-na-ławce-dodatniej-30-45°'>
+				</Link>
+				<Link to='wyciskanie-hantelek-na-ławce-dodatniej-30-45°'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Wyciskanie hantelek na ławce dodatniej 30-45°</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/chest-5.PNG'
 								alt='Wyciskanie hantelek na ławce dodatniej 30-45°'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Wyciskanie hantelek na ławce skośnej głową w dół</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='wyciskanie-hantelek-na-ławce-skośnej-głową-w-dół'>
+				</Link>
+				<Link to='wyciskanie-hantelek-na-ławce-skośnej-głową-w-dół'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Wyciskanie hantelek na ławce skośnej głową w dół</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/chest-6.PNG'
 								alt='Wyciskanie hantelek na ławce skośnej głową w dół'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Rozpiętki z wykorzystaniem wyciągu dolnego</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='rozpiętki-z-wykorzystaniem-wyciągu-dolnego'>
+				</Link>
+				<Link to='rozpiętki-z-wykorzystaniem-wyciągu-dolnego'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Rozpiętki z wykorzystaniem wyciągu dolnego</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/chest-7.PNG'
 								alt='Rozpiętki z wykorzystaniem wyciągu dolnego'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
+				</Link>
 			</div>
 		</div>
 	);

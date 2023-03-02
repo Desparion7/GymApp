@@ -29,39 +29,39 @@ const LegsScreen = () => {
 			</div>
 			<h3>Ćwiczenia na mięśnie nóg</h3>
 			<div className='exerciesCategoryScreen__exercises'>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Przysiad wykroczny z hantlami</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='przysiad-wykroczny-z-hantlami'>
+				<Link to='przysiad-wykroczny-z-hantlami'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Przysiad wykroczny z hantlami</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/legs-1.PNG'
 								alt='Przysiad wykroczny z hantlami'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Przysiad ze sztangą trzymaną na plecach</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='przysiad-ze-sztangą-trzymaną-na-plecach'>
+				</Link>
+				<Link to='przysiad-ze-sztangą-trzymaną-na-plecach'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Przysiad ze sztangą trzymaną na plecach</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/legs-2.PNG'
 								alt='Przysiad ze sztangą trzymaną na plecach'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Przysiad ze sztangą trzymaną z przodu</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='przysiad-ze-sztangą-trzymaną-z-przodu'>
+				</Link>
+				<Link to='przysiad-ze-sztangą-trzymaną-z-przodu'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Przysiad ze sztangą trzymaną z przodu</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/legs-3.PNG'
 								alt='Przysiad ze sztangą trzymaną na barkach'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
+				</Link>
 			</div>
 		</div>
 	);

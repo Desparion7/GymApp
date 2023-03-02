@@ -19,11 +19,13 @@ import TricepsScreen from './components/exerciesCategory/TricepsScreen';
 import BicepsScreen from './components/exerciesCategory/BicepsScreen';
 import BellyScreen from './components/exerciesCategory/BellyScreen';
 import CalvesScreen from './components/exerciesCategory/CalvesScreen';
+import CategoryScreen from './components/exerciesCategory/CategoryScreen';
 import ExerciseScreen from './components/screens/ExerciseScreen';
 import TrainingPlansScreen from './components/screens/TrainingPlansScreen';
 import SinglePlanScreen from './components/screens/SinglePlanScreen';
 import MyPlansScreen from './components/screens/MyPlansScreen';
 import MyPlanScreen from './components/screens/MyPlanScreen';
+import MyPlanScreenEdit from './components/screens/MyPlanScreenEdit';
 
 function App() {
 	return (
@@ -45,7 +47,7 @@ function App() {
 					<Route path='atlas/triceps' element={<TricepsScreen />} />
 					<Route path='atlas/barki' element={<ShouldersScreen />} />
 					<Route path='atlas/łydki' element={<CalvesScreen />} />
-					<Route path='atlas/moje-ćwiczenia' element={<BackScreen />} />
+					<Route path='atlas/moje-ćwiczenia' element={<CategoryScreen />} />
 					<Route path='planytreningowe' element={<TrainingPlansScreen />} />
 					<Route path='planytreningowe/:path' element={<SinglePlanScreen />} />
 					{/* Public routes */}
@@ -57,7 +59,10 @@ function App() {
 						<Route path='profile/trening' element={<StartTrainingScreen />} />
 
 						<Route path='profile/history' element={<TrainingStoryScreen />} />
-						<Route path='profile/history/:pageNumber' element={<TrainingStoryScreen />} />
+						<Route
+							path='profile/history/:pageNumber'
+							element={<TrainingStoryScreen />}
+						/>
 						<Route path='profile/trening/:id' element={<TrainingScreen />} />
 						<Route
 							path='profile/moje-plany-treningowe'
@@ -67,6 +72,11 @@ function App() {
 						<Route
 							path='profile/moje-plany-treningowe/:id'
 							element={<MyPlanScreen />}
+						/>
+						<Route />
+						<Route
+							path='profile/moje-plany-treningowe/:id-edit'
+							element={<MyPlanScreenEdit />}
 						/>
 						<Route />
 						{/* Users routes after login */}

@@ -28,39 +28,39 @@ const BackScreen = () => {
 			</div>
 			<h3>Ćwiczenia na plecy</h3>
 			<div className='exerciesCategoryScreen__exercises'>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Podciąganie na drążku trzymanym nachwytem</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='podciąganie-na-drążku-trzymanym-nachwytem'>
+				<Link to='podciąganie-na-drążku-trzymanym-nachwytem'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Podciąganie na drążku trzymanym nachwytem</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/back-1.PNG'
 								alt='Podciąganie na drążku trzymanym nachwytem'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Wiosłowanie sztangą opadzie tułowia</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='wiosłowanie-sztangą-w-opadzie-tułowia'>
+				</Link>
+				<Link to='wiosłowanie-sztangą-w-opadzie-tułowia'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Wiosłowanie sztangą opadzie tułowia</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/back-2.PNG'
 								alt='Wiosłowanie sztangą opadzie tułowia'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Wiosłowanie hantlą podpartym na ławeczce</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='wiosłowanie-hantlą-podpartym-na-ławeczce'>
+				</Link>
+				<Link to='wiosłowanie-hantlą-podpartym-na-ławeczce'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Wiosłowanie hantlą podpartym na ławeczce</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/back-3.PNG'
 								alt='Wiosłowanie hantlą podpartym na ławeczce'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
+				</Link>
 			</div>
 		</div>
 	);

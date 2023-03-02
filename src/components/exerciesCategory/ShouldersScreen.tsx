@@ -31,61 +31,61 @@ const ShouldersScreen = () => {
 			</div>
 			<h3>Ćwiczenia na barki</h3>
 			<div className='exerciesCategoryScreen__exercises'>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Wyciskanie sztangi nad głowę</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='wyciskanie-sztangi-nad-głowę'>
+				<Link to='wyciskanie-sztangi-nad-głowę'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Wyciskanie sztangi nad głowę</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/shoulders-1.PNG'
 								alt='Wyciskanie sztangi nad głowę'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Wyciskanie hantli nad głowę siedząc</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='wyciskanie-hantli-nad-głowę-siedząc'>
+				</Link>
+				<Link to='wyciskanie-hantli-nad-głowę-siedząc'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Wyciskanie hantli nad głowę siedząc</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/shoulders-2.PNG'
 								alt='Wyciskanie hantli nad głowę siedząc'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Odwodzenie ramion w bok ze sztangielkami</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='odwodzenie-ramion-w-bok-ze-sztangielkami'>
+				</Link>
+				<Link to='odwodzenie-ramion-w-bok-ze-sztangielkami'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Odwodzenie ramion w bok ze sztangielkami</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/shoulders-3.PNG'
 								alt='Odwodzenie ramion w bok ze sztangielkami'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Przyciąganie liny z wyciągu do twarzy (Face pull)</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='przyciąganie-liny-z-wyciągu-do-twarzy-(Face pull)'>
+				</Link>
+				<Link to='przyciąganie-liny-z-wyciągu-do-twarzy-(Face pull)'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Przyciąganie liny z wyciągu do twarzy (Face pull)</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/shoulders-4.PNG'
 								alt='Przyciąganie liny z wyciągu do twarzy (Face pull)'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
-				<div className='exerciesCategoryScreen__exercise-smallbox'>
-					<h4>Naprzemianstronne unoszenie ramion w przód ze sztangielkami</h4>
-					<div className='exerciesCategoryScreen__exercise-smallbox-img'>
-						<Link to='naprzemianstronne-unoszenie-ramion-w-przód-ze-sztangielkami'>
+				</Link>
+				<Link to='naprzemianstronne-unoszenie-ramion-w-przód-ze-sztangielkami'>
+					<div className='exerciesCategoryScreen__exercise-smallbox'>
+						<h4>Naprzemianstronne unoszenie ramion w przód ze sztangielkami</h4>
+						<div className='exerciesCategoryScreen__exercise-smallbox-img'>
 							<img
 								src='../../img/photo/exercise/shoulders-5.PNG'
 								alt='Naprzemianstronne unoszenie ramion w przód ze sztangielkami'
 							/>
-						</Link>
+						</div>
 					</div>
-				</div>
+				</Link>
 			</div>
 		</div>
 	);

@@ -29,7 +29,6 @@ const userInfoSlice = createSlice({
 			state.lastUsedSetId = setId;
 		},
 		setlastExercise(state, action) {
-			// console.log(action.payload);
 			const lastExercise = action.payload;
 			state.lastExercise = lastExercise;
 		},

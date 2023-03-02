@@ -18,7 +18,7 @@ const MyPlansScreen = () => {
 
 	useEffect(() => {
 		if (data?._id) {
-			navigate(`${data?._id}`);
+			navigate(`${data?._id}-edit`);
 		}
 	}, [data]);
 
@@ -71,7 +71,7 @@ const MyPlansScreen = () => {
 							</button>
 							<button
 								onClick={() => {
-									navigate(`${set?._id}`);
+									navigate(`${set?._id}-edit`);
 								}}
 								title='edytuj'
 							>
