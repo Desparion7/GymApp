@@ -19,6 +19,7 @@ import {
 	handleChangeWeight,
 	handleChangeRepeat,
 } from '../../hooks/manageTraining';
+import ModalSpinner from '../UI/ModalSpinner';
 
 const TrainingScreen = () => {
 	const [time, setTime] = useState<string>('');
@@ -33,10 +34,13 @@ const TrainingScreen = () => {
 
 	//trainingAPI slice hooks
 	const { data: training } = useGetTrainingByIdQuery({ id });
-	const [updateTrainingData] = useUpdateTrainingDataMutation();
-	const [updateTraining, { isError }] = useUpdateTrainingMutation();
-	const [updateTrainingName] = useUpdateTrainingNameMutation();
-	const [updateTrainingTime] = useUpdateTrainingTimeMutation();
+	const [updateTrainingData, { isLoading: loadingData }] =
+		useUpdateTrainingDataMutation();
+	const [updateTraining, { isError, isLoading }] = useUpdateTrainingMutation();
+	const [updateTrainingName, { isLoading: loadingName }] =
+		useUpdateTrainingNameMutation();
+	const [updateTrainingTime, { isLoading: loadingTime }] =
+		useUpdateTrainingTimeMutation();
 
 	useEffect(() => {
 		if (training) {
@@ -76,9 +80,11 @@ const TrainingScreen = () => {
 		await updateTraining({ id, exercise: newTraining });
 	};
 
-
 	return (
 		<section className='trainingScreen'>
+			{(isLoading || loadingName || loadingTime || loadingData) && (
+				<ModalSpinner />
+			)}
 			<h2>Przebieg treningu</h2>
 			<div className='trainingScreen__info'>
 				<div className='trainingScreen__info-name'>

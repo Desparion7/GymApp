@@ -8,6 +8,7 @@ import LoadingSpinner from '../UI/LoadingSpinner';
 import { Paginate } from '../UI/Paginate';
 import { useEffect, useState } from 'react';
 import Modal from '../UI/Modal';
+import ModalSpinner from '../UI/ModalSpinner';
 
 const TrainingStoryScreen = () => {
 	const [showModal, setShowModal] = useState(false);
@@ -22,12 +23,13 @@ const TrainingStoryScreen = () => {
 	const page = data?.page;
 	const pages = data?.pages;
 
-	const [removeTrainingById] = useRemoveTrainingByIdMutation();
+	const [removeTrainingById, { isLoading: removeLoading }] =
+		useRemoveTrainingByIdMutation();
 
 	// function used with modal to remove training
 	const handelRemoveTraining = async (id: string) => {
-		await removeTrainingById({ id });
 		setShowModal(false);
+		await removeTrainingById({ id });
 	};
 	const closeModalHandler = () => {
 		setShowModal(false);
@@ -44,6 +46,7 @@ const TrainingStoryScreen = () => {
 
 	return (
 		<>
+			{removeLoading && <ModalSpinner />}
 			{showModal && (
 				<Modal
 					modalTitle={'Usuwanie treningu'}

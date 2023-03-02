@@ -11,7 +11,7 @@ interface modalPropsType {
 	id: string;
 }
 
-const Backdrop = () => {
+export const Backdrop = () => {
 	return <div className='backdrop'></div>;
 };
 

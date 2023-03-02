@@ -43,6 +43,7 @@
 	margin: 0 0.5rem;
 	border: none;
 	cursor: pointer;
+	background:transparent;
 	transition: transform 0.3s;
 }
 .myPlans__box-plan button:hover,
