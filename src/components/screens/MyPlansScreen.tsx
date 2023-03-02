@@ -67,7 +67,7 @@ const MyPlansScreen = () => {
 								}}
 								title='rozpocznij'
 							>
-								<img src='../../img/plus.png' />
+								<img src='../../img/plus.PNG' />
 							</button>
 							<button
 								onClick={() => {
@@ -84,7 +84,7 @@ const MyPlansScreen = () => {
 				<div className='myPlans__box-newplan'>
 					<h4>Utwórz nowy zestaw</h4>
 					<button onClick={handleCreateNewSet}>
-						<img src='../../img/plus.png' />
+						<img src='../../img/plus.PNG' />
 					</button>
 				</div>
 			</div>
