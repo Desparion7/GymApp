@@ -6,6 +6,7 @@
 	min-height: 83vh;
 }
 .myPlans-info {
+	text-align: center;
 	margin-top: 1rem;
 	color: rgb(49, 96, 188);
 }

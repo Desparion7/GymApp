@@ -5,7 +5,7 @@ import { RootState } from '../store';
 // http://localhost:3000
 
 const baseQuery = fetchBaseQuery({
-	baseUrl: 'https://calm-jade-sturgeon-boot.cyclic.app',
+	baseUrl: 'http://localhost:3000',
 	credentials: 'include',
 	prepareHeaders: (headers, { getState }) => {
 		const token = (getState() as RootState).auth.token;

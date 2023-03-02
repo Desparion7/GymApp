@@ -1,6 +1,7 @@
 import './exercise.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useRef } from 'react';
 
 export interface exercisePropsType {
 	name?: string;
@@ -24,6 +25,20 @@ const Exercise = ({
 }: exercisePropsType) => {
 	const [repeatState, setRepeatState] = useState<number | undefined>(repeat);
 	const [weightState, setWeightState] = useState<number | undefined>(weight);
+
+	const inputRefRepeat = useRef<HTMLInputElement>(null);
+	const inputRefWeight = useRef<HTMLInputElement>(null);
+
+	const handleInputRepeat = () => {
+		if (inputRefRepeat.current) {
+			inputRefRepeat.current.select();
+		}
+	};
+	const handleInputWeight = () => {
+		if (inputRefWeight.current) {
+			inputRefWeight.current.select();
+		}
+	};
 
 	const handelWeightState = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setWeightState(Number(e.target.value));
@@ -65,6 +80,8 @@ const Exercise = ({
 						value={repeatState}
 						onChange={handelRepeatState}
 						onBlur={handelOnBlureRepeat}
+						onClick={handleInputRepeat}
+						ref={inputRefRepeat}
 						max='999'
 					></input>
 				</div>
@@ -77,6 +94,8 @@ const Exercise = ({
 						name='weight'
 						value={weightState}
 						onChange={handelWeightState}
+						onClick={handleInputWeight}
+						ref={inputRefWeight}
 						max='999'
 						onBlur={handelOnBlureWeight}
 					></input>
