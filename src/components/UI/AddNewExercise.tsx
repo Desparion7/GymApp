@@ -28,7 +28,6 @@ const AddNewExercise = ({
 
 	useEffect(() => {
 		if (newExerciseRef.current) {
-			console.log('ok');
 			newExerciseRef.current.scrollIntoView();
 		}
 	}, [lastExercise]);

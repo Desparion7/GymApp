@@ -24,7 +24,6 @@ export const Paginate = ({ page, pages }: propsType) => {
 				pageCount={pages}
 				forcePage={page - 1}
 				previousLabel={<i className='fa-solid fa-chevron-left'></i>}
-				// renderOnZeroPageCount={null}
 				containerClassName={'pagination-container'}
 				activeClassName={'active-page'}
 			/>
