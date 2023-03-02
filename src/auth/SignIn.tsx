@@ -4,6 +4,7 @@ import { useAddNewUserMutation } from '../app/slices/usersApiSlice';
 import { Response } from '../models/respondType';
 import { Link, useNavigate } from 'react-router-dom';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
+import useAuthToken from '../hooks/useAuthToken';
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const passwordRegex =
@@ -11,6 +12,8 @@ const passwordRegex =
 
 const SignIn = () => {
 	const [addNewUser, { isLoading }] = useAddNewUserMutation();
+
+	const { username: activeUserName } = useAuthToken();
 
 	const [username, setUsername] = useState('');
 	const [userNameError, setUserNameError] = useState(false);
@@ -36,10 +39,10 @@ const SignIn = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (username) {
+		if (activeUserName) {
 			navigate('/profile');
 		}
-	}, [username]);
+	}, [activeUserName]);
 
 	useEffect(() => {}, [serverErrorMessage]);
 
