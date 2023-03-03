@@ -53,7 +53,7 @@ const ExerciseScreen = () => {
 		if (setId === null) {
 			navigate(`/profile/moje-plany-treningowe`);
 		} else {
-			navigate(`/profile/moje-plany-treningowe/${setId}`);
+			navigate(`/profile/moje-plany-treningowe/${setId}-edit`);
 		}
 	};
 

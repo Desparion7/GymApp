@@ -15,9 +15,9 @@ body {
 :root {
 	--main-background-color: linear-gradient(
 		267deg,
-		rgb(43, 167, 101) 1%,
-		rgb(33, 151, 112) 25%,
-		rgb(60, 187, 132) 86%
+		rgb(28, 115, 69) 1%,
+		rgb(6, 119, 81) 25%,
+		rgb(39, 130, 91) 86%
 	);
 	--text-color1: rgb(244, 243, 238);
 	--text-color2: #2a9f6c;
@@ -25,8 +25,8 @@ body {
 	--text-color-hover1: rgb(135, 29, 216);
 	--main-btn-color: linear-gradient(
 		267deg,
-		rgb(118, 13, 199) 25%,
-		rgb(159, 22, 228) 86%
+		rgb(96, 15, 157) 25%,
+		rgb(102, 30, 137) 86%
 	);
 }
 h2 {
