@@ -20,9 +20,9 @@ const Navbar = () => {
 					setMenu(false);
 			}
 		};
-		let handleScroll=()=> {
+		let handleScroll = () => {
 			setMenu(false);
-		  }
+		};
 		document.addEventListener('mousedown', handler);
 		window.addEventListener('scroll', handleScroll);
 
@@ -39,6 +39,7 @@ const Navbar = () => {
 				<Link to='/'>
 					<h1>Menadżer Treningu</h1>
 				</Link>
+
 				<div className='navbar__options'>
 					<ul className='navbar__options-ul'>
 						<li>

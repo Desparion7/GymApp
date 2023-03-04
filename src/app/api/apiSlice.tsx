@@ -11,7 +11,7 @@ import {
 // http://localhost:3000
 
 const baseQuery = fetchBaseQuery({
-	baseUrl: 'https://calm-jade-sturgeon-boot.cyclic.app/',
+	baseUrl: 'http://localhost:3000',
 	credentials: 'include',
 	prepareHeaders: (headers, { getState }) => {
 		const token = (getState() as RootState).auth.token;
@@ -64,6 +64,6 @@ const baseQueryWithReauth: BaseQueryFn<
 export const apiSlice = createApi({
 	reducerPath: 'api', // optional
 	baseQuery: baseQueryWithReauth,
-	tagTypes: ['Users', 'Training', 'Trainings', 'Sets', 'Set'],
+	tagTypes: ['Users', 'Training', 'Trainings', 'Sets', 'Set', 'Records'],
 	endpoints: (builder) => ({}),
 });

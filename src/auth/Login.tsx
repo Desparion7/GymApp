@@ -81,10 +81,33 @@ const Login = () => {
 			}
 		}
 	};
-	const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
-		e.preventDefault();
+	const handleSubmit = () => {
 		checkInputs();
 		sendRequest();
+	};
+	const sendDemoRequest = async () => {
+		try {
+			const { accessToken } = await login({
+				username: 'User',
+				password:'user123$',
+			}).unwrap();
+			dispatch(setCredentials({ accessToken }));
+
+			navigate('/profile');
+		} catch (err: any) {
+			if (err.status === 'FETCH_ERROR') {
+				setErrMsg('Brak odpowiedzi servera');
+			} else if (err.status === 400) {
+				setErrMsg('Brak loginu lub hasła');
+			} else if (err.status === 401) {
+				setErrMsg('Niepoprawny login lub hasło');
+			} else {
+				setErrMsg(err.data?.message);
+			}
+		}
+	};
+	const handleDemo = () => {
+		sendDemoRequest();
 	};
 
 	return (
@@ -125,6 +148,9 @@ const Login = () => {
 
 						<button className='greenBtn' onClick={handleSubmit}>
 							Zaloguj się
+						</button>
+						<button className='greenBtn' onClick={handleDemo}>
+							Demo
 						</button>
 					</form>
 					<div className='public__publicBox-retrievePassword'>

@@ -26,6 +26,7 @@ import SinglePlanScreen from './components/screens/SinglePlanScreen';
 import MyPlansScreen from './components/screens/MyPlansScreen';
 import MyPlanScreen from './components/screens/MyPlanScreen';
 import MyPlanScreenEdit from './components/screens/MyPlanScreenEdit';
+import MyRecordsScreen from './components/screens/MyRecordsScreen';
 
 function App() {
 	return (
@@ -78,6 +79,7 @@ function App() {
 							path='profile/moje-plany-treningowe/:id-edit'
 							element={<MyPlanScreenEdit />}
 						/>
+						<Route path='profile/moje-rekordy' element={<MyRecordsScreen />} />
 						<Route />
 						{/* Users routes after login */}
 						{/* Admin routes */}
