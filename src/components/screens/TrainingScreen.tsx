@@ -1,5 +1,5 @@
 import '../../css/TrainingScreen.css';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import Exercise from '../UI/Exercise';
 import { TabelElementType } from '../../models/trainingType';

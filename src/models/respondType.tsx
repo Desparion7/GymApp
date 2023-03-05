@@ -9,9 +9,15 @@ export interface Response {
 		message: string;
 	};
 }
+
+export interface ResponseType {
+	message?: string;
+	error?: string;
+}
 export interface TokenType {
 	UserInfo: {
 		username: string;
 		isAdmin: boolean;
+		email: string;
 	};
 }

@@ -27,6 +27,7 @@ import MyPlansScreen from './components/screens/MyPlansScreen';
 import MyPlanScreen from './components/screens/MyPlanScreen';
 import MyPlanScreenEdit from './components/screens/MyPlanScreenEdit';
 import MyRecordsScreen from './components/screens/MyRecordsScreen';
+import AccountOptionsScreen from './components/screens/AccountOptionsScreen';
 
 function App() {
 	return (
@@ -80,7 +81,7 @@ function App() {
 							element={<MyPlanScreenEdit />}
 						/>
 						<Route path='profile/moje-rekordy' element={<MyRecordsScreen />} />
-						<Route />
+						<Route path='profile/options' element={<AccountOptionsScreen />} />
 						{/* Users routes after login */}
 						{/* Admin routes */}
 						<Route />

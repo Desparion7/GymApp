@@ -1,0 +1,86 @@
+.accountOptionsScreen {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding: 3rem 2rem;
+	min-height: 83vh;
+	text-align: center;
+}
+.accountOptionsScreen h3 {
+	margin: 1rem 0;
+}
+.accountOptionsScreen-manageBox,
+.accountOptionsScreen-manageBox2 {
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 2rem;
+	width: 350px;
+	border: 1px solid rgb(123, 123, 123);
+	border-radius: 5px;
+}
+.accountOptionsScreen-manageBox2 {
+	height: 330px;
+}
+.accountOptionsScreen-manageBox-title {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	top: 0;
+	height: 70px;
+	width: 100%;
+	font-size: 1.3rem;
+	background: var(--text-color2);
+	color: var(--text-color1);
+}
+.accountOptionsScreen-manageBox-inputs {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 1rem 2rem;
+	text-align: start;
+}
+.accountOptionsScreen-manageBox-inputs label {
+	margin: 0.4rem 0;
+}
+.accountOptionsScreen-manageBox-inputs input {
+	padding: 0.2rem;
+	font-size: 1rem;
+	width: 300px;
+}
+.accountOptionsScreen-manageBox-inputs p {
+	font-size: 0.8rem;
+	text-align: center;
+	margin-top: 0.5rem;
+}
+.accountOptionsScreen-manageBox-inputs button {
+	margin-top: 1rem;
+}
+.inputError {
+	border: 2px solid rgb(216, 67, 67);
+}
+.accountOptionsScreen-errorText,
+.accountOptionsScreen-infoText {
+	margin-top: 1rem;
+	font-size: 1.1rem;
+}
+.accountOptionsScreen-infoText {
+	color: rgb(47, 47, 184);
+}
+.accountOptionsScreen-errorText {
+	color: rgb(227, 20, 20);
+}
+
+@media screen and (max-width: 500px) {
+	.accountOptionsScreen-manageBox,
+	.accountOptionsScreen-manageBox2 {
+		width: 300px;
+	}
+	.accountOptionsScreen-manageBox-inputs input {
+		width: 250px;
+	}
+}

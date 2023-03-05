@@ -8,3 +8,9 @@ export interface LoginUser {
 	username?: string;
 	email?: string;
 }
+
+export interface updateUserType {
+	password: string;
+	newPassword?: string;
+	newEmail?: string;
+}

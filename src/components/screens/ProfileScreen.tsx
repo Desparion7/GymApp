@@ -26,11 +26,6 @@ const Profile = () => {
 					text={'Moje zestawy ćwiczeń'}
 					path={'/profile/moje-plany-treningowe'}
 				/>
-				{/* <OptionButton
-					img={'../../img/diet.PNG'}
-					text={'Moja Dieta'}
-					path={'/profile/'}
-				/> */}
 				<OptionButton
 					img={'../../img/records.PNG'}
 					text={'Moje rekordy'}
@@ -39,7 +34,7 @@ const Profile = () => {
 				<OptionButton
 					img={'../../img/gears.PNG'}
 					text={'Ustawienia konta'}
-					path={'/profile/'}
+					path={'/profile/options'}
 				/>
 			</div>
 		</section>

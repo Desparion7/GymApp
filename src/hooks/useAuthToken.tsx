@@ -11,11 +11,11 @@ const useAuthToken = () => {
 	if (token) {
 		const decoded = jwtDecode(token) as TokenType;
 
-		const { username, isAdmin } = decoded.UserInfo;
+		const { username, isAdmin, email } = decoded.UserInfo;
 
-		return { username, isAdmin };
+		return { username, isAdmin, email };
 	}
-	return { username: '', isAdmin };
+	return { username: '', email: '', isAdmin };
 };
 
 export default useAuthToken;
