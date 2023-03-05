@@ -51,7 +51,7 @@ const TrainingStoryScreen = () => {
 				<Modal
 					modalTitle={'Usuwanie treningu'}
 					modalText={
-						'Czy chcesz usunąc dany trening. Zmiana jest nieodwracalna.'
+						'Czy chcesz usunąc dany trening? Zmiana jest nieodwracalna.'
 					}
 					rightBtn={handelRemoveTraining}
 					rightBtnText={'Tak'}

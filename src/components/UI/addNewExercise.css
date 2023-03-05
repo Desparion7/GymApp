@@ -14,31 +14,31 @@
 .addNewExercise__box1 {
 	border-bottom: 1px solid rgb(193, 193, 193);
 }
-.addNewExercise__box1-search {
+.addNewExercise__box2-search {
 	display: flex;
 	align-items: center;
 }
-.addNewExercise__box1-text,
-.addNewExercise__box1-text-color {
+.addNewExercise__box2-text,
+.addNewExercise__box2-text-color {
 	font-size: 1.3rem;
 	width: 100%;
 }
-.addNewExercise__box1-text-color {
+.addNewExercise__box2-text-color {
 	color: var(--text-color-hover1);
 	font-weight: bold;
 
 }
-.addNewExercise__box1-search-btn {
+.addNewExercise__box2-search-btn {
 	margin: 0.5rem;
 	background: transparent;
 	border: none;
 }
-.addNewExercise__box1-search-btn img {
+.addNewExercise__box2-search-btn img {
 	width: 40px;
 	cursor: pointer;
 	transition: transform 0.3s;
 }
-.addNewExercise__box1-search-btn img:hover {
+.addNewExercise__box2-search-btn img:hover {
 	transform: scale(1.1);
 }
 .addNewExercise__btn {
@@ -57,7 +57,7 @@
 .addNewExercise__btn:hover {
 	color: var(--text-color-hover);
 }
-.addNewExercise__box2-inputs {
+.addNewExercise__box1-inputs {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
@@ -65,25 +65,25 @@
 	padding-top: 0.5rem;
 }
 
-.addNewExercise__box2-inputs input {
+.addNewExercise__box1-inputs input {
 	padding: 0.5rem;
 }
-.addNewExercise__box2-inputs label {
+.addNewExercise__box1-inputs label {
 	font-size: 0.9rem;
 }
 
 @media screen and (max-width: 1000px) {
-	.addNewExercise__box1-text {
+	.addNewExercise__box2-text {
 		font-size: 1.2rem;
 	}
 }
 @media screen and (max-width: 700px) {
-	.addNewExercise__box1-text {
+	.addNewExercise__box2-text {
 		font-size: 1rem;
 	}
 }
 @media screen and (max-width: 500px) {
-	.addNewExercise__box1-text {
+	.addNewExercise__box2-text {
 		font-size: 0.9rem;
 		margin: 1rem 0;
 		padding-left: 0.5rem;
@@ -92,17 +92,16 @@
 		padding: 0.3rem 0.4rem;
 		font-size: 0.8rem;
 	}
-	.addNewExercise__box2 {
-		/* justify-content: center; */
+	.addNewExercise__box1 {
 		gap: 10px;
 	}
-	.addNewExercise__box2 input {
+	.addNewExercise__box1 input {
 		font-size: 0.8rem;
 	}
-	.addNewExercise__box2-inputs {
+	.addNewExercise__box1-inputs {
 		width: 100%;
 	}
-	.addNewExercise__box2-inputs div {
+	.addNewExercise__box1-inputs div {
 		display: flex;
 		padding-left: 0.5rem;
 	}

@@ -106,39 +106,7 @@ const AddNewExercise = ({
 	return (
 		<div className='addNewExercise'>
 			<div className='addNewExercise__box1'>
-				<div className='addNewExercise__box1-search'>
-					{lastExercise.exerciseName ? (
-						<div
-							className=' addNewExercise__box1-text addNewExercise__box1-text-color'
-							ref={newExerciseRef}
-						>
-							{lastExercise.exerciseName}
-						</div>
-					) : (
-						<div className='addNewExercise__box1-text'>
-							Wyszukaj ćwiczenie w atlasie
-						</div>
-					)}{' '}
-					<button
-						onClick={handelSearchExercise}
-						className='addNewExercise__box1-search-btn'
-					>
-						<img
-							src='../../img/search.PNG'
-							alt='lupka'
-							title='wyszukaj ćwiczenie'
-						/>
-					</button>
-				</div>
-				<button className='addNewExercise__btn' onClick={handelAddExercise}>
-					Dodaj Ćwiczenie
-				</button>
-			</div>
-			{noExerciseError && (
-				<p className='errorText'>Nie wybrano żadnego ćwieczenia</p>
-			)}
-			<div className='addNewExercise__box2'>
-				<div className='addNewExercise__box2-inputs'>
+				<div className='addNewExercise__box1-inputs'>
 					<input
 						placeholder='Wprowadz swoją nazwę'
 						type='text'
@@ -164,6 +132,39 @@ const AddNewExercise = ({
 					className='addNewExercise__btn'
 					onClick={handelAddExerciseInput}
 				>
+					Dodaj Ćwiczenie
+				</button>
+			</div>
+
+			{noExerciseError && (
+				<p className='errorText'>Nie wybrano żadnego ćwieczenia</p>
+			)}
+			<div className='addNewExercise__box2'>
+				<div className='addNewExercise__box2-search'>
+					{lastExercise.exerciseName ? (
+						<div
+							className=' addNewExercise__box2-text addNewExercise__box2-text-color'
+							ref={newExerciseRef}
+						>
+							{lastExercise.exerciseName}
+						</div>
+					) : (
+						<div className='addNewExercise__box2-text'>
+							Wyszukaj ćwiczenie w atlasie
+						</div>
+					)}{' '}
+					<button
+						onClick={handelSearchExercise}
+						className='addNewExercise__box2-search-btn'
+					>
+						<img
+							src='../../img/search.PNG'
+							alt='lupka'
+							title='wyszukaj ćwiczenie'
+						/>
+					</button>
+				</div>
+				<button className='addNewExercise__btn' onClick={handelAddExercise}>
 					Dodaj Ćwiczenie
 				</button>
 			</div>

@@ -8,7 +8,7 @@
 .myRecordsScreen-box {
 	display: flex;
 	margin-top: 2rem;
-    justify-content: center;
+	justify-content: center;
 	flex-wrap: wrap;
 	gap: 30px;
 }
@@ -38,13 +38,30 @@
 	background: var(--text-color2);
 	color: var(--text-color1);
 }
-.myRecordsScreen-box-record-amount {
+
+.myRecordsScreen-box-record-amount,
+.myRecordsScreen-box-record-input {
 	position: absolute;
 	font-size: 1.2rem;
 	font-weight: bold;
 	bottom: 80px;
 }
-.myRecordsScreen-box-record button {
+.myRecordsScreen-box-record-input {
+	text-align: center;
+	width: 60%;
+	padding: 0.2rem;
+	border-radius: 5px;
+	border: 1px solid green;
+}
+.myRecordsScreen-box-record-name input {
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-align: center;
+}
+
+.myRecordsScreen-box-record-btns {
+	display: flex;
+	gap: 25px;
 	position: absolute;
 	bottom: 10px;
 }
