@@ -72,17 +72,41 @@
 	margin: 0.5rem 0;
 	margin-bottom: 1rem;
 }
+.trainingScreen__exerciesList-box-title {
+	display: flex;
+	justify-content: space-between;
+	border-radius: 5px;
+	background: var(--main-background-color);
+}
 .trainingScreen__exerciesList-box h3 {
 	font-size: 1.2rem;
 	letter-spacing: 2px;
 	text-align: center;
 	text-transform: uppercase;
-	margin: 0.5rem 0;
 	padding: 0.3rem;
-	border-radius: 5px;
-	background: var(--main-background-color);
-	color:white;
+	color: white;
 	font-weight: normal;
+}
+.trainingScreen__exerciesList-box-title-btn {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-right: 0.5rem;
+}
+.trainingScreen__exerciesList-box-title-btn button {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}
+.trainingScreen__exerciesList-box-title-btn i {
+	color: white;
+	font-size: 1.2rem;
+	margin: 0.2rem;
+	padding: 0.3rem;
+	transition: 0.3s;
+}
+.trainingScreen__exerciesList-box-title-btn i:hover {
+	color: var(--text-color-hover1);
 }
 .trainingScreen__exerciesList-box-btn {
 	text-align: end;

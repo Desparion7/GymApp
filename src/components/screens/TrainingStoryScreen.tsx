@@ -123,9 +123,6 @@ const TrainingStoryScreen = () => {
 								{training.trainingName}
 							</div>
 							<div className='trainingStory__mobile-options'>
-								<Link to={`/profile/trening/${training._id}`}>
-									<img src='../../img/edit.PNG' />
-								</Link>
 								<img
 									src='../../img/trash.PNG'
 									onClick={() => {
@@ -133,6 +130,9 @@ const TrainingStoryScreen = () => {
 										setShowModal(true);
 									}}
 								/>
+								<Link to={`/profile/trening/${training._id}`}>
+									<img src='../../img/edit.PNG' />
+								</Link>
 							</div>
 						</div>
 					))}

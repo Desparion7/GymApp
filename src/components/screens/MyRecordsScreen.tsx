@@ -6,20 +6,26 @@ import {
 import LoadingSpinner from '../UI/LoadingSpinner';
 import ModalSpinner from '../UI/ModalSpinner';
 import SingleRecord from '../UI/SingleRecord';
-import { useRef } from 'react';
+import { useState } from 'react';
 
 const MyRecordsScreen = () => {
+	const [newRecordName, setNewRecordName] = useState('');
+	const [newRecordValue, setNewRecordValue] = useState('');
+	const [addRecordError, setAddRecordError] = useState(false);
+
 	const { data, isLoading } = useGetAllRecordsQuery();
 	const [newRecord, { isLoading: newRecordLoading }] = useNewRecordMutation();
 
-	const newRecordNameRef = useRef<HTMLInputElement>(null);
-	const newRecordValueRef = useRef<HTMLInputElement>(null);
-
 	const handlerNewRecord = async () => {
-		if (newRecordNameRef.current?.value && newRecordValueRef.current?.value) {
-			const recordName = newRecordNameRef.current.value;
-			const recordAmount = newRecordValueRef.current.value;
+		if (newRecordName !== '' && newRecordValue !== '') {
+			const recordName = newRecordName;
+			const recordAmount = newRecordValue;
 			await newRecord({ recordName, recordAmount });
+			setAddRecordError(false);
+			setNewRecordName('');
+			setNewRecordValue('');
+		} else {
+			setAddRecordError(true);
 		}
 	};
 
@@ -43,15 +49,25 @@ const MyRecordsScreen = () => {
 						<input
 							className='myRecordsScreen-box-record-name-input'
 							type='text'
-							placeholder='Nowy'
-							ref={newRecordNameRef}
+							placeholder='Nazwa'
+							value={newRecordName}
+							onChange={(e) => {
+								setNewRecordName(e.target.value);
+							}}
 						/>
 					</div>
 					<input
 						className='myRecordsScreen-box-record-input'
 						type='text'
-						ref={newRecordValueRef}
+						placeholder='wynik'
+						value={newRecordValue}
+						onChange={(e) => {
+							setNewRecordValue(e.target.value);
+						}}
 					/>
+					{addRecordError && (
+						<p className='errorText'>Uzupełnij wszystkie pola</p>
+					)}
 					<div className='myRecordsScreen-box-record-btns'>
 						<button className='btn' title='Dodaj' onClick={handlerNewRecord}>
 							<img src='../../img/plus.PNG' alt='dodaj plus' />

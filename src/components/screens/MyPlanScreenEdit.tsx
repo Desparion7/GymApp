@@ -17,7 +17,7 @@ import {
 	handleChangeWeight,
 	handleChangeRepeat,
 } from '../../hooks/manageTraining';
-
+import ChangeExercisePosition from '../UI/ChangeExercisePosition';
 import Exercise from '../UI/Exercise';
 import AddNewExercise from '../UI/AddNewExercise';
 import ModalSpinner from '../UI/ModalSpinner';
@@ -126,7 +126,16 @@ const MyPlanScreenEdit = () => {
 									className='trainingScreen__exerciesList-box'
 									key={exerciseIndex}
 								>
-									<h3>{`Ćwiczenie ${exerciseIndex + 1}`}</h3>
+									<div className='trainingScreen__exerciesList-box-title'>
+										<h3>{`Ćwiczenie ${exerciseIndex + 1}`}</h3>
+										<div className='trainingScreen__exerciesList-box-title-btn'>
+											<ChangeExercisePosition
+												exerciseIndex={exerciseIndex}
+												training={trainingSet}
+												updateTrainingHandler={updateTrainingHandler}
+											/>
+										</div>
+									</div>
 									{exercise &&
 										exercise.length > 0 &&
 										exercise.map(

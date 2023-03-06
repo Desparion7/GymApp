@@ -1,5 +1,5 @@
 import '../../css/TrainingScreen.css';
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Exercise from '../UI/Exercise';
 import { TabelElementType } from '../../models/trainingType';
@@ -18,8 +18,10 @@ import {
 	handleAddNewSeries,
 	handleChangeWeight,
 	handleChangeRepeat,
+	handleChangeCheck,
 } from '../../hooks/manageTraining';
 import ModalSpinner from '../UI/ModalSpinner';
+import ChangeExercisePosition from '../UI/ChangeExercisePosition';
 
 const TrainingScreen = () => {
 	const [time, setTime] = useState<string>('');
@@ -169,7 +171,16 @@ const TrainingScreen = () => {
 								className='trainingScreen__exerciesList-box'
 								key={exerciseIndex}
 							>
-								<h3>{`Ćwiczenie ${exerciseIndex + 1}`}</h3>
+								<div className='trainingScreen__exerciesList-box-title'>
+									<h3>{`Ćwiczenie ${exerciseIndex + 1}`}</h3>
+									<div className='trainingScreen__exerciesList-box-title-btn'>
+										<ChangeExercisePosition
+											exerciseIndex={exerciseIndex}
+											training={training}
+											updateTrainingHandler={updateTrainingHandler}
+										/>
+									</div>
+								</div>
 								{exercise &&
 									exercise.length > 0 &&
 									exercise.map(
@@ -181,6 +192,8 @@ const TrainingScreen = () => {
 												weight={series.weight}
 												time={series.time}
 												url={series.url}
+												check={series.check}
+												isTraining={true}
 												onDelete={() =>
 													handleDeleteSeries(
 														exerciseIndex,
@@ -203,6 +216,15 @@ const TrainingScreen = () => {
 														exerciseIndex,
 														seriesIndex,
 														repeatState,
+														training,
+														updateTrainingHandler
+													);
+												}}
+												onChangeCheck={(checkState) => {
+													handleChangeCheck(
+														exerciseIndex,
+														seriesIndex,
+														checkState,
 														training,
 														updateTrainingHandler
 													);

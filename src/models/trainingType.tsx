@@ -1,9 +1,10 @@
 export interface TabelElementType {
 	name?: string;
-	repeat?: number;
+	repeat?: number | string;
 	time?: boolean;
-	weight?: number;
+	weight?: number | string;
 	url?: string;
+	check?:boolean
 }
 
 export interface trainingEmptyType {

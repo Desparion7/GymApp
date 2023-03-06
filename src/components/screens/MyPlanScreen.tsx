@@ -76,7 +76,9 @@ const MyPlanScreen = () => {
 								className='trainingScreen__exerciesList-box'
 								key={exerciseIndex}
 							>
-								<h3>{`Ćwiczenie ${exerciseIndex + 1}`}</h3>
+								<div className='trainingScreen__exerciesList-box-title'>
+									<h3>{`Ćwiczenie ${exerciseIndex + 1}`}</h3>
+								</div>
 								{exercise &&
 									exercise.length > 0 &&
 									exercise.map(

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 export interface exercisePropsType {
 	name?: string;
-	repeat?: number;
-	weight?: number;
+	repeat?: number | string;
+	weight?: number | string;
 	time?: boolean;
 	url?: string;
 }

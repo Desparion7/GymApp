@@ -6,7 +6,7 @@ interface modalPropsType {
 	modalText: string;
 	leftBtn: () => void;
 	leftBtnText: string;
-	rightBtn: (id: string) => Promise<void>;
+	rightBtn: ((id: string) => Promise<void>) | (() => void);
 	rightBtnText: string;
 	id: string;
 }

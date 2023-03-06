@@ -24,20 +24,28 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: start;
-	gap: 10px;
+	align-items: end;
+	gap: 5px;
 	width: 40%;
 }
+
 .exerciesList__details label {
 	font-size: 1rem;
-	padding-top: 0.5rem;
+	padding-top: 0.4rem;
 }
 .exerciesList__details input {
-	width: 55px;
+	width: 40px;
 	height: 30px;
+	text-align: center;
 	font-size: 1rem;
-	padding-left: 0.5rem;
 	margin-top: 0.2rem;
+	margin-bottom: 0.3rem;
 }
+.exerciesList__details input[type='number']::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
 .exerciesList__exercie-removeBtn {
 	border: none;
 	background: transparent;
@@ -66,5 +74,16 @@
 	.exerciesList__details {
 		width: 100%;
 		padding: 0 0.3rem;
+	}
+}
+@media screen and (max-width: 414px) {
+	.exerciesList__details label{
+		font-size: 0.9rem;
+	}
+	.exerciesList__details-box {
+		display: flex;
+	}
+	.exerciesList__details-box label{
+		padding-right: 0.3rem;
 	}
 }
