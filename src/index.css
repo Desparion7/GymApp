@@ -79,6 +79,7 @@ h2 {
 }
 .btn {
 	border: none;
+	background: transparent;
 	transition: transform 0.3s;
 	margin: 0.5rem;
 }

@@ -31,7 +31,9 @@ const Exercise = ({
 	isTraining,
 }: exercisePropsType) => {
 	const [repeatState, setRepeatState] = useState<string | number>('');
-	const [weightState, setWeightState] = useState<string | number>('');
+	const [weightState, setWeightState] = useState<string | number | undefined>(
+		weight
+	);
 	const [checkState, setCheckState] = useState<boolean>(false);
 	const [showModal, setShowModal] = useState(false);
 
@@ -48,7 +50,7 @@ const Exercise = ({
 		if (check === false || check === true) {
 			setCheckState(check);
 		}
-	}, [check]);
+	}, [check, weight, repeat]);
 
 	const handleInputRepeat = () => {
 		if (inputRefRepeat.current) {
@@ -88,6 +90,7 @@ const Exercise = ({
 	const closeModalHandler = () => {
 		setShowModal(false);
 	};
+
 	return (
 		<>
 			{' '}
