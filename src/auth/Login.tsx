@@ -1,10 +1,10 @@
 import './public.css';
-import { MouseEvent } from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useLoginMutation } from '../app/slices/authApiSlice';
 import { setCredentials } from '../app/api/authSlice';
+import { GoogleLogin } from '@react-oauth/google';
 import useAuthToken from '../hooks/useAuthToken';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
 
@@ -89,7 +89,7 @@ const Login = () => {
 		try {
 			const { accessToken } = await login({
 				username: 'User',
-				password:'user123$',
+				password: 'user123$',
 			}).unwrap();
 			dispatch(setCredentials({ accessToken }));
 
@@ -108,6 +108,24 @@ const Login = () => {
 	};
 	const handleDemo = () => {
 		sendDemoRequest();
+	};
+	const handleloginByGoogle = async (credentialResponse: any) => {
+		try {
+			const { accessToken } = await login({
+				credential: credentialResponse,
+			}).unwrap();
+			dispatch(setCredentials({ accessToken }));
+		} catch (err: any) {
+			if (err.status === 'FETCH_ERROR') {
+				setErrMsg('Brak odpowiedzi servera');
+			} else if (err.status === 400) {
+				setErrMsg('Brak loginu lub hasła');
+			} else if (err.status === 401) {
+				setErrMsg('Niepoprawny login lub hasło');
+			} else {
+				setErrMsg(err.data?.message);
+			}
+		}
 	};
 
 	return (
@@ -152,6 +170,14 @@ const Login = () => {
 						<button className='greenBtn' onClick={handleDemo}>
 							Demo
 						</button>
+						<GoogleLogin
+							onSuccess={(credentialResponse) => {
+								handleloginByGoogle(credentialResponse.credential);
+							}}
+							onError={() => {
+								setErrMsg('Logowanie za pomocą gmail nie powiodło się');
+							}}
+						/>
 					</form>
 					<div className='public__publicBox-retrievePassword'>
 						Nie pamiętasz hasła?
@@ -160,7 +186,7 @@ const Login = () => {
 					<button
 						className='greyBtn'
 						onClick={() => {
-							navigate('/signin');
+							navigate('/signup');
 						}}
 					>
 						Utwórz nowe konto

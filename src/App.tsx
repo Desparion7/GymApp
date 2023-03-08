@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Login from './auth/Login';
-import SignIn from './auth/SignIn';
+import SignUp from './auth/SignUp';
 import InfoScreen from './auth/InfoScreen';
 import Layout from './components/UI/Layout';
 import RequireAuth from './auth/RequireAuth';
@@ -35,7 +35,7 @@ function App() {
 			<Route path='/' element={<Layout />}>
 				{/* Public routes */}
 				<Route index element={<Login />} />
-				<Route path='signin' element={<SignIn />} />
+				<Route path='signup' element={<SignUp />} />
 				<Route path='info' element={<InfoScreen />} />
 				<Route element={<RefreshLogin />}>
 					<Route path='atlas' element={<AtlasScreen />} />

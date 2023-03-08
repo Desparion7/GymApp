@@ -4,9 +4,10 @@ export interface User {
 	password: string;
 }
 export interface LoginUser {
-	password: string;
+	password?: string;
 	username?: string;
 	email?: string;
+	credential?: string;
 }
 
 export interface updateUserType {
