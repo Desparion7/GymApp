@@ -1,5 +1,5 @@
 import '../../css/TrainingScreen.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import Exercise from '../UI/Exercise';
 import { TabelElementType } from '../../models/trainingType';
@@ -64,23 +64,36 @@ const TrainingScreen = () => {
 	}, []);
 
 	// function to update changes in time
-	const handleTime = async (e: React.ChangeEvent<HTMLInputElement>) => {
-		const newDate = new Date(e.target.value);
-		await updateTrainingData({ id, trainingDate: newDate });
-	};
-	const handleTimeStart = (e: React.ChangeEvent<HTMLInputElement>) => {
-		updateTrainingTime({ id, timeStart: e.target.value });
-	};
-	const handleTimeEnd = (e: React.ChangeEvent<HTMLInputElement>) => {
-		updateTrainingTime({ id, timeStart: timeStart, timeEnd: e.target.value });
-	};
+	const handleTime = useCallback(
+		async (e: React.ChangeEvent<HTMLInputElement>) => {
+			const newDate = new Date(e.target.value);
+			await updateTrainingData({ id, trainingDate: newDate });
+		},
+		[updateTrainingData, id]
+	);
+	const handleTimeStart = useCallback(
+		(e: React.ChangeEvent<HTMLInputElement>) => {
+			updateTrainingTime({ id, timeStart: e.target.value });
+		},
+		[updateTrainingData, id, timeStart]
+	);
+	const handleTimeEnd = useCallback(
+		(e: React.ChangeEvent<HTMLInputElement>) => {
+			updateTrainingTime({ id, timeStart: timeStart, timeEnd: e.target.value });
+		},
+		[id, timeStart, timeEnd, updateTrainingTime]
+	);
 	// function to update changes in exercise
-	const updateHandlerTrainingName = async () => {
+	const updateHandlerTrainingName = useCallback(async () => {
 		await updateTrainingName({ id, trainingName: trainingName });
-	};
-	const updateTrainingHandler = async (newTraining: TabelElementType[][]) => {
-		await updateTraining({ id, exercise: newTraining });
-	};
+	}, [id, trainingName, updateTrainingName]);
+
+	const updateTrainingHandler = useCallback(
+		async (newTraining: TabelElementType[][]) => {
+			await updateTraining({ id, exercise: newTraining });
+		},
+		[id, updateTraining]
+	);
 
 	return (
 		<section className='trainingScreen'>

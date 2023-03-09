@@ -15,3 +15,7 @@ export interface updateUserType {
 	newPassword?: string;
 	newEmail?: string;
 }
+export interface updatePasswordType {
+	password: string;
+	token: string;
+}

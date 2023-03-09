@@ -1,6 +1,6 @@
 import './public.css';
 import { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useLoginMutation } from '../app/slices/authApiSlice';
 import { setCredentials } from '../app/api/authSlice';
@@ -140,7 +140,7 @@ const Login = () => {
 				<LoadingSpinner />
 			) : (
 				<div className='public__publicBox'>
-					<form action=''>
+					<form>
 						<label htmlFor='login'>Login lub email:</label>
 						<input
 							type='text'
@@ -164,7 +164,7 @@ const Login = () => {
 						{errMsg && <p className='errorText'>{errMsg}</p>}
 						{}
 
-						<button className='greenBtn' onClick={handleSubmit}>
+						<button className='greenBtn' type='button' onClick={handleSubmit}>
 							Zaloguj się
 						</button>
 						<button className='greenBtn' onClick={handleDemo}>
@@ -180,7 +180,7 @@ const Login = () => {
 						/>
 					</form>
 					<div className='public__publicBox-retrievePassword'>
-						Nie pamiętasz hasła?
+						<Link to='/reset'>Nie pamiętasz hasła?</Link>
 					</div>
 					<div className='public__publicBox-line'></div>
 					<button

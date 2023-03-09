@@ -51,7 +51,7 @@ const baseQueryWithReauth: BaseQueryFn<
 			if (refreshResult?.error?.status === 403) {
 				if (refreshResult.error.data) {
 					(refreshResult.error.data as any).message =
-						'Your login has expired. ';
+						'login stracił ważność. ';
 				}
 			}
 			return refreshResult;

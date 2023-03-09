@@ -56,7 +56,7 @@ const ChangePasswordPanel = ({ setBackendMessage, updateUser }: propsType) => {
 				Panel zmiany hasła
 			</div>
 			<div className='accountOptionsScreen-manageBox-inputs'>
-				<label htmlFor='oldpassword'>Stare hasło:</label>
+				<label htmlFor='oldpassword'>Stare hasło(jeśli było utworzone):</label>
 				<input
 					type='password'
 					name='oldpassword'

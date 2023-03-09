@@ -39,6 +39,9 @@ span {
 	border-radius: 5px;
 	box-shadow: -1px 8px 26px 3px rgba(148, 148, 148, 1);
 }
+.public__publicBox p {
+	margin-bottom: 1rem;
+}
 .public__publicBox form {
 	display: flex;
 	flex-direction: column;
@@ -61,16 +64,19 @@ span {
 	border: 1px solid #7a7a7a;
 	border-radius: 5px;
 }
-
 .public__publicBox-retrievePassword {
+	margin: 0.5rem;
+}
+.public__publicBox-retrievePassword a {
 	color: rgb(40, 40, 214);
 	cursor: pointer;
-	margin: 0.3rem;
 	transition: color 0.3s;
+	text-decoration: none;
 }
-.public__publicBox-retrievePassword:hover {
+.public__publicBox-retrievePassword a:hover {
 	color: rgb(22, 22, 128);
 }
+
 .public__publicBox-line {
 	position: relative;
 	height: 1px;

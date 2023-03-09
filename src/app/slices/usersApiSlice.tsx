@@ -1,5 +1,9 @@
 import { apiSlice } from '../api/apiSlice';
-import type { User, updateUserType } from '../../models/userType';
+import type {
+	User,
+	updateUserType,
+	updatePasswordType,
+} from '../../models/userType';
 import { Response, ResponseType } from '../../models/respondType';
 
 const usersApiSlice = apiSlice.injectEndpoints({
@@ -12,7 +16,6 @@ const usersApiSlice = apiSlice.injectEndpoints({
 					...initialUserData,
 				},
 			}),
-			invalidatesTags: [{ type: 'Users', id: 'LIST' }],
 		}),
 		updateUser: builder.mutation<ResponseType, updateUserType>({
 			query: ({ password, newPassword, newEmail }) => ({
@@ -24,9 +27,30 @@ const usersApiSlice = apiSlice.injectEndpoints({
 					newEmail,
 				},
 			}),
-			invalidatesTags: [{ type: 'Users', id: 'LIST' }],
+		}),
+		resetPassword: builder.mutation<ResponseType, { email: string }>({
+			query: ({ email }) => ({
+				url: '/users/reset',
+				method: 'POST',
+				body: { email },
+			}),
+		}),
+		createNewPassword: builder.mutation<ResponseType, updatePasswordType>({
+			query: ({ password, token }) => ({
+				url: '/users/reset',
+				method: 'PATCH',
+				body: {
+					password,
+					token,
+				},
+			}),
 		}),
 	}),
 });
 
-export const { useAddNewUserMutation, useUpdateUserMutation } = usersApiSlice;
+export const {
+	useAddNewUserMutation,
+	useUpdateUserMutation,
+	useResetPasswordMutation,
+	useCreateNewPasswordMutation
+} = usersApiSlice;

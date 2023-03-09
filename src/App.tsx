@@ -28,6 +28,8 @@ import MyPlanScreen from './components/screens/MyPlanScreen';
 import MyPlanScreenEdit from './components/screens/MyPlanScreenEdit';
 import MyRecordsScreen from './components/screens/MyRecordsScreen';
 import AccountOptionsScreen from './components/screens/AccountOptionsScreen';
+import ResetPasswordScreen from './auth/ResetPasswordScreen';
+import CreateNewPassword from './auth/CreateNewPassword';
 
 function App() {
 	return (
@@ -36,6 +38,8 @@ function App() {
 				{/* Public routes */}
 				<Route index element={<Login />} />
 				<Route path='signup' element={<SignUp />} />
+				<Route path='reset' element={<ResetPasswordScreen />} />
+				<Route path='resetpassword' element={<CreateNewPassword />} />
 				<Route path='info' element={<InfoScreen />} />
 				<Route element={<RefreshLogin />}>
 					<Route path='atlas' element={<AtlasScreen />} />
@@ -97,5 +101,3 @@ function App() {
 }
 
 export default App;
-// dodaC komunika gdy inny użytkownik próbuje wczytać nie swój plan treningowy
-// bo wybraniu ćwiczenia z atlasu przenieść użytkownika na dół treningu zeby widział że ćwiczenie jest wybrane

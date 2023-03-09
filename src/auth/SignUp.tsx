@@ -194,6 +194,9 @@ const SignIn = () => {
 									<button className='greenBtn' onClick={handleSubmit}>
 										Zarejestruj się
 									</button>
+									<div className='public__publicBox-retrievePassword'>
+										<Link to='/'>Powrót do logowania.</Link>
+									</div>
 								</form>
 							</div>
 						)}
