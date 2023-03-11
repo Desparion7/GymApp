@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import {
 	useUpdateRecordMutation,
 	useDeleteRecordMutation,
@@ -62,4 +62,17 @@ const SingleRecord = ({ id, recordName, recordAmount }: Record) => {
 	);
 };
 
-export default SingleRecord;
+function propsEqual(prevProps: Record, nextProps: Record) {
+	return (
+		prevProps.id === nextProps.id &&
+		prevProps.recordAmount === nextProps.recordAmount &&
+		prevProps.recordName === nextProps.recordName
+	);
+}
+
+const MemoizedSignleRecord = memo<typeof SingleRecord>(
+	SingleRecord,
+	propsEqual
+);
+
+export default MemoizedSignleRecord;
