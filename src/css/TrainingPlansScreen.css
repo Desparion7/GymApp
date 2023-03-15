@@ -8,16 +8,16 @@
 .trainingPlansScreen__main {
 	position: relative;
 	width: 60%;
-	top: 100px;
+	margin-bottom: 1rem;
 }
 .trainingPlansScreen__main h2 {
 	margin-bottom: 1.5rem;
 }
 .trainingPlansScreen h3 {
 	margin: 1rem 0;
+	text-align: center;
 }
 .trainingPlansScreen p {
-	text-align: justify;
 	margin: 0.3rem 0;
 }
 .trainingPlansScreen__box {
@@ -25,6 +25,7 @@
 	flex-direction: row;
 	justify-content: space-between;
 	width: 100%;
+	margin-bottom: 1rem;
 }
 .trainingPlansScreen__box a {
 	display: block;
@@ -56,6 +57,10 @@
 		display: flex;
 		flex-direction: column;
 	}
+	.trainingPlansScreen__box-name {
+		font-size: 0.8rem;
+		text-align: center;
+	}
 }
 
 @media screen and (max-width: 500px) {
@@ -68,6 +73,10 @@
 	.trainingPlansScreen__box span {
 		font-size: 1rem;
 	}
+	.trainingPlansScreen h3 {
+		text-align: center;
+	}
+	
 }
 @media screen and (max-width: 400px) {
 	.trainingPlansScreen__box a {

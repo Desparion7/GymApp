@@ -3,10 +3,11 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import useAuthToken from '../../hooks/useAuthToken';
 import { useSendLogoutMutation } from '../../app/slices/authApiSlice';
+import LoadingSpinner from './LoadingSpinner';
 
 const Navbar = () => {
 	const [menu, setMenu] = useState<boolean>(false);
-	const { username, isAdmin } = useAuthToken() as {
+	const { username } = useAuthToken() as {
 		username: string;
 		isAdmin: boolean;
 	};
@@ -31,76 +32,85 @@ const Navbar = () => {
 		};
 	});
 
-	const [sendLogout] = useSendLogoutMutation();
+	const [sendLogout, { isLoading }] = useSendLogoutMutation();
 
 	const content = (
 		<nav className='nav'>
-			<div className='navbar'>
-				<Link to='/'>
-					<h1>Menadżer Treningu</h1>
-				</Link>
+			{isLoading ? (
+				<LoadingSpinner />
+			) : (
+				<>
+					<div className='navbar'>
+						<Link to='/'>
+							<h1>Menadżer Treningu</h1>
+						</Link>
 
-				<div className='navbar__options'>
-					<ul className='navbar__options-ul'>
-						<li>
-							<Link to='/atlas'>Atlas ćwiczeń</Link>
-						</li>
-						<li>
-							<Link to='/planytreningowe'>Plany treningowe</Link>
-						</li>
-						{username && (
-							<li>
-								<Link to='/profile'>Mój profil</Link>
-							</li>
-						)}
-						{username ? (
-							<li>
-								<Link to='/info' onClick={sendLogout}>
-									Wyloguj się
-								</Link>
-							</li>
-						) : (
-							<li>
-								<Link to='/login'>Zaloguj się</Link>
-							</li>
-						)}
-					</ul>
-				</div>
-				<button
-					className='navbarMobile__containter'
-					onClick={() => setMenu(!menu)}
-					ref={menuBtnRef}
-				>
-					<div className='navbarMobile__containter-menuButton'></div>
-				</button>
-			</div>
-			{menu && (
-				<div className='navbarMobile__options animation-top-down' ref={menuRef}>
-					<ul className='navbarMobile__options-ul'>
-						<li onClick={() => setMenu(false)}>
-							<Link to='/atlas'>Atlas ćwiczeń</Link>
-						</li>
-						<li onClick={() => setMenu(false)}>
-							<Link to='/planytreningowe'>Plany treningowe</Link>
-						</li>
-						{username && (
-							<li onClick={() => setMenu(false)}>
-								<Link to='/profile'>Mój profil</Link>
-							</li>
-						)}
-						{username ? (
-							<li onClick={() => setMenu(false)}>
-								<Link to='/info' onClick={sendLogout}>
-									Wyloguj się
-								</Link>
-							</li>
-						) : (
-							<li onClick={() => setMenu(false)}>
-								<Link to='/login'>Zaloguj się</Link>
-							</li>
-						)}
-					</ul>
-				</div>
+						<div className='navbar__options'>
+							<ul className='navbar__options-ul'>
+								<li>
+									<Link to='/atlas'>Atlas ćwiczeń</Link>
+								</li>
+								<li>
+									<Link to='/planytreningowe'>Plany treningowe</Link>
+								</li>
+								{username && (
+									<li>
+										<Link to='/profile'>Mój profil</Link>
+									</li>
+								)}
+								{username ? (
+									<li>
+										<Link to='/info' onClick={sendLogout}>
+											Wyloguj się
+										</Link>
+									</li>
+								) : (
+									<li>
+										<Link to='/login'>Zaloguj się</Link>
+									</li>
+								)}
+							</ul>
+						</div>
+						<button
+							className='navbarMobile__containter'
+							onClick={() => setMenu(!menu)}
+							ref={menuBtnRef}
+						>
+							<div className='navbarMobile__containter-menuButton'></div>
+						</button>
+					</div>
+					{menu && (
+						<div
+							className='navbarMobile__options animation-top-down'
+							ref={menuRef}
+						>
+							<ul className='navbarMobile__options-ul'>
+								<li onClick={() => setMenu(false)}>
+									<Link to='/atlas'>Atlas ćwiczeń</Link>
+								</li>
+								<li onClick={() => setMenu(false)}>
+									<Link to='/planytreningowe'>Plany treningowe</Link>
+								</li>
+								{username && (
+									<li onClick={() => setMenu(false)}>
+										<Link to='/profile'>Mój profil</Link>
+									</li>
+								)}
+								{username ? (
+									<li onClick={() => setMenu(false)}>
+										<Link to='/info' onClick={sendLogout}>
+											Wyloguj się
+										</Link>
+									</li>
+								) : (
+									<li onClick={() => setMenu(false)}>
+										<Link to='/login'>Zaloguj się</Link>
+									</li>
+								)}
+							</ul>
+						</div>
+					)}
+				</>
 			)}
 		</nav>
 	);

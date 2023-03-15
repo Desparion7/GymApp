@@ -1,5 +1,6 @@
 import '../../css/TrainingPlansScreen.css';
 import { Link } from 'react-router-dom';
+import Offert from '../UI/Offert';
 
 const TrainingPlansScreen = () => {
 	return (
@@ -20,29 +21,49 @@ const TrainingPlansScreen = () => {
 
 				<div className='trainingPlansScreen__box'>
 					<div>
-						<Link to='zestaw-ogólnorozwojowy-1-3' className='trainingPlansScreen__box-name'>
-							Zestaw ogólnorozwojowy nr 1 <span>➡</span>
+						<Link
+							to='zestaw-ogólnorozwojowy-1-3'
+							className='trainingPlansScreen__box-name'
+						>
+							<span>➡</span> Zestaw ogólnorozwojowy numer 1
 						</Link>
-						<Link to='zestaw-ogólnorozwojowy-2-3' className='trainingPlansScreen__box-name'>
-							Zestaw ogólnorozwojowy nr 2 <span>➡</span>
+						<Link
+							to='zestaw-ogólnorozwojowy-2-3'
+							className='trainingPlansScreen__box-name'
+						>
+							<span>➡</span> Zestaw ogólnorozwojowy numer 2
 						</Link>
-						<Link to='zestaw-ogólnorozwojowy-3-3' className='trainingPlansScreen__box-name'>
-							Zestaw ogólnorozwojowy nr 3 <span>➡</span>
+						<Link
+							to='zestaw-ogólnorozwojowy-3-3'
+							className='trainingPlansScreen__box-name'
+						>
+							<span>➡</span> Zestaw ogólnorozwojowy numer 3
 						</Link>
 					</div>
 					<div>
-						<Link to='zestaw-klatka-piersiowa-triceps' className='trainingPlansScreen__box-name'>
-							Zestaw klatka piersiowa i triceps <span>➡</span>
+						<Link
+							to='zestaw-klatka-piersiowa-triceps'
+							className='trainingPlansScreen__box-name'
+						>
+							<span>➡</span> Zestaw klatka piersiowa i triceps
 						</Link>
-						<Link to='zestaw-plecy-barki' className='trainingPlansScreen__box-name'>
-							Zestaw plecy i barki <span>➡</span>
+						<Link
+							to='zestaw-plecy-barki'
+							className='trainingPlansScreen__box-name'
+						>
+							<span>➡</span> Zestaw plecy i barki
 						</Link>
-						<Link to='zestaw-nogi-biceps' className='trainingPlansScreen__box-name'>
-							Zestaw nogi i biceps <span>➡</span>
+						<Link
+							to='zestaw-nogi-biceps'
+							className='trainingPlansScreen__box-name'
+						>
+							<span>➡</span> Zestaw nogi i biceps
 						</Link>
 					</div>
 				</div>
 			</div>
+			<h2>Plany indywidualne</h2>
+			<Offert />
 		</section>
 	);
 };

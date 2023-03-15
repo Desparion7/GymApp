@@ -37,63 +37,70 @@ const MyPlansScreen = () => {
 	return (
 		<>
 			{(loadingCreate || loadingDelete) && <ModalSpinner />}
-			<section className='myPlans'>
-				{isLoading && <LoadingSpinner />}
-				<h2>moje zestawy cwiczeń</h2>
-				{trainingsSets?.length === 0 && (
-					<h3 className='myPlans-info'>
-						Aktualnie nie masz utworzonych zestawów ćwiczeń.
-					</h3>
-				)}
-				{isSuccess && (
-					<h3 className='myPlans-info'>Zestaw został pomyślnie usunięty.</h3>
-				)}
-				{isError && (
-					<h3 className='myPlans-error'>Nie udało się usunąć zestawu.</h3>
-				)}
-				<div className='myPlans__box'>
-					{trainingsSets?.map((set: trainingSetType) => (
-						<div key={set._id} className='myPlans__box-plan'>
-							<h4>{set.trainingName}</h4>
-							<div className='myPlans__box-plan-btn'>
-								<button
-									onClick={() => {
-										if (set?._id) {
-											handleDeleteSet(set._id);
-										}
-									}}
-									title='usuń'
-								>
-									<img src='../../img/trash.PNG' />
-								</button>
-								<button
-									onClick={() => {
-										navigate(`${set?._id}`);
-									}}
-									title='rozpocznij'
-								>
+			{isLoading ? (
+				<LoadingSpinner />
+			) : (
+				<>
+					<section className='myPlans'>
+						<h2>moje zestawy cwiczeń</h2>
+						{trainingsSets?.length === 0 && (
+							<h3 className='myPlans-info'>
+								Aktualnie nie masz utworzonych zestawów ćwiczeń.
+							</h3>
+						)}
+						{isSuccess && (
+							<h3 className='myPlans-info'>
+								Zestaw został pomyślnie usunięty.
+							</h3>
+						)}
+						{isError && (
+							<h3 className='myPlans-error'>Nie udało się usunąć zestawu.</h3>
+						)}
+						<div className='myPlans__box'>
+							{trainingsSets?.map((set: trainingSetType) => (
+								<div key={set._id} className='myPlans__box-plan'>
+									<h4>{set.trainingName}</h4>
+									<div className='myPlans__box-plan-btn'>
+										<button
+											onClick={() => {
+												if (set?._id) {
+													handleDeleteSet(set._id);
+												}
+											}}
+											title='usuń'
+										>
+											<img src='../../img/trash.PNG' />
+										</button>
+										<button
+											onClick={() => {
+												navigate(`${set?._id}`);
+											}}
+											title='rozpocznij'
+										>
+											<img src='../../img/start.PNG' />
+										</button>
+										<button
+											onClick={() => {
+												navigate(`${set?._id}-edit`);
+											}}
+											title='edytuj'
+										>
+											<img src='../../img/edit.PNG' />
+										</button>
+									</div>
+								</div>
+							))}
+
+							<div className='myPlans__box-newplan'>
+								<h4>Utwórz nowy zestaw</h4>
+								<button onClick={handleCreateNewSet}>
 									<img src='../../img/plus.PNG' />
-								</button>
-								<button
-									onClick={() => {
-										navigate(`${set?._id}-edit`);
-									}}
-									title='edytuj'
-								>
-									<img src='../../img/edit.PNG' />
 								</button>
 							</div>
 						</div>
-					))}
-
-					<div className='myPlans__box-newplan'>
-						<h4>Utwórz nowy zestaw</h4>
-						<button onClick={handleCreateNewSet}>
-							<img src='../../img/plus.PNG' />
-						</button>
-					</div>
-				</div>
-			</section>
+					</section>
+				</>
+			)}
 		</>
 	);
 };
