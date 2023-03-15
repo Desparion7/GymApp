@@ -23,7 +23,7 @@ const MainPage = () => {
 						<button
 							className='greenBtn'
 							onClick={() => {
-								navigate('/login');
+								navigate('/about');
 							}}
 						>
 							Więcej

@@ -31,6 +31,7 @@ import AccountOptionsScreen from './components/screens/AccountOptionsScreen';
 import ResetPasswordScreen from './auth/ResetPasswordScreen';
 import CreateNewPassword from './auth/CreateNewPassword';
 import MainPage from './components/screens/MainPage';
+import AboutUs from './components/screens/AboutUs';
 
 function App() {
 	return (
@@ -38,6 +39,7 @@ function App() {
 			<Route path='/' element={<Layout />}>
 				{/* Public routes */}
 				<Route index element={<MainPage />} />
+				<Route path='about' element={<AboutUs />} />
 				<Route path='login' element={<Login />} />
 				<Route path='signup' element={<SignUp />} />
 				<Route path='reset' element={<ResetPasswordScreen />} />
