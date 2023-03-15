@@ -4,7 +4,4 @@
 	flex-direction: column;
 	overflow: hidden;
 	min-height: 83vh;
-	background-repeat: no-repeat;
-	background-position: top;
-	background-size: cover;
 }

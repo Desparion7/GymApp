@@ -1,11 +1,12 @@
-import React from 'react'
-import  '../../css/AboutUs.css'
-const AboutUs = () => {
-  return (
-    <section className='aboutUs'>
-        
-    </section>
-  )
-}
 
-export default AboutUs
+import '../../css/AboutUs.css';
+const AboutUs = () => {
+	return (
+		<section className='aboutUs'>
+			<div className='aboutUs-text'></div>
+			<div className='aboutUs-img'></div>
+		</section>
+	);
+};
+
+export default AboutUs;
