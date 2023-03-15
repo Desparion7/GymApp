@@ -31,16 +31,19 @@ const StartTrainingScreen = () => {
 				<OptionButton
 					img={'../../img/adduser.PNG'}
 					text={'Dodaj mój zestaw ćwiczeń'}
+					text2={'Rozpocznij trening w własno utworznonym treningiem na naszej stronie.'}
 					path={'/profile/moje-plany-treningowe'}
 				/>
 				<OptionButton
 					img={'../../img/addnew.PNG'}
 					text={'Dodaj zestaw ze strony'}
+					text2={'Wykorzystaj jeden z dostępnych treningów na naszej stronie. '}
 					path={'/planytreningowe'}
 				/>
 				<OptionButton
 					img={'../../img/addapp.PNG'}
-					text={'Trening z dobieranymi ćwiczeniami'}
+					text={'Trening z dobieranymi ćwiczeniam'}
+					text2={'Rozpocznij trening i dobierz ćwiczenie samodzielnie.'}
 					handelOnClick={handelStartNewTraining}
 				/>
 			</div>

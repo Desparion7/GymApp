@@ -30,13 +30,15 @@ import MyRecordsScreen from './components/screens/MyRecordsScreen';
 import AccountOptionsScreen from './components/screens/AccountOptionsScreen';
 import ResetPasswordScreen from './auth/ResetPasswordScreen';
 import CreateNewPassword from './auth/CreateNewPassword';
+import MainPage from './components/screens/MainPage';
 
 function App() {
 	return (
 		<Routes>
 			<Route path='/' element={<Layout />}>
 				{/* Public routes */}
-				<Route index element={<Login />} />
+				<Route index element={<MainPage />} />
+				<Route path='login' element={<Login />} />
 				<Route path='signup' element={<SignUp />} />
 				<Route path='reset' element={<ResetPasswordScreen />} />
 				<Route path='resetpassword' element={<CreateNewPassword />} />

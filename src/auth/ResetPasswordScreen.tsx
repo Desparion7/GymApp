@@ -57,7 +57,7 @@ const ResetPasswordScreen = () => {
 						</button>
 					</form>
 					<div className='public__publicBox-retrievePassword'>
-						<Link to='/'>Powrót do logowania.</Link>
+						<Link to='/login'>Powrót do logowania.</Link>
 					</div>
 					<div className='public__publicBox-line'></div>
 					<button

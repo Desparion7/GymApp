@@ -61,7 +61,7 @@ const CreateNewPassword = () => {
 				<>
 					<h3>Hasło zostało zmienione </h3>
 					<p className='public_text'>
-						<Link to='/'>Powrót do logowania</Link>
+						<Link to='/login'>Powrót do logowania</Link>
 					</p>
 				</>
 			) : (

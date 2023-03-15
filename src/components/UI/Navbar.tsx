@@ -61,7 +61,7 @@ const Navbar = () => {
 							</li>
 						) : (
 							<li>
-								<Link to='/'>Zaloguj się</Link>
+								<Link to='/login'>Zaloguj się</Link>
 							</li>
 						)}
 					</ul>
@@ -96,7 +96,7 @@ const Navbar = () => {
 							</li>
 						) : (
 							<li onClick={() => setMenu(false)}>
-								<Link to='/'>Zaloguj się</Link>
+								<Link to='/login'>Zaloguj się</Link>
 							</li>
 						)}
 					</ul>

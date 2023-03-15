@@ -1,30 +1,52 @@
 .optionButton {
-	width: 400px;
+	width: 300px;
+	height: 300px;
+	display: flex;
+	justify-content: space-between;
+	margin: 2rem;
+	padding: 1rem;
+	align-items: center;
+	flex-direction: column;
+	border: 1px solid black;
+	border-radius: 5px;
+	transition: transform 0.3s;
+	/* background-color: rgb(215, 215, 215); */
+}
+.optionButton-link {
+	text-decoration: none;
+}
+.optionButton div {
+	padding: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 .optionButton p {
+	text-align: center;
+	margin-bottom: 1rem;
+	color: black;
+}
+.optionButton h3 {
 	text-align: center;
 	font-size: 1.2rem;
 	font-weight: bold;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	margin-top: 0.5rem;
-	color: rgb(52, 52, 52);
+	color: var(--text-color2);
 }
+
 .optionButton img {
-	width: 100%;
-	height: 280px;
+	width: 55%;
+	height: 40%;
+	display: block;
+	margin: 0 auto;
 	cursor: pointer;
-	transition: transform 0.3s;
 }
-.optionButton img:hover {
+.optionButton:hover {
 	transform: scale(1.1);
 }
 
 @media screen and (max-width: 500px) {
 	.optionButton {
-		width: 300px;
-	}
-	.optionButton img {
-		height: 230px;
+		width: 280px;
 	}
 }

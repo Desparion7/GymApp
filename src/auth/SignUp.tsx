@@ -195,7 +195,7 @@ const SignIn = () => {
 										Zarejestruj się
 									</button>
 									<div className='public__publicBox-retrievePassword'>
-										<Link to='/'>Powrót do logowania.</Link>
+										<Link to='/login'>Powrót do logowania.</Link>
 									</div>
 								</form>
 							</div>
@@ -211,7 +211,7 @@ const SignIn = () => {
 						</div>
 						<p className='public_text'>{positiveServerMessage}</p>
 						<p className='public_text'>
-							<Link to='/'>Zaloguj się</Link>
+							<Link to='/login'>Zaloguj się</Link>
 						</p>
 					</>
 				)}

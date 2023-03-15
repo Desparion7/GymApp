@@ -4,12 +4,13 @@ import { useGetExampleTrainingQuery } from '../../app/slices/exampleTrainingApi'
 import { useCreateNewTrainingMutation } from '../../app/slices/trainingApiSlice';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import useAuthToken from '../../hooks/useAuthToken';
+import LoadingSpinner from '../UI/LoadingSpinner';
 
 const SinglePlanScreen = () => {
 	const navigate = useNavigate();
 	const { path } = useParams() as { path: string };
 	const { username } = useAuthToken();
-	const { data } = useGetExampleTrainingQuery({ path });
+	const { data, isLoading } = useGetExampleTrainingQuery({ path });
 	const [createNewTraining, { data: CreatedTraining }] =
 		useCreateNewTrainingMutation();
 
@@ -21,7 +22,7 @@ const SinglePlanScreen = () => {
 
 	const handelStartNewTraining = async () => {
 		if (!username) {
-			navigate(`/`);
+			navigate(`/login`);
 			return;
 		} else {
 			if (data) {
@@ -35,28 +36,37 @@ const SinglePlanScreen = () => {
 
 	return (
 		<section className='singlePlanScreen'>
-			<h2>{data?.trainingName}</h2>
-			<button className='greenBtn' onClick={handelStartNewTraining}>
-				Rozpocznij trening
-			</button>
-			{data?.exercise.map((exercise, index) => (
-				<div className='singlePlanScreen__box' key={index}>
-					<h3>{`Ćwiczenie ${index + 1}`}</h3>
-					{exercise.map((seria, seriesIndex) => (
-						<div className='singlePlanScreen__box-exercise' key={seriesIndex}>
-							{seria.url ? (
-								<Link to={`/atlas/${seria.url}`}>
-									<div>{seria.name} ➡</div>
-								</Link>
-							) : (
-								<div>{seria.name}</div>
-							)}
-							{!seria.time && <div>{`Powtórzenia: ${seria.repeat}`}</div>}
-							{seria.time && <div>{`Czas w min: ${seria.repeat}`}</div>}
+			{isLoading ? (
+				<LoadingSpinner />
+			) : (
+				<>
+					<h2>{data?.trainingName}</h2>
+					<button className='greenBtn' onClick={handelStartNewTraining}>
+						Rozpocznij trening
+					</button>
+					{data?.exercise.map((exercise, index) => (
+						<div className='singlePlanScreen__box' key={index}>
+							<h3>{`Ćwiczenie ${index + 1}`}</h3>
+							{exercise.map((seria, seriesIndex) => (
+								<div
+									className='singlePlanScreen__box-exercise'
+									key={seriesIndex}
+								>
+									{seria.url ? (
+										<Link to={`/atlas/${seria.url}`}>
+											<div>{seria.name} ➡</div>
+										</Link>
+									) : (
+										<div>{seria.name}</div>
+									)}
+									{!seria.time && <div>{`Powtórzenia: ${seria.repeat}`}</div>}
+									{seria.time && <div>{`Czas w min: ${seria.repeat}`}</div>}
+								</div>
+							))}
 						</div>
 					))}
-				</div>
-			))}
+				</>
+			)}
 		</section>
 	);
 };

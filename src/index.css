@@ -1,10 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800;900&display=swap');
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
+
 body {
+	margin: 0;
+	font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+		'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+		'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	background: linear-gradient(
 		267deg,
 		rgba(254, 254, 254, 1) 0%,
@@ -16,17 +24,19 @@ body {
 	--main-background-color: linear-gradient(
 		267deg,
 		rgb(28, 115, 69) 1%,
-		rgb(6, 119, 81) 25%,
-		rgb(39, 130, 91) 86%
+		rgb(6, 129, 51) 25%,
+		rgb(50, 133, 35) 86%
 	);
 	--text-color1: rgb(244, 243, 238);
-	--text-color2: #2a9f6c;
+	--text-color2: #259f2f;
 	--text-color-hover: rgb(233, 219, 19);
-	--text-color-hover1: rgb(135, 29, 216);
+	--text-color-hover1: rgb(25, 155, 34);
+	--btn-text-color-hover: rgb(233, 219, 19);
+	--btn-background-color-hover: rgb(255, 255, 255);
 	--main-btn-color: linear-gradient(
 		267deg,
-		rgb(96, 15, 157) 25%,
-		rgb(102, 30, 137) 86%
+		rgb(74, 151, 45) 25%,
+		rgb(40, 152, 27) 86%
 	);
 }
 h2 {
@@ -69,7 +79,7 @@ h2 {
 	transition: color 0.3s background 0.3s;
 }
 .greenBtn:hover {
-	color: var(--text-color-hover);
+	color: var(--btn-text-color-hover);
 }
 .greyBtn {
 	background: #344;
@@ -93,7 +103,7 @@ h2 {
 }
 @media screen and (max-width: 420px) {
 	h2 {
-		font-size: 1.5rem;
+		font-size: 1.3rem;
 	}
 	.greenBtn,
 	.greyBtn {

@@ -28,7 +28,7 @@ const ExerciseScreen = () => {
 			})
 		);
 		if (!username) {
-			navigate(`/`);
+			navigate(`/login`);
 			return;
 		}
 		if (trainingId === null) {
@@ -47,7 +47,7 @@ const ExerciseScreen = () => {
 			})
 		);
 		if (!username) {
-			navigate(`/`);
+			navigate(`/login`);
 			return;
 		}
 		if (setId === null) {

@@ -14,26 +14,41 @@ const Profile = () => {
 				<OptionButton
 					img={'../../img/start.PNG'}
 					text={'Rozpocznij trening'}
+					text2={
+						'Rozpocznij i zapisz swój trening korzystając z własnych lub dostępnych planów trenigowych '
+					}
 					path={'/profile/trening'}
 				/>
 				<OptionButton
 					img={'../../img/history.PNG'}
 					text={'Historia treningów'}
+					text2={
+						'Kontroluj swoje postępy w historii treningów gdzie masz pełen dostęp do treningów kóre zostały wykonane'
+					}
 					path={'/profile/history'}
 				/>
 				<OptionButton
 					img={'../../img/sets.PNG'}
 					text={'Moje zestawy ćwiczeń'}
+					text2={
+						'Utwórz swoje zestawy ćwiczeń, aby szybko rozpocząć trening z własnymi ćwiczeniami '
+					}
 					path={'/profile/moje-plany-treningowe'}
 				/>
 				<OptionButton
 					img={'../../img/records.PNG'}
 					text={'Moje rekordy'}
+					text2={
+						'Dla ludzi lubiących notować swoje osiągnięcia. Zapisz najlepsze wyniki w wybranych ćwiczeniach.'
+					}
 					path={'/profile/moje-rekordy'}
 				/>
 				<OptionButton
 					img={'../../img/gears.PNG'}
 					text={'Ustawienia konta'}
+					text2={
+						'Zmień ustawienia swojego konta. Wprowadz zmiany w dostępie przez zmiane hasła lub emaila'
+					}
 					path={'/profile/options'}
 				/>
 			</div>
