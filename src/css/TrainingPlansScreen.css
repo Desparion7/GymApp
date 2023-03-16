@@ -41,7 +41,6 @@
 }
 .trainingPlansScreen__box a:hover {
 	color: var(--text-color-hover1);
-	font-weight: bold;
 }
 
 @media screen and (max-width: 1300px) {
@@ -76,7 +75,6 @@
 	.trainingPlansScreen h3 {
 		text-align: center;
 	}
-	
 }
 @media screen and (max-width: 400px) {
 	.trainingPlansScreen__box a {
