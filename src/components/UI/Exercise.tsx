@@ -73,6 +73,7 @@ const Exercise = ({
 		onDelete();
 	};
 	const handelOnBlureWeight = () => {
+		console.log('ok');
 		if (weightState) {
 			onChangeWeight(weightState);
 		}
@@ -157,7 +158,17 @@ const Exercise = ({
 							{!check && <img src='../../img/checkno.PNG' />}
 						</button>
 					)}
-
+					{!isTraining && (
+						<button
+							className='exerciesList__exercie-removeBtn'
+							title='zapisz'
+							onClick={() => {
+							
+							}}
+						>
+							{<img src='../../img/save.PNG' />}
+						</button>
+					)}
 					<button
 						className='exerciesList__exercie-removeBtn'
 						title='usuń serię'

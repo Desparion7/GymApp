@@ -1,5 +1,5 @@
 import '../../css/TrainingScreen.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import {
 	useGetTrainingSetByIdQuery,
 	useUpdateTrainingSetNameMutation,
@@ -71,9 +71,12 @@ const MyPlanScreenEdit = () => {
 		await updateTrainingSetName({ id, trainingName: setName });
 	};
 	// function to update Training set exercises
-	const updateTrainingHandler = async (newTraining: TabelElementType[][]) => {
-		await updateTrainingSet({ id, exercise: newTraining });
-	};
+	const updateTrainingHandler = useCallback(
+		async (newTraining: TabelElementType[][]) => {
+			await updateTrainingSet({ id, exercise: newTraining });
+		},
+		[id]
+	);
 
 	return (
 		<>
