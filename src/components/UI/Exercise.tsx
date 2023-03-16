@@ -117,7 +117,7 @@ const Exercise = ({
 				<div className='exerciesList__details'>
 					<div className='exerciesList__details-box'>
 						{!time && <label htmlFor='repeat'>Powtórzenia:</label>}
-						{time && <label htmlFor='repeat'>Czas w min:</label>}
+						{time && <label htmlFor='repeat'>Minut: </label>}
 						<input
 							className='exerciesList__repeat'
 							type='number'
