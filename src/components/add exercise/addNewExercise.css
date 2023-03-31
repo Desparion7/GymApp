@@ -17,6 +17,7 @@
 .addNewExercise__box2-search {
 	display: flex;
 	align-items: center;
+	cursor: pointer;
 }
 .addNewExercise__box2-text,
 .addNewExercise__box2-text-color {

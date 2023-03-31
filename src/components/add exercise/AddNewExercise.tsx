@@ -127,7 +127,10 @@ const AddNewExercise = ({
 							{lastExercise.exerciseName}
 						</div>
 					) : (
-						<div className='addNewExercise__box2-text'>
+						<div
+							className='addNewExercise__box2-text'
+							onClick={handelSearchExercise}
+						>
 							Wyszukaj ćwiczenie w atlasie
 						</div>
 					)}{' '}

@@ -68,8 +68,10 @@ const MyPlansScreen = () => {
 												}
 											}}
 											title='usuń'
+											id='delete'
 										>
 											<img src='../../img/trash.PNG' />
+											<span>Usuń</span>
 										</button>
 										<button
 											onClick={() => {
@@ -78,6 +80,7 @@ const MyPlansScreen = () => {
 											title='rozpocznij'
 										>
 											<img src='../../img/start.PNG' />
+											<span>Start</span>
 										</button>
 										<button
 											onClick={() => {
@@ -86,6 +89,7 @@ const MyPlansScreen = () => {
 											title='edytuj'
 										>
 											<img src='../../img/edit.PNG' />
+											<span>Edytuj</span>
 										</button>
 									</div>
 								</div>
