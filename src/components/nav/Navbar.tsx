@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import useAuthToken from '../../hooks/useAuthToken';
 import { useSendLogoutMutation } from '../../app/slices/authApiSlice';
-import LoadingSpinner from './LoadingSpinner';
+import LoadingSpinner from '../loading spinner/LoadingSpinner';
 
 const Navbar = () => {
 	const [menu, setMenu] = useState<boolean>(false);

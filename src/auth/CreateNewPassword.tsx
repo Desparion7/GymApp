@@ -1,12 +1,11 @@
-import {  useLocation, Link } from 'react-router-dom';
-import LoadingSpinner from '../components/UI/LoadingSpinner';
+import { useLocation, Link } from 'react-router-dom';
+import LoadingSpinner from '../components/loading spinner/LoadingSpinner';
 import { useState } from 'react';
 import { useCreateNewPasswordMutation } from '../app/slices/usersApiSlice';
 const passwordRegex =
 	/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
 const CreateNewPassword = () => {
-
 	const location = useLocation();
 	const token = location.hash.split('=')[1];
 
@@ -21,7 +20,6 @@ const CreateNewPassword = () => {
 
 	const [createNewPassword, { isLoading, isSuccess }] =
 		useCreateNewPasswordMutation();
-
 
 	const handlePassword = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();

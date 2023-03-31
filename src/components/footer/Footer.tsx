@@ -1,4 +1,4 @@
-import '../../css/Footer.css';
+import './footer.css';
 
 const Footer = () => {
 	const footerdate = new Date().toLocaleDateString('pl-PL', {

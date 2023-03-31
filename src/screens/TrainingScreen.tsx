@@ -1,27 +1,27 @@
-import '../../css/TrainingScreen.css';
+import '../css/TrainingScreen.css';
 import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import Exercise from '../UI/Exercise';
-import { TabelElementType } from '../../models/trainingType';
+import Exercise from '../components/exercise/Exercise';
+import { TabelElementType } from '../models/trainingType';
 import {
 	useGetTrainingByIdQuery,
 	useUpdateTrainingMutation,
 	useUpdateTrainingDataMutation,
 	useUpdateTrainingNameMutation,
 	useUpdateTrainingTimeMutation,
-} from '../../app/slices/trainingApiSlice';
-import { setlastUsedTrainingId } from '../../app/api/userInfoSlice';
+} from '../app/slices/trainingApiSlice';
+import { setlastUsedTrainingId } from '../app/api/userInfoSlice';
 import { useDispatch } from 'react-redux';
-import AddNewExercise from '../UI/AddNewExercise';
+import AddNewExercise from '../components/add exercise/AddNewExercise';
 import {
 	handleDeleteSeries,
 	handleAddNewSeries,
 	handleChangeWeight,
 	handleChangeRepeat,
 	handleChangeCheck,
-} from '../../hooks/manageTraining';
-import ModalSpinner from '../UI/ModalSpinner';
-import ChangeExercisePosition from '../UI/ChangeExercisePosition';
+} from '../hooks/manageTraining';
+import ModalSpinner from '../components/modal spinner/ModalSpinner';
+import ChangeExercisePosition from '../components/ChangeExercisePosition';
 
 const TrainingScreen = () => {
 	const [time, setTime] = useState<string>('');

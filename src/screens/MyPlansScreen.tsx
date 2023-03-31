@@ -1,14 +1,14 @@
-import '../../css/MyPlansScreen.css';
+import '../css/MyPlansScreen.css';
 import { useEffect } from 'react';
 import {
 	useGetAllSetsQuery,
 	useDeleteSetMutation,
 	useCreateNewSetMutation,
-} from '../../app/slices/trainingSetApi';
-import { trainingSetType } from '../../models/trainingType';
-import LoadingSpinner from '../UI/LoadingSpinner';
+} from '../app/slices/trainingSetApi';
+import { trainingSetType } from '../models/trainingType';
+import LoadingSpinner from '../components/loading spinner/LoadingSpinner';
 import { useNavigate } from 'react-router-dom';
-import ModalSpinner from '../UI/ModalSpinner';
+import ModalSpinner from '../components/modal spinner/ModalSpinner';
 
 const MyPlansScreen = () => {
 	const navigate = useNavigate();

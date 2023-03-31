@@ -2,7 +2,8 @@ import './exercise.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
-import Modal from './Modal';
+import { useMediaQuery } from 'react-responsive';
+import Modal from '../modal/Modal';
 
 export interface exercisePropsType {
 	name?: string;
@@ -39,6 +40,8 @@ const Exercise = ({
 
 	const inputRefRepeat = useRef<HTMLInputElement>(null);
 	const inputRefWeight = useRef<HTMLInputElement>(null);
+
+	const isMobile = useMediaQuery({ maxWidth: '500px' });
 
 	useEffect(() => {
 		if (repeat) {
@@ -94,7 +97,6 @@ const Exercise = ({
 
 	return (
 		<>
-			{' '}
 			{showModal && (
 				<Modal
 					modalTitle={'Usuwanie serii'}
@@ -117,7 +119,11 @@ const Exercise = ({
 				<div className='exerciesList__details'>
 					<div className='exerciesList__details-box'>
 						{!time && <label htmlFor='repeat'>Powtórzenia:</label>}
-						{time && <label htmlFor='repeat'>Minut: </label>}
+						{time && (
+							<label htmlFor='repeat'>
+								{isMobile ? 'Czas' : 'Czas w min'}{' '}
+							</label>
+						)}
 						<input
 							className='exerciesList__repeat'
 							type='number'
@@ -162,9 +168,7 @@ const Exercise = ({
 						<button
 							className='exerciesList__exercie-removeBtn'
 							title='zapisz'
-							onClick={() => {
-							
-							}}
+							onClick={() => {}}
 						>
 							{<img src='../../img/save.PNG' />}
 						</button>

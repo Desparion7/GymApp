@@ -1,11 +1,11 @@
-import '../../css/MyRecordsScreen.css';
+import '../css/MyRecordsScreen.css';
 import {
 	useGetAllRecordsQuery,
 	useNewRecordMutation,
-} from '../../app/slices/recordsApiSlice';
-import LoadingSpinner from '../UI/LoadingSpinner';
-import ModalSpinner from '../UI/ModalSpinner';
-import SingleRecord from '../UI/SingleRecord';
+} from '../app/slices/recordsApiSlice';
+import LoadingSpinner from '../components/loading spinner/LoadingSpinner';
+import ModalSpinner from '../components/modal spinner/ModalSpinner';
+import SingleRecord from '../components/SingleRecord';
 import { useState } from 'react';
 
 const MyRecordsScreen = () => {

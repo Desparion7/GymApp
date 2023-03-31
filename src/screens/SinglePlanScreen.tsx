@@ -1,10 +1,10 @@
-import '../../css/SinglePlanScreen.css';
+import '../css/SinglePlanScreen.css';
 import { useEffect } from 'react';
-import { useGetExampleTrainingQuery } from '../../app/slices/exampleTrainingApi';
-import { useCreateNewTrainingMutation } from '../../app/slices/trainingApiSlice';
+import { useGetExampleTrainingQuery } from '../app/slices/exampleTrainingApi';
+import { useCreateNewTrainingMutation } from '../app/slices/trainingApiSlice';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import useAuthToken from '../../hooks/useAuthToken';
-import LoadingSpinner from '../UI/LoadingSpinner';
+import useAuthToken from '../hooks/useAuthToken';
+import LoadingSpinner from '../components/loading spinner/LoadingSpinner';
 
 const SinglePlanScreen = () => {
 	const navigate = useNavigate();

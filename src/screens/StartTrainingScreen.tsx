@@ -1,6 +1,6 @@
-import '../../css/StartTrainingScreen.css';
-import OptionButton from '../UI/OptionButton';
-import { useCreateNewTrainingMutation } from '../../app/slices/trainingApiSlice';
+import '../css/StartTrainingScreen.css';
+import OptionButton from '../components/UI/OptionButton';
+import { useCreateNewTrainingMutation } from '../app/slices/trainingApiSlice';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -31,7 +31,9 @@ const StartTrainingScreen = () => {
 				<OptionButton
 					img={'../../img/adduser.PNG'}
 					text={'Dodaj mój zestaw ćwiczeń'}
-					text2={'Rozpocznij trening w własno utworznonym treningiem na naszej stronie.'}
+					text2={
+						'Rozpocznij trening w własno utworznonym treningiem na naszej stronie.'
+					}
 					path={'/profile/moje-plany-treningowe'}
 				/>
 				<OptionButton

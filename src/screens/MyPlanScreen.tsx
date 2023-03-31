@@ -1,14 +1,14 @@
-import '../../css/TrainingScreen.css';
+import '../css/TrainingScreen.css';
 import { useState, useEffect } from 'react';
-import { useGetTrainingSetByIdQuery } from '../../app/slices/trainingSetApi';
-import { useCreateNewTrainingMutation } from '../../app/slices/trainingApiSlice';
+import { useGetTrainingSetByIdQuery } from '../app/slices/trainingSetApi';
+import { useCreateNewTrainingMutation } from '../app/slices/trainingApiSlice';
 
-import { setlastUsedSetId } from '../../app/api/userInfoSlice';
+import { setlastUsedSetId } from '../app/api/userInfoSlice';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { TabelElementType } from '../../models/trainingType';
+import { TabelElementType } from '../models/trainingType';
 
-import ExerciseStatic from '../UI/ExerciseStatic';
+import ExerciseStatic from '../components/exercise/ExerciseStatic';
 
 const MyPlanScreen = () => {
 	const [setName, setSetName] = useState<string>('');

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../../css/AtlasScreen.css';
+import '../css/AtlasScreen.css';
 const AtlasScreen = () => {
 	return (
 		<section className='atlas'>

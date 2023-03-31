@@ -1,13 +1,13 @@
-import '../../css/ExerciseScreen.css';
+import '../css/ExerciseScreen.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useGetExerciseByUrlQuery } from '../../app/slices/exercisesApiSclice';
-import useAuthToken from '../../hooks/useAuthToken';
+import { useGetExerciseByUrlQuery } from '../app/slices/exercisesApiSclice';
+import useAuthToken from '../hooks/useAuthToken';
 import {
 	lastUsedTraining,
 	setlastExercise,
 	lastUsedSet,
-} from '../../app/api/userInfoSlice';
+} from '../app/api/userInfoSlice';
 
 const ExerciseScreen = () => {
 	const { url, category } = useParams() as { url: string; category: string };

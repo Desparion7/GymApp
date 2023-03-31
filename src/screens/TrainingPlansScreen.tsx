@@ -1,6 +1,6 @@
-import '../../css/TrainingPlansScreen.css';
+import '../css/TrainingPlansScreen.css';
 import { Link } from 'react-router-dom';
-import Offert from '../UI/Offert';
+import Offert from '../components/offert/Offert';
 
 const TrainingPlansScreen = () => {
 	return (

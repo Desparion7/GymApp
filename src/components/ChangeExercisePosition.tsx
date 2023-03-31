@@ -1,9 +1,9 @@
-import { handleChangeExercisePosition } from '../../hooks/manageTraining';
+import { handleChangeExercisePosition } from '../hooks/manageTraining';
 import {
 	trainingType,
 	TabelElementType,
 	trainingSetType,
-} from '../../models/trainingType';
+} from '../models/trainingType';
 
 interface propsType {
 	exerciseIndex: number;

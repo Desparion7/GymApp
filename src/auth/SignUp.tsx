@@ -3,7 +3,7 @@ import { useState, useEffect, MouseEvent } from 'react';
 import { useAddNewUserMutation } from '../app/slices/usersApiSlice';
 import { Response } from '../models/respondType';
 import { Link, useNavigate } from 'react-router-dom';
-import LoadingSpinner from '../components/UI/LoadingSpinner';
+import LoadingSpinner from '../components/loading spinner/LoadingSpinner';
 import useAuthToken from '../hooks/useAuthToken';
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;

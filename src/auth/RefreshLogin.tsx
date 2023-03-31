@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useRefreshMutation } from '../app/slices/authApiSlice';
 import { useSelector } from 'react-redux';
 import { currentToken } from '../app/api/authSlice';
-import LoadingSpinner from '../components/UI/LoadingSpinner';
+import LoadingSpinner from '../components/loading spinner/LoadingSpinner';
 
 const RefreshLogin = () => {
 	const token = useSelector(currentToken);

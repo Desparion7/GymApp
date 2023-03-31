@@ -1,6 +1,6 @@
-import '../../css/Profile.css';
-import OptionButton from '../UI/OptionButton';
-import useAuthToken from '../../hooks/useAuthToken';
+import '../css/Profile.css';
+import OptionButton from '../components/UI/OptionButton';
+import useAuthToken from '../hooks/useAuthToken';
 
 const Profile = () => {
 	const { username } = useAuthToken() as {

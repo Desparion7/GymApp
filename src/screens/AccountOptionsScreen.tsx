@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import '../../css/AccountOptionsScreen.css';
-import useAuthToken from '../../hooks/useAuthToken';
-import ModalSpinner from '../UI/ModalSpinner';
-import ChangeEmailPanel from '../UI/ChangeEmailPanel';
-import ChangePasswordPanel from '../UI/ChangePasswordPanel';
-import { useUpdateUserMutation } from '../../app/slices/usersApiSlice';
+import '../css/AccountOptionsScreen.css';
+import useAuthToken from '../hooks/useAuthToken';
+import ModalSpinner from '../components/modal spinner/ModalSpinner';
+import ChangeEmailPanel from '../components/ChangeEmailPanel';
+import ChangePasswordPanel from '../components/ChangePasswordPanel';
+import { useUpdateUserMutation } from '../app/slices/usersApiSlice';
 
 const AccountOptionsScreen = () => {
 	const { username, email } = useAuthToken();

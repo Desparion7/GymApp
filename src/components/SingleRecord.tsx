@@ -2,8 +2,8 @@ import { useState, memo } from 'react';
 import {
 	useUpdateRecordMutation,
 	useDeleteRecordMutation,
-} from '../../app/slices/recordsApiSlice';
-import ModalSpinner from './ModalSpinner';
+} from '../app/slices/recordsApiSlice';
+import ModalSpinner from './modal spinner/ModalSpinner';
 
 interface Record {
 	id: string;

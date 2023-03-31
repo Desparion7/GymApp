@@ -1,5 +1,5 @@
 import { useNavigate, Link } from 'react-router-dom';
-import LoadingSpinner from '../components/UI/LoadingSpinner';
+import LoadingSpinner from '../components/loading spinner/LoadingSpinner';
 import { useState } from 'react';
 import { useResetPasswordMutation } from '../app/slices/usersApiSlice';
 

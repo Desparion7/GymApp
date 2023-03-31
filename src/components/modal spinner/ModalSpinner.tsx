@@ -1,8 +1,6 @@
 import './modalspinner.css';
 import ReactDOM from 'react-dom';
-import { Backdrop } from './Modal';
-
-
+import { Backdrop } from '../modal/Modal';
 
 const SmallSpinner = () => {
 	return (

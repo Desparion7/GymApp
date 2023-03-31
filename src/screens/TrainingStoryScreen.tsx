@@ -1,14 +1,14 @@
-import '../../css/TrainingStoryScreen.css';
+import '../css/TrainingStoryScreen.css';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import {
 	useGetUserAllTrainingsQuery,
 	useRemoveTrainingByIdMutation,
-} from '../../app/slices/trainingApiSlice';
-import LoadingSpinner from '../UI/LoadingSpinner';
-import { Paginate } from '../UI/Paginate';
+} from '../app/slices/trainingApiSlice';
+import LoadingSpinner from '../components/loading spinner/LoadingSpinner';
+import { Paginate } from '../components/UI/Paginate';
 import { useEffect, useState } from 'react';
-import Modal from '../UI/Modal';
-import ModalSpinner from '../UI/ModalSpinner';
+import Modal from '../components/modal/Modal';
+import ModalSpinner from '../components/modal spinner/ModalSpinner';
 
 const TrainingStoryScreen = () => {
 	const [showModal, setShowModal] = useState(false);
