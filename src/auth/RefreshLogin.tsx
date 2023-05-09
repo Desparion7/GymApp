@@ -1,4 +1,4 @@
-import { Outlet, Navigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { useRefreshMutation } from '../app/slices/authApiSlice';
 import { useSelector } from 'react-redux';
@@ -14,7 +14,10 @@ const RefreshLogin = () => {
 		useRefreshMutation();
 
 	useEffect(() => {
-		if (effectRan.current === true || process.env.NODE_ENV !== 'development') {
+		if (
+			effectRan.current === true ||
+			process.env.NODE_ENV !== 'development'
+		) {
 			const verifyRefreshToken = async () => {
 				console.log('verifying refresh token');
 				try {
