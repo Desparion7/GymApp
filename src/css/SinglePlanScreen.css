@@ -32,7 +32,6 @@
 }
 .singlePlanScreen__box-exercise a:hover {
 	color: var(--text-color-hover1);
-	font-weight: bold;
 }
 
 @media screen and (max-width: 1000px) {

@@ -8,9 +8,9 @@
 }
 .exerciesList__exercie a {
 	color: black;
+	transition: color 0.3s;
 }
 .exerciesList__exercie a:hover {
-	font-weight: bold;
 	color: var(--text-color-hover1);
 }
 .exerciesList__name {
@@ -77,13 +77,13 @@
 	}
 }
 @media screen and (max-width: 414px) {
-	.exerciesList__details label{
+	.exerciesList__details label {
 		font-size: 0.9rem;
 	}
 	.exerciesList__details-box {
 		display: flex;
 	}
-	.exerciesList__details-box label{
+	.exerciesList__details-box label {
 		padding-right: 0.3rem;
 	}
 }
