@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import './offert.css';
 
 const Offert = () => {
+	const navigate = useNavigate();
 	return (
 		<div className='offert'>
 			<div className='offert__pack'>
@@ -15,7 +17,10 @@ const Offert = () => {
 						<img src='../../img/checkno.PNG' alt='zatwierdzenie' />
 					</div>
 					<div className='offert__pack-option'>
-						<p>-Raz w miesiącu konsultacje z trenerem i dietetykiem.</p>
+						<p>
+							-Raz w miesiącu konsultacje z trenerem i
+							dietetykiem.
+						</p>
 						<img src='../../img/checkno.PNG' alt='zatwierdzenie' />
 					</div>
 					<div className='offert__pack-option'>
@@ -23,7 +28,14 @@ const Offert = () => {
 						<img src='../../img/checkno.PNG' alt='zatwierdzenie' />
 					</div>
 					<div className='offert__pack-price'>49zł</div>
-					<button className='greenBtn'>Kup Teraz</button>
+					<button
+						className='greenBtn'
+						onClick={() => {
+							navigate('/podziękowania');
+						}}
+					>
+						Kup Teraz
+					</button>
 				</div>
 			</div>
 			<div className='offert__pack'>
@@ -38,7 +50,10 @@ const Offert = () => {
 						<img src='../../img/check.PNG' alt='zatwierdzenie' />
 					</div>
 					<div className='offert__pack-option'>
-						<p>-3 Razy w miesiącu konsultacje z trenerem i dietetykiem.</p>
+						<p>
+							-3 Razy w miesiącu konsultacje z trenerem i
+							dietetykiem.
+						</p>
 						<img src='../../img/check.PNG' alt='zatwierdzenie' />
 					</div>
 					<div className='offert__pack-option'>
@@ -46,7 +61,14 @@ const Offert = () => {
 						<img src='../../img/checkno.PNG' alt='zatwierdzenie' />
 					</div>
 					<div className='offert__pack-price'>359zł</div>
-					<button className='greenBtn'>Kup Teraz</button>
+					<button
+						className='greenBtn'
+						onClick={() => {
+							navigate('/podziękowania');
+						}}
+					>
+						Kup Teraz
+					</button>
 				</div>
 			</div>
 			<div className='offert__pack'>
@@ -61,7 +83,10 @@ const Offert = () => {
 						<img src='../../img/check.PNG' alt='zatwierdzenie' />
 					</div>
 					<div className='offert__pack-option'>
-						<p>-Raz w miesiącu konsultacje z trenerem i dietetykiem.</p>
+						<p>
+							-Raz w miesiącu konsultacje z trenerem i
+							dietetykiem.
+						</p>
 						<img src='../../img/check.PNG' alt='zatwierdzenie' />
 					</div>
 					<div className='offert__pack-option'>
@@ -69,7 +94,14 @@ const Offert = () => {
 						<img src='../../img/check.PNG' alt='zatwierdzenie' />
 					</div>
 					<div className='offert__pack-price'>899zł</div>
-					<button className='greenBtn'>Kup Teraz</button>
+					<button
+						className='greenBtn'
+						onClick={() => {
+							navigate('/podziękowania');
+						}}
+					>
+						Kup Teraz
+					</button>
 				</div>
 			</div>
 		</div>
