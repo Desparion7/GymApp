@@ -76,7 +76,6 @@ const Exercise = ({
 		onDelete();
 	};
 	const handelOnBlureWeight = () => {
-		console.log('ok');
 		if (weightState) {
 			onChangeWeight(weightState);
 		}

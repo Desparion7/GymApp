@@ -20,7 +20,10 @@ const trainingApiSlice = apiSlice.injectEndpoints({
 			}),
 			providesTags: [{ type: 'Training', id: 'LIST' }],
 		}),
-		getUserAllTrainings: builder.query<TrainingsAndPageType, string | undefined>({
+		getUserAllTrainings: builder.query<
+			TrainingsAndPageType,
+			string | undefined
+		>({
 			query: (pageParams) => ({
 				url: `/training?_page=${pageParams}`,
 				method: 'GET',

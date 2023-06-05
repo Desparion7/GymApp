@@ -25,6 +25,7 @@
 	flex-direction: row;
 	justify-content: space-between;
 	width: 100%;
+	gap: 1rem;
 	margin-bottom: 1rem;
 }
 .trainingPlansScreen__box a {

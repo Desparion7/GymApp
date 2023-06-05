@@ -39,7 +39,10 @@ const Popup = ({
 						</button>
 						<button
 							className='popup-window-btn popup-btn-right '
-							onClick={() => rightBtn(id)}
+							onClick={() => {
+								rightBtn(id);
+								leftBtn();
+							}}
 						>
 							{rightBtnText}
 						</button>
