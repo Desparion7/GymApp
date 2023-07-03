@@ -18,7 +18,7 @@ const MainPage = () => {
 		<>
 			{imgLoaded && (
 				<section className='mainPage'>
-					<img src='./img/bg.png' alt='dsaasd' />
+					<img src='./img/bg.png' alt='training scene' />
 					<div className='mainPage__topSection'>
 						<div className='mainPage__topSection-textSection'>
 							<h3>
