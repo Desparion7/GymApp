@@ -1,13 +1,14 @@
 .mainPage {
+	position: relative;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	min-height: 85vh;
 	overflow: hidden;
-	min-height: 83vh;
-	background-image: url('../img/bg.png');
-	background-repeat: no-repeat;
-	background-position: top;
-	background-size: cover;
+}
+.mainPage img {
+	position: absolute;
+	z-index: -1;
 }
 .mainPage__topSection {
 	position: relative;
@@ -35,15 +36,14 @@
 	margin-top: 2rem;
 }
 
-@media screen and (max-width:500px) {
-	.mainPage__topSection-textSection{
+@media screen and (max-width: 500px) {
+	.mainPage__topSection-textSection {
 		top: 2em;
 		width: 100%;
 		right: 0;
 		margin: 1rem;
 	}
-	.mainPage__topSection-textSection h3{
+	.mainPage__topSection-textSection h3 {
 		font-size: 1rem;
-	
 	}
 }
