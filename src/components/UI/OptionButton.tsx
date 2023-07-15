@@ -16,10 +16,9 @@ const OptionButton = ({ img, text, text2, path, handelOnClick }: PropsType) => {
 			<Link to={path} className='optionButton-link'>
 				<div className='optionButton'>
 					<img src={img} alt={text} />
-
-					<div>
-						<p>{text2}</p>
+					<div className='optionButton-text'>
 						<h3>{text}</h3>
+						<p>{text2}</p>
 					</div>
 				</div>
 			</Link>
@@ -28,7 +27,7 @@ const OptionButton = ({ img, text, text2, path, handelOnClick }: PropsType) => {
 		content = (
 			<div className='optionButton' onClick={handelOnClick}>
 				<img src={img} alt={text} />
-				<div>
+				<div className='optionButton-text'>
 					<p>{text2}</p>
 					<h3>{text}</h3>
 				</div>

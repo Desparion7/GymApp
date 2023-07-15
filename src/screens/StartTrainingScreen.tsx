@@ -32,7 +32,7 @@ const StartTrainingScreen = () => {
 					img={'../../img/adduser.PNG'}
 					text={'Dodaj mój zestaw ćwiczeń'}
 					text2={
-						'Rozpocznij trening w własno utworznonym treningiem na naszej stronie.'
+						'Rozpocznij trening z własno utworznonym treningiem na naszej stronie.'
 					}
 					path={'/profile/moje-plany-treningowe'}
 				/>
