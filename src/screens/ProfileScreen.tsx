@@ -10,6 +10,18 @@ const Profile = () => {
 	return (
 		<section className='profile'>
 			<h2>Witaj {username} !</h2>
+			<div className='profile_img1'>
+				<img src='../../img/g1.PNG' alt='fit couple' />
+			</div>
+			<div className='profile_img2'>
+				<img src='../../img/g2.PNG' alt='fit couple' />
+			</div>
+			<div className='profile_img3'>
+				<img src='../../img/g3.PNG' alt='fit couple' />
+			</div>
+			<div className='profile_img4'>
+				<img src='../../img/g4.PNG' alt='fit couple' />
+			</div>
 			<div className='profile_optionsBox'>
 				<OptionButton
 					img={'../../img/start.PNG'}

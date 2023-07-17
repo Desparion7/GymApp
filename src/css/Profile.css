@@ -5,6 +5,37 @@
 	padding: 3rem 2rem;
 	min-height: 83vh;
 }
+.profile_img1 {
+	position: absolute;
+	left: 40px;
+	top: 200px;
+	z-index: -1;
+}
+.profile_img2 {
+	position: absolute;
+	right: 0px;
+	top: 200px;
+	z-index: -1;
+}
+.profile_img3 {
+	position: absolute;
+	right: 0px;
+	bottom: -450px;
+	z-index: -1;
+}
+.profile_img4 {
+	position: absolute;
+	left: 40px;
+	bottom: -450px;
+	z-index: -1;
+}
+.profile_img1 img,
+.profile_img2 img,
+.profile_img3 img,
+.profile_img4 img {
+	width: 75%;
+	height: 450px;
+}
 .profile_optionsBox {
 	display: flex;
 	justify-content: space-evenly;
@@ -13,5 +44,13 @@
 @media screen and (max-width: 414px) {
 	.profile {
 		padding: 1.5rem 1rem;
+	}
+}
+@media screen and (max-width: 1600px) {
+	.profile_img1,
+	.profile_img2,
+	.profile_img3,
+	.profile_img4 {
+		display: none;
 	}
 }
