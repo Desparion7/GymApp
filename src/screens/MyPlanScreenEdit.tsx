@@ -22,6 +22,7 @@ import Exercise from '../components/exercise/Exercise';
 import AddNewExercise from '../components/add exercise/AddNewExercise';
 import ModalSpinner from '../components/modal spinner/ModalSpinner';
 import LoadingSpinner from '../components/loading spinner/LoadingSpinner';
+import { toast } from 'react-hot-toast';
 
 const MyPlanScreenEdit = () => {
 	const [setName, setSetName] = useState<string>('');
@@ -34,11 +35,11 @@ const MyPlanScreenEdit = () => {
 	const { data: trainingSet, isLoading } = useGetTrainingSetByIdQuery({ id });
 	const [updateTrainingSetName, { isLoading: loadingName }] =
 		useUpdateTrainingSetNameMutation();
-	const [updateTrainingSet, { isLoading: loadingSet }] =
+	const [updateTrainingSet, {  isError }] =
 		useUpdateTrainingSetMutation();
 	const [
 		createNewTraining,
-		{ data: CreatedTraining, isLoading: loadingTraining },
+		{ data: CreatedTraining, isError: isErrorTraining },
 	] = useCreateNewTrainingMutation();
 
 	useMemo(() => {
@@ -56,6 +57,10 @@ const MyPlanScreenEdit = () => {
 			navigate(`/profile/trening/${CreatedTraining._id}`);
 		}
 	}, [CreatedTraining]);
+
+	useEffect(() => {
+		if (isError || isErrorTraining) toast.error('Coś poszło nie tak!');
+	}, [isError, isErrorTraining]);
 
 	const handelStartNewTraining = async () => {
 		if (trainingSet) {
@@ -80,7 +85,9 @@ const MyPlanScreenEdit = () => {
 
 	return (
 		<>
-			{(loadingName /*|| loadingSet || loadingTraining*/) && <ModalSpinner />}
+			{loadingName /*|| loadingSet || loadingTraining*/ && (
+				<ModalSpinner />
+			)}
 			<section className='trainingScreen'>
 				<h2>mój zestaw</h2>
 				{isLoading && <LoadingSpinner />}

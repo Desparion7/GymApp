@@ -2,6 +2,7 @@ import Header from './Header';
 import Footer from './footer/Footer';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import Toast from './UI/Toast';
 
 const Layout = () => {
 	const location = useLocation();
@@ -11,6 +12,7 @@ const Layout = () => {
 
 	return (
 		<div>
+			<Toast />
 			<Header />
 			<Outlet></Outlet>
 			<Footer />
