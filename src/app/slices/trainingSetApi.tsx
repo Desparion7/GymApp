@@ -29,16 +29,32 @@ const trainingSetApiSlice = apiSlice.injectEndpoints({
 			}),
 			invalidatesTags: [{ type: 'Sets', id: 'LIST' }],
 		}),
-		updateTrainingSet: builder.mutation<trainingSetType, trainingSetTypeWithID>(
-			{
-				query: ({ id, exercise }) => ({
-					url: `/set/${id}`,
-					method: 'PATCH',
-					body: { exercise },
-				}),
-				invalidatesTags: [{ type: 'Set', id: 'LIST' }],
-			}
-		),
+		updateTrainingSet: builder.mutation<
+			trainingSetType,
+			trainingSetTypeWithID
+		>({
+			query: ({ id, exercise }) => ({
+				url: `/set/${id}`,
+				method: 'PATCH',
+				body: { exercise },
+			}),
+			async onQueryStarted(
+				{ id, ...patch },
+				{ dispatch, queryFulfilled }
+			) {
+				const patchResult = dispatch(
+					trainingSetApiSlice.util.updateQueryData("getTrainingSetById", {id}, (draft) => {
+						Object.assign(draft, patch);
+					})
+				);
+				try {
+					await queryFulfilled;
+				} catch {
+					patchResult.undo();
+				}
+			},
+			invalidatesTags: [{ type: 'Set', id: 'LIST' }],
+		}),
 		updateTrainingSetName: builder.mutation<
 			trainingSetType,
 			trainingSetTypeWithID

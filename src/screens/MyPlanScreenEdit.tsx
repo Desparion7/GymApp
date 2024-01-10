@@ -1,5 +1,5 @@
 import '../css/TrainingScreen.css';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import {
 	useGetTrainingSetByIdQuery,
 	useUpdateTrainingSetNameMutation,
@@ -41,13 +41,13 @@ const MyPlanScreenEdit = () => {
 		{ data: CreatedTraining, isLoading: loadingTraining },
 	] = useCreateNewTrainingMutation();
 
-	useEffect(() => {
+	useMemo(() => {
 		if (trainingSet) {
 			setSetName(trainingSet.trainingName);
 		}
 	}, [trainingSet]);
 
-	useEffect(() => {
+	useMemo(() => {
 		dispatch(setlastUsedSetId(id));
 	}, []);
 
@@ -80,7 +80,7 @@ const MyPlanScreenEdit = () => {
 
 	return (
 		<>
-			{(loadingName || loadingSet || loadingTraining) && <ModalSpinner />}
+			{(loadingName /*|| loadingSet || loadingTraining*/) && <ModalSpinner />}
 			<section className='trainingScreen'>
 				<h2>mój zestaw</h2>
 				{isLoading && <LoadingSpinner />}
@@ -116,7 +116,10 @@ const MyPlanScreenEdit = () => {
 								}}
 							/>
 						)}
-						<button className='greenBtn' onClick={handelStartNewTraining}>
+						<button
+							className='greenBtn'
+							onClick={handelStartNewTraining}
+						>
 							Rozpocznij trening z danym zestawem
 						</button>
 					</div>
@@ -124,78 +127,93 @@ const MyPlanScreenEdit = () => {
 				<div className='trainingScreen__exerciesList'>
 					<div>
 						{trainingSet?.exercise &&
-							trainingSet?.exercise.map((exercise, exerciseIndex) => (
-								<div
-									className='trainingScreen__exerciesList-box'
-									key={exerciseIndex}
-								>
-									<div className='trainingScreen__exerciesList-box-title'>
-										<h3>{`Ćwiczenie ${exerciseIndex + 1}`}</h3>
-										<div className='trainingScreen__exerciesList-box-title-btn'>
-											<ChangeExercisePosition
-												exerciseIndex={exerciseIndex}
-												training={trainingSet}
-												updateTrainingHandler={updateTrainingHandler}
-											/>
-										</div>
-									</div>
-									{exercise &&
-										exercise.length > 0 &&
-										exercise.map(
-											(series: TabelElementType, seriesIndex: number) => (
-												<Exercise
-													key={seriesIndex}
-													name={series.name}
-													repeat={series.repeat}
-													weight={series.weight}
-													time={series.time}
-													url={series.url}
-													onDelete={() =>
-														handleDeleteSeries(
-															exerciseIndex,
-															seriesIndex,
-															trainingSet,
-															updateTrainingHandler
-														)
+							trainingSet?.exercise.map(
+								(exercise, exerciseIndex) => (
+									<div
+										className='trainingScreen__exerciesList-box'
+										key={exerciseIndex}
+									>
+										<div className='trainingScreen__exerciesList-box-title'>
+											<h3>{`Ćwiczenie ${
+												exerciseIndex + 1
+											}`}</h3>
+											<div className='trainingScreen__exerciesList-box-title-btn'>
+												<ChangeExercisePosition
+													exerciseIndex={
+														exerciseIndex
 													}
-													onChangeWeight={(weightState) => {
-														handleChangeWeight(
-															exerciseIndex,
-															seriesIndex,
-															weightState,
-															trainingSet,
-															updateTrainingHandler
-														);
-													}}
-													onChangeRepeat={(repeatState) => {
-														handleChangeRepeat(
-															exerciseIndex,
-															seriesIndex,
-															repeatState,
-															trainingSet,
-															updateTrainingHandler
-														);
-													}}
-												/>
-											)
-										)}
-									{exercise?.length > 0 && (
-										<div className='trainingScreen__exerciesList-box-btn'>
-											<button
-												onClick={() => {
-													handleAddNewSeries(
-														exerciseIndex,
-														trainingSet,
+													training={trainingSet}
+													updateTrainingHandler={
 														updateTrainingHandler
-													);
-												}}
-											>
-												Dodaj serię
-											</button>
+													}
+												/>
+											</div>
 										</div>
-									)}
-								</div>
-							))}
+										{exercise &&
+											exercise.length > 0 &&
+											exercise.map(
+												(
+													series: TabelElementType,
+													seriesIndex: number
+												) => (
+													<Exercise
+														key={seriesIndex}
+														name={series.name}
+														repeat={series.repeat}
+														weight={series.weight}
+														time={series.time}
+														url={series.url}
+														onDelete={() =>
+															handleDeleteSeries(
+																exerciseIndex,
+																seriesIndex,
+																trainingSet,
+																updateTrainingHandler
+															)
+														}
+														onChangeWeight={(
+															weightState
+														) => {
+															handleChangeWeight(
+																exerciseIndex,
+																seriesIndex,
+																weightState,
+																trainingSet,
+																updateTrainingHandler
+															);
+														}}
+														onChangeRepeat={(
+															repeatState
+														) => {
+															handleChangeRepeat(
+																exerciseIndex,
+																seriesIndex,
+																repeatState,
+																trainingSet,
+																updateTrainingHandler
+															);
+														}}
+													/>
+												)
+											)}
+										{exercise?.length > 0 && (
+											<div className='trainingScreen__exerciesList-box-btn'>
+												<button
+													onClick={() => {
+														handleAddNewSeries(
+															exerciseIndex,
+															trainingSet,
+															updateTrainingHandler
+														);
+													}}
+												>
+													Dodaj serię
+												</button>
+											</div>
+										)}
+									</div>
+								)
+							)}
 					</div>
 					<AddNewExercise
 						trainingToUpdate={trainingSet?.exercise}

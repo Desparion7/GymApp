@@ -52,7 +52,7 @@ export interface trainingSetType {
 }
 
 export interface trainingSetTypeWithID {
-	id?: string;
+	id: string;
 	_id?: string;
 	user?: string;
 	trainingName?: string;
