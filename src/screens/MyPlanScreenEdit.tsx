@@ -35,11 +35,13 @@ const MyPlanScreenEdit = () => {
 	const { data: trainingSet, isLoading } = useGetTrainingSetByIdQuery({ id });
 	const [updateTrainingSetName, { isLoading: loadingName }] =
 		useUpdateTrainingSetNameMutation();
-	const [updateTrainingSet, {  isError }] =
-		useUpdateTrainingSetMutation();
+	const [
+		updateTrainingSet,
+		{ isError: isErrorUpdateTraining, isSuccess: isSuccessUpdateTraining },
+	] = useUpdateTrainingSetMutation();
 	const [
 		createNewTraining,
-		{ data: CreatedTraining, isError: isErrorTraining },
+		{ data: createdTraining, isError: isErrorNewTraining },
 	] = useCreateNewTrainingMutation();
 
 	useMemo(() => {
@@ -53,14 +55,19 @@ const MyPlanScreenEdit = () => {
 	}, []);
 
 	useEffect(() => {
-		if (CreatedTraining?._id) {
-			navigate(`/profile/trening/${CreatedTraining._id}`);
+		if (createdTraining?._id) {
+			navigate(`/profile/trening/${createdTraining._id}`);
 		}
-	}, [CreatedTraining]);
+		if (isErrorNewTraining || isErrorUpdateTraining)
+			toast.error('Coś poszło nie tak!');
 
-	useEffect(() => {
-		if (isError || isErrorTraining) toast.error('Coś poszło nie tak!');
-	}, [isError, isErrorTraining]);
+		if (isSuccessUpdateTraining) toast.success('Zmiana wprowadzona');
+	}, [
+		createdTraining,
+		isErrorNewTraining,
+		isErrorUpdateTraining,
+		isSuccessUpdateTraining,
+	]);
 
 	const handelStartNewTraining = async () => {
 		if (trainingSet) {
