@@ -11,7 +11,7 @@ import {
 // http://localhost:3000
 
 const baseQuery = fetchBaseQuery({
-	baseUrl: 'https://calm-jade-sturgeon-boot.cyclic.app',
+	baseUrl: 'https://gym-app-backend-q0t5.onrender.com',
 	credentials: 'include',
 	prepareHeaders: (headers, { getState }) => {
 		const token = (getState() as RootState).auth.token;
